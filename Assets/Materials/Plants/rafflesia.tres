@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ct8rte3l87qi6"]
+
+[ext_resource type="Texture2D" uid="uid://bks2c2wg8ew7w" path="res://Assets/Models/rafflesia/rafflesia_albedo.png" id="1_lidue"]
+[ext_resource type="Texture2D" uid="uid://6gyugvxcjn1g" path="res://Assets/Models/rafflesia/rafflesia_normal.png" id="2_843mo"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_lidue")
+normal_enabled = true
+normal_texture = ExtResource("2_843mo")

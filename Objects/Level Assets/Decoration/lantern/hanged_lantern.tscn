@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d06qg7v0oeb46"]
+
+[ext_resource type="PackedScene" uid="uid://culbkarh3xf12" path="res://Objects/Level Assets/Decoration/lantern/lantern.tscn" id="1_26dkh"]
+[ext_resource type="PackedScene" uid="uid://cba64nqlamcc5" path="res://Assets/Models/Level01_Giant_Tree/branch_outside_medium_2_lo.gltf" id="2_e3rab"]
+
+[node name="Hanged_Lantern" type="Node3D"]
+
+[node name="lantern2" parent="." instance=ExtResource("1_26dkh")]
+
+[node name="branch_outside_medium_2_lo" parent="lantern2" instance=ExtResource("2_e3rab")]
+transform = Transform3D(-0.471085, 0.0899758, 1.64857, -0.089976, 1.71041, -0.119062, -1.64857, -0.119062, -0.464586, -1.11403, -2.25091, -2.93582)

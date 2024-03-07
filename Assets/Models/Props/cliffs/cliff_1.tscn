@@ -1,0 +1,218 @@
+[gd_scene load_steps=16 format=3 uid="uid://bp6woxm6605fj"]
+
+[ext_resource type="PackedScene" uid="uid://biwg4mky62w1e" path="res://Assets/Models/cliff/cliff_ground_back_left.glb" id="1_7f4gs"]
+[ext_resource type="PackedScene" uid="uid://dckdkmobuv1i6" path="res://Assets/Models/cliff/cliff_ground_front_left.glb" id="3_yyeml"]
+[ext_resource type="PackedScene" uid="uid://cg6c4t3e18iuw" path="res://Assets/Models/cliff/cliff_ground_front_right.glb" id="4_e4amm"]
+[ext_resource type="PackedScene" uid="uid://d4amd8n81xt2c" path="res://Assets/Models/cliff/cliff_ground_middle_right.glb" id="5_pn5vh"]
+[ext_resource type="PackedScene" uid="uid://bykdjodn08chf" path="res://Assets/Models/cliff/cliff_ground_straight_back.glb" id="6_ntqem"]
+[ext_resource type="PackedScene" uid="uid://jxwdk8aw2gak" path="res://Assets/Models/cliff/cliff_ground_straight_front.glb" id="7_4g4tw"]
+[ext_resource type="PackedScene" uid="uid://cfsnryknqw7tk" path="res://Assets/Models/cliff/cliff_top_back_left.glb" id="8_g1nc7"]
+[ext_resource type="PackedScene" uid="uid://c0vy7w5m213s5" path="res://Assets/Models/cliff/cliff_top_front_left.glb" id="9_7mget"]
+[ext_resource type="PackedScene" uid="uid://cx3gkniihut5m" path="res://Assets/Models/cliff/cliff_top_front_right.glb" id="10_084a3"]
+[ext_resource type="PackedScene" uid="uid://dsh8aegetwp2r" path="res://Assets/Models/cliff/cliff_top_middle_right.glb" id="11_mk3n2"]
+[ext_resource type="PackedScene" uid="uid://bqdvji4j8k85h" path="res://Assets/Models/cliff/cliff_top_straight_back.glb" id="12_6dnj1"]
+[ext_resource type="PackedScene" uid="uid://dsfgmq52rl2x0" path="res://Assets/Models/cliff/cliff_vertical_back_left.glb" id="13_x68ep"]
+[ext_resource type="PackedScene" uid="uid://diatsnh7b8g0g" path="res://Assets/Models/cliff/cliff_vertical_front_right.glb" id="15_vvvfe"]
+[ext_resource type="PackedScene" uid="uid://ucqbcne4kxxi" path="res://Assets/Models/cliff/cliff_vertical_middle_right.glb" id="16_lp4un"]
+[ext_resource type="PackedScene" uid="uid://dp63t86cqwfq3" path="res://Assets/Models/cliff/cliff_vertical_straight_back.glb" id="17_g5rh5"]
+
+[node name="cliff_1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.96527)
+
+[node name="cliff_parts" type="Node3D" parent="."]
+transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, 0, 0, -6.85372)
+
+[node name="cliff_ground_back_left" parent="cliff_parts" instance=ExtResource("1_7f4gs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -0.952043)
+
+[node name="cliff_ground_front_left" parent="cliff_parts" instance=ExtResource("3_yyeml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -0.952043)
+
+[node name="cliff_ground_front_right" parent="cliff_parts" instance=ExtResource("4_e4amm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -0.952044)
+
+[node name="cliff_ground_middle_right" parent="cliff_parts" instance=ExtResource("5_pn5vh")]
+transform = Transform3D(1, 0, -6.3573e-08, 0, 1, 0, 6.3573e-08, 0, 1, -0.632355, -1.19209e-07, -0.952044)
+
+[node name="cliff_ground_straight_back" parent="cliff_parts" instance=ExtResource("6_ntqem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -0.952044)
+
+[node name="cliff_ground_straight_front" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -0.952044)
+
+[node name="cliff_top_back_left" parent="cliff_parts" instance=ExtResource("8_g1nc7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -0.952043)
+
+[node name="cliff_top_front_left" parent="cliff_parts" instance=ExtResource("9_7mget")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -0.952043)
+
+[node name="cliff_top_front_right" parent="cliff_parts" instance=ExtResource("10_084a3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 2.98613, -0.952044)
+
+[node name="cliff_top_middle_right" parent="cliff_parts" instance=ExtResource("11_mk3n2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 2.98613, -0.952044)
+
+[node name="cliff_top_straight_back" parent="cliff_parts" instance=ExtResource("12_6dnj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632, 2.989, -0.952)
+
+[node name="cliff_vertical_back_left" parent="cliff_parts" instance=ExtResource("13_x68ep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -0.952043)
+
+[node name="cliff_vertical_front_left" parent="cliff_parts" instance_placeholder="res://Assets/Models/cliff/cliff_vertical_front_left.glb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -0.952043)
+
+[node name="cliff_vertical_front_left2" parent="cliff_parts" instance_placeholder="res://Assets/Models/cliff/cliff_vertical_front_left.glb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.377, 0, -2.69562)
+
+[node name="cliff_vertical_front_right" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -0.952044)
+
+[node name="cliff_vertical_middle_right" parent="cliff_parts" instance=ExtResource("16_lp4un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -0.952044)
+
+[node name="cliff_vertical_front_right2" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 1.49469, -0.952044)
+
+[node name="cliff_vertical_middle_right2" parent="cliff_parts" instance=ExtResource("16_lp4un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 1.49469, -0.952044)
+
+[node name="cliff_vertical_front_right3" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 2.98893, -0.952044)
+
+[node name="cliff_vertical_middle_right3" parent="cliff_parts" instance=ExtResource("16_lp4un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 2.98893, -0.952044)
+
+[node name="cliff_vertical_straight_back" parent="cliff_parts" instance=ExtResource("17_g5rh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -0.952044)
+
+[node name="cliff_vertical_straight_back5" parent="cliff_parts" instance=ExtResource("17_g5rh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632, 1.496, -0.952)
+
+[node name="cliff_ground_straight_back2" parent="cliff_parts" instance=ExtResource("6_ntqem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -0.952044)
+
+[node name="cliff_ground_straight_front2" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -0.952044)
+
+[node name="cliff_vertical_straight_back2" parent="cliff_parts" instance=ExtResource("17_g5rh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632, 2.99, -0.952)
+
+[node name="cliff_top_straight_back3" parent="cliff_parts" instance=ExtResource("12_6dnj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38083, -1.19209e-07, -0.952043)
+
+[node name="cliff_ground_straight_back3" parent="cliff_parts" instance=ExtResource("6_ntqem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38083, -1.19209e-07, -0.952043)
+
+[node name="cliff_ground_straight_front3" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38083, -1.19209e-07, -0.952043)
+
+[node name="cliff_vertical_straight_back3" parent="cliff_parts" instance=ExtResource("17_g5rh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38083, -1.19209e-07, -0.952043)
+
+[node name="cliff_top_straight_back4" parent="cliff_parts" instance=ExtResource("12_6dnj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38083, -1.19209e-07, -0.952043)
+
+[node name="cliff_ground_straight_back4" parent="cliff_parts" instance=ExtResource("6_ntqem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38083, -1.19209e-07, -0.952043)
+
+[node name="cliff_ground_straight_front4" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38083, -1.19209e-07, -0.952043)
+
+[node name="cliff_ground_front_left2" parent="cliff_parts" instance=ExtResource("3_yyeml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -2.6959)
+
+[node name="cliff_ground_front_right2" parent="cliff_parts" instance=ExtResource("4_e4amm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -2.6959)
+
+[node name="cliff_top_front_left2" parent="cliff_parts" instance=ExtResource("9_7mget")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -2.6959)
+
+[node name="cliff_top_front_right2" parent="cliff_parts" instance=ExtResource("10_084a3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 2.98613, -2.6959)
+
+[node name="cliff_vertical_front_right4" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -2.6959)
+
+[node name="cliff_vertical_front_right5" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 1.49469, -2.6959)
+
+[node name="cliff_vertical_front_right6" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 2.98893, -2.6959)
+
+[node name="cliff_vertical_front_right9" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632, 2.989, -3.41)
+
+[node name="cliff_ground_straight_front5" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -2.6959)
+
+[node name="cliff_ground_straight_front6" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38083, -1.19209e-07, -2.6959)
+
+[node name="cliff_ground_straight_front7" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38083, -1.19209e-07, -2.6959)
+
+[node name="cliff_vertical_front_left4" parent="cliff_parts" instance_placeholder="res://Assets/Models/cliff/cliff_vertical_front_left.glb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.377, 0, -2.03127)
+
+[node name="cliff_ground_front_left4" parent="cliff_parts" instance=ExtResource("3_yyeml")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 3.37655, -1.19209e-07, -2.03156)
+
+[node name="cliff_ground_front_right4" parent="cliff_parts" instance=ExtResource("4_e4amm")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.632355, -1.19209e-07, -2.03156)
+
+[node name="cliff_top_front_left4" parent="cliff_parts" instance=ExtResource("9_7mget")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 3.37655, -1.19209e-07, -2.03156)
+
+[node name="cliff_top_front_right4" parent="cliff_parts" instance=ExtResource("10_084a3")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.632355, 2.98613, -2.03156)
+
+[node name="cliff_vertical_front_right10" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.632355, -1.19209e-07, -2.03156)
+
+[node name="cliff_vertical_front_right11" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.632355, 1.49469, -2.03156)
+
+[node name="cliff_vertical_front_right12" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.632355, 2.98893, -2.03156)
+
+[node name="cliff_ground_straight_front11" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.632355, -1.19209e-07, -2.03156)
+
+[node name="cliff_ground_straight_front12" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 1.38083, -1.19209e-07, -2.03156)
+
+[node name="cliff_ground_straight_front13" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 3.38083, -1.19209e-07, -2.03156)
+
+[node name="cliff_vertical_front_left3" parent="cliff_parts" instance_placeholder="res://Assets/Models/cliff/cliff_vertical_front_left.glb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.377, 0, -3.40978)
+
+[node name="cliff_ground_front_left3" parent="cliff_parts" instance=ExtResource("3_yyeml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -3.41007)
+
+[node name="cliff_ground_front_right3" parent="cliff_parts" instance=ExtResource("4_e4amm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -3.41007)
+
+[node name="cliff_top_front_left3" parent="cliff_parts" instance=ExtResource("9_7mget")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37655, -1.19209e-07, -3.41007)
+
+[node name="cliff_top_front_right3" parent="cliff_parts" instance=ExtResource("10_084a3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 2.98613, -3.41007)
+
+[node name="cliff_vertical_front_right7" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -3.41007)
+
+[node name="cliff_vertical_front_right8" parent="cliff_parts" instance=ExtResource("15_vvvfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, 1.49469, -3.41007)
+
+[node name="cliff_ground_straight_front8" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632355, -1.19209e-07, -3.41007)
+
+[node name="cliff_ground_straight_front9" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38083, -1.19209e-07, -3.41007)
+
+[node name="cliff_ground_straight_front10" parent="cliff_parts" instance=ExtResource("7_4g4tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38083, -1.19209e-07, -3.41007)
+
+[node name="cliff_vertical_straight_back4" parent="cliff_parts" instance=ExtResource("17_g5rh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38083, -1.19209e-07, -0.952043)

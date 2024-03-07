@@ -1,0 +1,44 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bx7sxgww7omgo"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_arhfi"]
+resource_name = "Reverb"
+room_size = 0.1
+damping = 0.94
+hipass = 0.8
+dry = 0.6
+wet = 0.2
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_uh1jo"]
+resource_name = "Delay"
+feedback_active = true
+feedback_delay_ms = 120.0
+
+[resource]
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -18.9844
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_arhfi")
+bus/1/effect/0/enabled = true
+bus/2/name = &"Environment"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/3/name = &"SFX"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/4/name = &"Death"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectDelay_uh1jo")
+bus/4/effect/0/enabled = true

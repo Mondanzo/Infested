@@ -1,0 +1,44 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cwjesuj13xsf3"
+path="res://.godot/imported/floor.glb-d421be17c8d76e326a1259e6f6e6f17f.scn"
+
+[deps]
+
+source_file="res://Assets/Models/ground/floor.glb"
+dest_files=["res://.godot/imported/floor.glb-d421be17c8d76e326a1259e6f6e6f17f.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=false
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"floor": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/ground.tres"
+}
+},
+"nodes": {
+"PATH:floor_posable_armature/Skeleton3D/floor_posable_collider": {
+"import/skip_import": true
+}
+}
+}
+gltf/embedded_image_handling=3

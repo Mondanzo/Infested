@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq442oyfvl3a4"]
+
+[ext_resource type="PackedScene" uid="uid://bke8upx0um5ih" path="res://Assets/Models/Decoration/Foreground/foreground_moss.glb" id="1_1gw0e"]
+
+[node name="foreground_moss" instance=ExtResource("1_1gw0e")]

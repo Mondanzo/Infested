@@ -1,0 +1,233 @@
+[gd_scene load_steps=11 format=3 uid="uid://bry8qs4pmocq2"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/LevelTransition.gd" id="1_rwl77"]
+[ext_resource type="PackedScene" uid="uid://18tri3ymgng4" path="res://Assets/Models/transitionportal/transitionportal_mesh.glb" id="2_h75uc"]
+[ext_resource type="PackedScene" uid="uid://dsqlnk6qkdtwi" path="res://Assets/Models/transitionportal/transitionportal_armature.glb" id="3_2ojj5"]
+[ext_resource type="PackedScene" uid="uid://ss066lavp1jb" path="res://Assets/Models/transitionportal/transitionportal_projectionmesh.glb" id="3_o3dlh"]
+[ext_resource type="Shader" path="res://Assets/Shaders/ProteanClouds.gdshader" id="4_eihch"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8cfu2"]
+render_priority = 0
+shader = ExtResource("4_eihch")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3filn"]
+size = Vector3(30.5531, 25.3563, 31.2266)
+
+[sub_resource type="Animation" id="Animation_12tep"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraTarget:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(24, 13, 1.04907e-06)]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("transitionportal_armature/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("open"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("transitionportal_mesh/transitionportal_projectionmesh/Plane:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vlxm5"]
+resource_name = "transition"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraTarget:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.9, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(24, 13, 0), Vector3(0.168, 13, 0)]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("transitionportal_armature/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("open"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("transitionportal_mesh/transitionportal_projectionmesh/Plane:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gi3n6"]
+_data = {
+"RESET": SubResource("Animation_12tep"),
+"transition": SubResource("Animation_vlxm5")
+}
+
+[node name="LevelTransition" type="Area3D"]
+script = ExtResource("1_rwl77")
+
+[node name="transitionportal_mesh" parent="." instance=ExtResource("2_h75uc")]
+
+[node name="transitionportal_projectionmesh" parent="transitionportal_mesh" instance=ExtResource("3_o3dlh")]
+
+[node name="Plane" parent="transitionportal_mesh/transitionportal_projectionmesh" index="0"]
+transparency = 1.0
+surface_material_override/0 = SubResource("ShaderMaterial_8cfu2")
+
+[node name="transitionportal_armature" parent="." instance=ExtResource("3_2ojj5")]
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_2" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_2001" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_2002" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_2003" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_2004" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_1" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_1001" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_1002" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_3" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_3001" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_3002" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_3003" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_3004" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_3005" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_1003" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_3006" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_3007" index="0"]
+bones/0/rotation = Quaternion(1.84042e-07, 1.54543e-08, -0.707107, 0.707107)
+bones/1/rotation = Quaternion(-3.29217e-14, -1.01644e-20, -3.84897e-15, 1)
+bones/2/rotation = Quaternion(3.45798e-14, 1.42108e-14, -3.84897e-15, 1)
+bones/3/rotation = Quaternion(-4.50003e-15, 1.42108e-14, -3.84899e-15, 1)
+
+[node name="Skeleton3D" parent="transitionportal_armature/ui_leaf_armature_3008" index="0"]
+bones/1/rotation = Quaternion(3.72529e-09, 4.44089e-16, 5.02914e-08, 1)
+bones/2/rotation = Quaternion(-1.02446e-08, 1.86264e-09, -4.19095e-08, 1)
+bones/3/rotation = Quaternion(2.6077e-08, 1.86264e-09, 5.21541e-08, 1)
+
+[node name="Trigger" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.309, 13.9483, 0)
+shape = SubResource("BoxShape3D_3filn")
+
+[node name="CameraTarget" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24, 13, 1.04907e-06)
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
+libraries = {
+"": SubResource("AnimationLibrary_gi3n6")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="transitionportal_mesh/transitionportal_projectionmesh"]
+[editable path="transitionportal_armature"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cumw1wqcoxhta"]
+
+[ext_resource type="PackedScene" uid="uid://1c1lh35aryhm" path="res://Assets/Models/rose_obstacle/rose_thorn_base.glb" id="1_3rgw0"]
+[ext_resource type="Material" uid="uid://bsbhft4qugvfv" path="res://Assets/Materials/Plants/Rose.tres" id="2_bwfqv"]
+
+[node name="rose_thorn_base" instance=ExtResource("1_3rgw0")]
+
+[node name="thorn_base" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bwfqv")

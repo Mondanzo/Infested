@@ -1,0 +1,167 @@
+[gd_scene load_steps=8 format=3 uid="uid://bak6l81318ru4"]
+
+[ext_resource type="Script" path="res://UI/Scripts/HUD.gd" id="1_ipcep"]
+[ext_resource type="Theme" uid="uid://whrxg447a0wk" path="res://Assets/UI/Themes/Infested_UI_Theme.tres" id="2_4hau2"]
+[ext_resource type="Texture2D" uid="uid://c5ujeka5spjbu" path="res://icon.svg" id="2_ud258"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p645f"]
+bg_color = Color(0, 0, 0, 0.517647)
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipnm4"]
+bg_color = Color(0.964706, 0.364706, 0.462745, 1)
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fp7u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47g4x"]
+bg_color = Color(1, 1, 1, 0.462745)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ipcep")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_4hau2")
+
+[node name="PlayerVitality" type="ProgressBar" parent="HUD"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0555556
+anchor_bottom = 0.0555556
+offset_right = 600.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_p645f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ipnm4")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD/PlayerVitality"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100hp"
+horizontal_alignment = 1
+
+[node name="AbilityContainer" type="Control" parent="HUD"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 1
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AbilityLabel" type="Label" parent="HUD/AbilityContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -103.0
+offset_right = 178.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Ability Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbilityIcon" type="TextureRect" parent="HUD/AbilityContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.34375
+anchor_top = 0.1875
+anchor_right = -0.34375
+anchor_bottom = 0.1875
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_ud258")
+expand_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="CooldownCounter" type="ProgressBar" parent="HUD/AbilityContainer/AbilityIcon"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1fp7u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_47g4x")
+max_value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Label" type="Label" parent="HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 49.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Preview Build"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -277.0
+offset_bottom = 62.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+
+[node name="FlowContainer" type="FlowContainer" parent="HUD/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/h_separation = 32
+vertical = true
+
+[node name="fragmentsLabel" type="Label" parent="HUD/MarginContainer/FlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Fragments"
+
+[node name="FragmentsCounter" type="Label" parent="HUD/MarginContainer/FlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2qtgci6aias7"]
+
+[ext_resource type="PackedScene" uid="uid://c1r6vg6s7exc6" path="res://Assets/Models/moss/moss_pad_3.glb" id="1_0n1b3"]
+[ext_resource type="Material" uid="uid://cvmflryqv8s2w" path="res://Assets/Models/moss/moss_pad_mat.tres" id="2_3nwnb"]
+
+[node name="moss_pad_3" instance=ExtResource("1_0n1b3")]
+
+[node name="moss_pad_2" parent="." index="0"]
+material_override = ExtResource("2_3nwnb")
+
+[node name="moss_pad_2_collider" parent="." index="1"]
+collision_layer = 128
+collision_mask = 0

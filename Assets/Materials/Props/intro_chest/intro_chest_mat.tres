@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cadr54apaep03"]
+
+[ext_resource type="Texture2D" uid="uid://bnhjyi0ngousd" path="res://Assets/Materials/Props/intro_chest/chest_model_intro_chest_BaseColor.png" id="1_rlyf2"]
+[ext_resource type="Texture2D" uid="uid://hk6slopug06m" path="res://Assets/Materials/Props/intro_chest/chest_model_intro_chest_Normal.png" id="2_fa073"]
+
+[resource]
+albedo_texture = ExtResource("1_rlyf2")
+normal_enabled = true
+normal_texture = ExtResource("2_fa073")

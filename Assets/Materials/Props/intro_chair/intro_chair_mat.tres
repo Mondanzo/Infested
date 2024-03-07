@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ce7pne3lgfncf"]
+
+[ext_resource type="Texture2D" uid="uid://blbbmd18g4yac" path="res://Assets/Materials/Props/intro_chair/chair_model_Material.001_BaseColor.png" id="1_b1npa"]
+[ext_resource type="Texture2D" uid="uid://bk276ql6n4vnq" path="res://Assets/Materials/Props/intro_chair/chair_model_Material.001_Normal.png" id="2_fteff"]
+
+[resource]
+albedo_texture = ExtResource("1_b1npa")
+normal_enabled = true
+normal_texture = ExtResource("2_fteff")

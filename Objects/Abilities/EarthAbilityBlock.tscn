@@ -1,0 +1,292 @@
+[gd_scene load_steps=12 format=3 uid="uid://dphon7n11y75u"]
+
+[ext_resource type="AudioStream" uid="uid://b7wksigp7knod" path="res://Assets/Audio/Sounds/Abilities/Crystal Block/earth_ability_end.wav" id="1_ekqnl"]
+[ext_resource type="PackedScene" uid="uid://bwsyfase8jxcr" path="res://Assets/Models/sfx/abilities/ability_crystal.glb" id="1_q5ydq"]
+[ext_resource type="AudioStream" uid="uid://lw56anih57ma" path="res://Assets/Audio/Sounds/Abilities/Crystal Block/earth_ability.wav" id="3_h3687"]
+
+[sub_resource type="GDScript" id="GDScript_xs3f0"]
+script/source = "extends Node3D
+
+@export var launch_velocity = Vector3.UP * 60.0
+@export var attack_knockback = 10.0
+@export var attack_damage = 12.0
+
+
+func _ready():
+	$Block/ability_crystal.rotation_degrees.y = randf_range(0, 360)
+
+
+func Destroy():
+	$BlockPlayer.play(\"Destroy\")
+
+
+func GetCollider() -> Shape3D:
+	return $BlockStatic/CollisionShape3D.shape
+
+
+func _on_punch_area_body_exited(body):
+	if body.has_method(\"Punch\"):
+		body.Punch(launch_velocity.rotated(Vector3.FORWARD, -rotation.z))
+
+
+func _on_attack_area_body_entered(body):
+	if body.has_method(\"DealDamage\"):
+		body.DealDamage(attack_damage)
+	if body.has_method(\"Punch\"):
+		body.Punch(global_position.direction_to(body.global_position) * attack_knockback)
+"
+
+[sub_resource type="Animation" id="Animation_oncty"]
+resource_name = "Destroy"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0, 1e-05, -0.483, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.6, 1)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PunchArea/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BlockStatic/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AudioStreamPlayer3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_ekqnl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+
+[sub_resource type="Animation" id="Animation_0cjbg"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PunchArea/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BlockStatic/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tvt6a"]
+resource_name = "Spawn"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1, -0.2, -1, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.3001)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PunchArea/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BlockStatic/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AudioStreamPlayer3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_h3687")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/4/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n0ht6"]
+_data = {
+"Destroy": SubResource("Animation_oncty"),
+"RESET": SubResource("Animation_0cjbg"),
+"Spawn": SubResource("Animation_tvt6a")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gtn7e"]
+size = Vector3(2, 5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rgfhf"]
+size = Vector3(1.25, 5, 1.25)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cxrp7"]
+radius = 2.61098
+
+[node name="EarthBlock" type="Node3D"]
+script = SubResource("GDScript_xs3f0")
+attack_damage = 30.0
+
+[node name="BlockPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Block")
+autoplay = "Spawn"
+libraries = {
+"": SubResource("AnimationLibrary_n0ht6")
+}
+next/Spawn = &"Destroy"
+
+[node name="Block" type="AnimatableBody3D" parent="."]
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_gtn7e")
+
+[node name="ability_crystal" parent="Block" instance=ExtResource("1_q5ydq")]
+transform = Transform3D(0.874, 0, 0, 0, 0.874, 0, 0, 0, 0.874, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Block/ability_crystal/crystal_ability_armature" index="0"]
+bones/0/scale = Vector3(1, 0.999235, 1)
+
+[node name="BlockStatic" type="AnimatableBody3D" parent="."]
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlockStatic"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_gtn7e")
+disabled = true
+
+[node name="PunchArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PunchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_rgfhf")
+disabled = true
+
+[node name="AttackArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("SphereShape3D_cxrp7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+attenuation_filter_db = 0.0
+
+[connection signal="body_exited" from="PunchArea" to="." method="_on_punch_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+
+[editable path="Block/ability_crystal"]

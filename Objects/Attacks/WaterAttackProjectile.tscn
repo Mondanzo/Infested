@@ -1,0 +1,130 @@
+[gd_scene load_steps=13 format=3 uid="uid://bkbpabq12vc0g"]
+
+[ext_resource type="PackedScene" uid="uid://xhk4viglhn0r" path="res://Assets/Models/sfx/abilities/projectile_crystal.glb" id="1_8r6sf"]
+[ext_resource type="PackedScene" uid="uid://boippogd1dt1s" path="res://Assets/Models/sfx/abilities/projectile_vfx_mesh.glb" id="2_d6q51"]
+[ext_resource type="AudioStream" uid="uid://cm0rc78dah648" path="res://Assets/Audio/Sounds/Abilities/Crystal Projectile/crystal_projectile_splash.wav" id="3_m720s"]
+[ext_resource type="PackedScene" uid="uid://chhm46qgmxcrn" path="res://Objects/Audio/OneTimePlayer.tscn" id="3_usghj"]
+[ext_resource type="PackedScene" uid="uid://bhvq41h2jiukq" path="res://Assets/Models/sfx/abilities/shoot_vfx_model.glb" id="5_u2b6m"]
+
+[sub_resource type="GDScript" id="GDScript_0i4up"]
+script/source = "extends Area3D
+
+var distance_travelled = 0.0
+var damage = 20.0
+var exception = self
+
+var velocity = Vector3.ZERO
+
+
+func Setup(velocity, lifetime, caster):
+	Punch(velocity)
+	SetLifetime(lifetime)
+	exception = caster
+	global_rotation.z = atan2(velocity.y, velocity.x)
+
+
+func Punch(velocity):
+	self.velocity = velocity
+
+
+func SetLifetime(lifetime):
+	$LifetimeTimer.start(lifetime)
+
+
+func _physics_process(delta):
+	distance_travelled += self.velocity.length() * delta
+	global_position += self.velocity * delta
+	$projectile_crystal/projectile_vfx_mesh.rotation.x += distance_travelled
+
+
+func _on_body_entered(body):
+	if body == exception:
+		return
+	if body.has_method(\"DealDamage\"):
+		body.DealDamage(damage)
+		
+	if $SplooshSound != null:
+		$SplooshSound.play()
+		$SplooshSound.reparent(get_parent_node_3d(), true)
+	
+	queue_free()
+
+
+func _on_lifetime_timer_timeout():
+	queue_free()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvvot"]
+size = Vector3(2.0015, 0.445504, 0.450244)
+
+[sub_resource type="Curve" id="Curve_nxyav"]
+max_value = 100.0
+_data = [Vector2(0.747788, 0), 0.0, 0.0, 0, 0, Vector2(1, 100), 1061.52, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tom4v"]
+curve = SubResource("Curve_nxyav")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ucqyy"]
+direction = Vector3(-1, 0, 0)
+spread = 3.53
+flatness = 0.15
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 2.0
+linear_accel_min = 1.13
+linear_accel_max = 4.2
+radial_accel_min = 10.07
+radial_accel_max = 25.9
+damping_curve = SubResource("CurveTexture_tom4v")
+attractor_interaction_enabled = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6l1w"]
+blend_mode = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.337255, 0.32549, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3y2gg"]
+material = SubResource("StandardMaterial3D_s6l1w")
+radius = 0.1
+height = 0.2
+radial_segments = 4
+rings = 4
+
+[node name="WatterAttackProjectile" type="Area3D"]
+collision_layer = 8
+collision_mask = 131
+script = SubResource("GDScript_0i4up")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_nvvot")
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.716082, 0, 0)
+amount = 100
+lifetime = 0.56
+visibility_aabb = AABB(-44.8623, -0.678101, -0.538788, 45.1223, 1.3562, 1.07758)
+process_material = SubResource("ParticleProcessMaterial_ucqyy")
+draw_pass_1 = SubResource("SphereMesh_3y2gg")
+
+[node name="projectile_crystal" parent="." instance=ExtResource("1_8r6sf")]
+transform = Transform3D(-0.25, 3.7749e-08, 0, -3.7749e-08, -0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="projectile_vfx_mesh" parent="projectile_crystal" instance=ExtResource("2_d6q51")]
+
+[node name="SplooshSound" parent="." instance=ExtResource("3_usghj")]
+stream = ExtResource("3_m720s")
+volume_db = -20.0
+attenuation_filter_db = 0.0
+
+[node name="shoot_vfx_model" parent="." instance=ExtResource("5_u2b6m")]
+transform = Transform3D(-3.85349e-08, 0.881575, -0.472043, -1, -4.37114e-08, 0, -2.06337e-08, 0.472043, 0.881575, 0, 0, 0)
+visible = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
+
+[editable path="projectile_crystal"]

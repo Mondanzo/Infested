@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://clfo3gfyvxlnf"]
+
+[ext_resource type="PackedScene" uid="uid://fapg0ijpqgwp" path="res://Assets/Models/ground/ground.glb" id="1_mslni"]
+[ext_resource type="Material" uid="uid://da876abs5shp8" path="res://Assets/Materials/ground.tres" id="2_6mrkx"]
+
+[node name="ground" instance=ExtResource("1_mslni")]
+
+[node name="Cube" parent="." index="0"]
+layers = 3
+surface_material_override/0 = ExtResource("2_6mrkx")
+
+[node name="StaticBody3D" parent="Cube" index="0"]
+collision_layer = 129
+collision_mask = 129

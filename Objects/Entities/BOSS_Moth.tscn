@@ -1,0 +1,175 @@
+[gd_scene load_steps=9 format=3 uid="uid://dq58aopvycydy"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/BOSS_Moth.gd" id="1_u5hff"]
+[ext_resource type="PackedScene" uid="uid://dku4dyol2yaaf" path="res://Objects/Attacks/boss_laser.tscn" id="3_ewobq"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/BOSS_Stage_1.gd" id="4_s5gkg"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/BOSS_Stage_2.gd" id="5_ckrvp"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/BOSS_Stage_3.gd" id="6_3vqi2"]
+[ext_resource type="PackedScene" uid="uid://wmiemq1giju0" path="res://Assets/Models/moth/moth_animations.glb" id="8_21hrm"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/BOSS_Dead.gd" id="8_rx2it"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ecui"]
+size = Vector3(5.59004, 13.6145, 5.24469)
+
+[node name="BOSS_Moth" type="CharacterBody3D"]
+collision_layer = 10
+collision_mask = 130
+script = ExtResource("1_u5hff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0.731152, 2.10085)
+shape = SubResource("BoxShape3D_4ecui")
+
+[node name="_Enemy" type="Node3D" parent="."]
+
+[node name="Detectors" type="Node3D" parent="_Enemy"]
+transform = Transform3D(1, 1.74846e-07, 0, -1.74846e-07, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Graphic" parent="_Enemy" instance=ExtResource("8_21hrm")]
+
+[node name="Skeleton3D" parent="_Enemy/Graphic/Armature" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+bones/0/rotation = Quaternion(-0.186262, 0, 0, 0.9825)
+bones/2/rotation = Quaternion(0.0877634, -8.31259e-07, -1.15086e-07, 0.996141)
+bones/3/rotation = Quaternion(-0.36531, -0.09721, -0.292047, 0.878525)
+bones/3/scale = Vector3(1.00281, 0.994411, 1.00281)
+bones/4/rotation = Quaternion(-0.36531, 0.0972119, 0.292048, 0.878525)
+bones/4/scale = Vector3(1.00281, 0.99441, 1.00281)
+bones/5/rotation = Quaternion(-0.999525, 7.34697e-09, 2.38307e-07, 0.0308153)
+bones/6/position = Vector3(0.536518, 3.08369, -0.543346)
+bones/6/rotation = Quaternion(0.903963, 0.214385, 0.100874, -0.355971)
+bones/7/rotation = Quaternion(-0.334954, 0.0189796, -0.238354, 0.911391)
+bones/7/scale = Vector3(0.979514, 1.04227, 0.979514)
+bones/8/position = Vector3(5.35897, 9.50835, -7.87286)
+bones/8/rotation = Quaternion(-0.272416, -0.394166, 0.321829, 0.816608)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.480681, 0.688199, 0.359596, 0.407453)
+bones/10/rotation = Quaternion(0.0156955, -0.0127332, 0.132181, 0.99102)
+bones/11/rotation = Quaternion(-0.0041245, -0.00874792, 0.280843, 0.959705)
+bones/12/rotation = Quaternion(0.651864, 0.55772, 0.413794, 0.304626)
+bones/13/rotation = Quaternion(0.0275575, -0.00497922, 0.0296792, 0.999167)
+bones/14/rotation = Quaternion(-0.0219422, 0.0206673, 0.15073, 0.988115)
+bones/15/rotation = Quaternion(0.798076, 0.23498, 0.551711, 0.0589326)
+bones/16/rotation = Quaternion(-0.000229423, -0.0229622, 0.00791534, 0.999705)
+bones/17/rotation = Quaternion(-0.000124318, 0.111293, -0.00216187, 0.993785)
+bones/18/position = Vector3(-0.536519, 3.08369, -0.543345)
+bones/18/rotation = Quaternion(0.903963, -0.214385, -0.100874, -0.355971)
+bones/19/rotation = Quaternion(-0.334954, -0.0189796, 0.238354, 0.911391)
+bones/19/scale = Vector3(0.979514, 1.04227, 0.979514)
+bones/20/position = Vector3(-5.35898, 9.50835, -7.87286)
+bones/20/rotation = Quaternion(-0.272416, 0.394166, -0.321829, 0.816608)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(0.473585, -0.69848, -0.349074, 0.407418)
+bones/22/rotation = Quaternion(0.021435, 0.0108942, -0.114204, 0.993166)
+bones/23/rotation = Quaternion(-0.000937512, 0.00814154, -0.262131, 0.964998)
+bones/24/rotation = Quaternion(0.661445, -0.541098, -0.424275, 0.29949)
+bones/25/rotation = Quaternion(0.0252439, 0.00552265, -0.0433933, 0.998724)
+bones/26/rotation = Quaternion(-0.0236868, -0.0205336, -0.162744, 0.98617)
+bones/27/rotation = Quaternion(0.79164, -0.259451, -0.548317, 0.0730665)
+bones/28/rotation = Quaternion(-0.000164217, 0.0238555, -0.00790164, 0.999684)
+bones/29/rotation = Quaternion(-0.000498526, -0.111004, 0.00125568, 0.993819)
+bones/30/position = Vector3(1.06408, 3.13678, -0.250818)
+bones/30/rotation = Quaternion(0.955716, 0.154874, -0.114, -0.222765)
+bones/31/rotation = Quaternion(-0.357736, 0.0975644, 0.0180791, 0.928536)
+bones/31/scale = Vector3(0.911171, 1.20448, 0.911171)
+bones/32/position = Vector3(-0.945234, 7.64286, -6.04211)
+bones/32/rotation = Quaternion(-0.228103, 0.355792, 0.134034, 0.896335)
+bones/32/scale = Vector3(1, 1, 1)
+bones/33/position = Vector3(-0.704819, 3.13678, -0.250818)
+bones/33/rotation = Quaternion(0.955716, -0.154875, 0.113999, -0.222764)
+bones/34/rotation = Quaternion(-0.35987, -0.0913717, 0.0172717, 0.928357)
+bones/34/scale = Vector3(0.907688, 1.21374, 0.907688)
+bones/35/position = Vector3(0.310458, 7.66742, -6.18547)
+bones/35/rotation = Quaternion(-0.108672, -0.413618, -0.163532, 0.889026)
+bones/35/scale = Vector3(1, 1, 1)
+bones/37/position = Vector3(3.07448, -2.23506, 0.141389)
+bones/37/scale = Vector3(1, 0.94758, 1)
+bones/38/position = Vector3(3.32776, -1.98734, -1.74976)
+bones/39/position = Vector3(2.80919, -0.683162, -6.03528)
+bones/39/scale = Vector3(1, 0.94758, 1)
+bones/40/position = Vector3(1.50415e-15, 2.39409, 2.98736)
+bones/42/position = Vector3(-3.19717, -2.2494, 0.4622)
+bones/42/scale = Vector3(1, 1, 1)
+bones/43/position = Vector3(-3.20508, -1.90395, -2.05988)
+bones/43/scale = Vector3(1, 0.94758, 1)
+bones/44/position = Vector3(-2.93187, -0.951113, -5.85828)
+
+[node name="Attack" type="Node3D" parent="."]
+
+[node name="Silk_Windmill" type="Node3D" parent="Attack"]
+
+[node name="Laser_Right" parent="Attack/Silk_Windmill" instance=ExtResource("3_ewobq")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="Laser_Left" parent="Attack/Silk_Windmill" instance=ExtResource("3_ewobq")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="Laser_Up" parent="Attack/Silk_Windmill" instance=ExtResource("3_ewobq")]
+visible = false
+
+[node name="Laser_Down" parent="Attack/Silk_Windmill" instance=ExtResource("3_ewobq")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="BOSS_Stage_1" type="Node" parent="StateMachine"]
+script = ExtResource("4_s5gkg")
+
+[node name="Bomb_Timer" type="Timer" parent="StateMachine/BOSS_Stage_1"]
+wait_time = 8.0
+autostart = true
+
+[node name="BOSS_Stage_2" type="Node" parent="StateMachine"]
+script = ExtResource("5_ckrvp")
+
+[node name="Spawn_Timer" type="Timer" parent="StateMachine/BOSS_Stage_2"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Stand_Timer" type="Timer" parent="StateMachine/BOSS_Stage_2"]
+wait_time = 8.0
+one_shot = true
+
+[node name="Init_Timer" type="Timer" parent="StateMachine/BOSS_Stage_2"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Bomb_Timer" type="Timer" parent="StateMachine/BOSS_Stage_2"]
+autostart = true
+
+[node name="BOSS_Stage_3" type="Node" parent="StateMachine"]
+script = ExtResource("6_3vqi2")
+
+[node name="Init_Timer" type="Timer" parent="StateMachine/BOSS_Stage_3"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Laser_Timer" type="Timer" parent="StateMachine/BOSS_Stage_3"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Cooldown_Timer" type="Timer" parent="StateMachine/BOSS_Stage_3"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Spawn_Timer" type="Timer" parent="StateMachine/BOSS_Stage_3"]
+wait_time = 5.0
+one_shot = true
+
+[node name="BOSS_Dead" type="Node" parent="StateMachine"]
+script = ExtResource("8_rx2it")
+
+[connection signal="timeout" from="StateMachine/BOSS_Stage_1/Bomb_Timer" to="StateMachine/BOSS_Stage_1" method="_on_bomb_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BOSS_Stage_2/Spawn_Timer" to="StateMachine/BOSS_Stage_2" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BOSS_Stage_2/Stand_Timer" to="StateMachine/BOSS_Stage_2" method="_on_stand_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BOSS_Stage_2/Init_Timer" to="StateMachine/BOSS_Stage_2" method="_on_init_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BOSS_Stage_2/Bomb_Timer" to="StateMachine/BOSS_Stage_2" method="_on_bomb_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BOSS_Stage_3/Init_Timer" to="StateMachine/BOSS_Stage_3" method="_on_init_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BOSS_Stage_3/Laser_Timer" to="StateMachine/BOSS_Stage_3" method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BOSS_Stage_3/Cooldown_Timer" to="StateMachine/BOSS_Stage_3" method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="StateMachine/BOSS_Stage_3/Spawn_Timer" to="StateMachine/BOSS_Stage_3" method="_on_spawn_timer_timeout"]
+
+[editable path="_Enemy/Graphic"]

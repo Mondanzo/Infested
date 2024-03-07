@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://by2v7cjl6a1os"]
+
+[ext_resource type="Texture2D" uid="uid://bccnx71h7w56s" path="res://Assets/Models/brittle_platform_1/brittle_platform_blueberries_albedo.png" id="1_05xym"]
+
+[resource]
+albedo_texture = ExtResource("1_05xym")

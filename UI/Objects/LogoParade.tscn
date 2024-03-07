@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvq5asdv3hdb1"]
+
+[ext_resource type="Texture2D" uid="uid://b3rlstdc1bhcg" path="res://Assets/Branding/LogoParades/team_logo.png" id="2_84c63"]
+[ext_resource type="Texture2D" uid="uid://boixi40jqp43b" path="res://Assets/Branding/LogoParades/godot_logo.svg" id="3_r1wli"]
+
+[sub_resource type="GDScript" id="GDScript_hyqsx"]
+script/source = "extends Control
+
+signal logo_parade_finished
+
+@export var final_animation = \"godot\"
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == final_animation:
+		emit_signal(\"logo_parade_finished\")
+
+
+func _input(event):
+	if event.is_action_pressed(\"ui_cancel\"):
+			$AnimationPlayer.seek($AnimationPlayer.current_animation_length - 0.1)
+"
+
+[sub_resource type="Animation" id="Animation_hrckw"]
+resource_name = "logo_parade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LogoGodot:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_80uwy"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LogoNebularis:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yv5j0"]
+_data = {
+"godot": SubResource("Animation_hrckw"),
+"nebularis": SubResource("Animation_80uwy")
+}
+
+[node name="LogoParade" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_hyqsx")
+
+[node name="LogoNebularis" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -848.0
+offset_top = -160.0
+offset_right = 848.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_84c63")
+
+[node name="LogoGodot" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -207.0
+offset_right = 512.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_r1wli")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "nebularis"
+libraries = {
+"": SubResource("AnimationLibrary_yv5j0")
+}
+next/nebularis = &"godot"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

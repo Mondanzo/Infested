@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d06irbkf85oeo"]
+
+[ext_resource type="PackedScene" uid="uid://ddbbpx0im8i6f" path="res://Assets/Models/Props/plants/Teasel.glb" id="1_6klj2"]
+[ext_resource type="PackedScene" uid="uid://54ntiedx573g" path="res://Assets/Models/grasses/grass_bundle_2.glb" id="2_tmtvx"]
+[ext_resource type="PackedScene" uid="uid://pu2vpsvuquhb" path="res://Assets/Models/grasses/grass_bundle_1.glb" id="3_70kwh"]
+
+[node name="teasel_1" type="Node3D"]
+
+[node name="Teasel" parent="." instance=ExtResource("1_6klj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0708748, -1.19209e-07, -0.0752029)
+
+[node name="Cylinder" parent="Teasel" index="0"]
+transform = Transform3D(1.20152, 0, 0, 0, 1.20152, 0, 0, 0, 1.20152, 0, 0, 0)
+
+[node name="grass_bundle_2" parent="." instance=ExtResource("2_tmtvx")]
+transform = Transform3D(0.70069, 0, 4.1939, 0.30292, 4.24093, -0.0506099, -4.18295, 0.307118, 0.69886, 0.225813, 0, -0.206854)
+
+[node name="grass_bundle_1" parent="." instance=ExtResource("3_70kwh")]
+transform = Transform3D(-2.05648, 0, 4.22091, 0, 4.69523, 0, -4.22091, 0, -2.05648, 0, 0, 0)
+
+[node name="grass_bundle_3" parent="." instance=ExtResource("2_tmtvx")]
+transform = Transform3D(0.330373, -0.074179, -4.23853, 0.30292, 4.24093, -0.0506099, 4.22834, -0.298025, 0.334794, 0.0283237, 0, 0.0242084)
+
+[node name="grass_bundle_4" parent="." instance=ExtResource("3_70kwh")]
+transform = Transform3D(3.01508, 0, -3.59923, 0, 4.69523, 0, 3.59923, 0, 3.01508, 0.197489, 0, -0.231062)
+
+[editable path="Teasel"]

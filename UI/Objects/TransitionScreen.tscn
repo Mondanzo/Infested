@@ -1,0 +1,255 @@
+[gd_scene load_steps=14 format=3 uid="uid://c4m4xmg4kvjn5"]
+
+[ext_resource type="Texture2D" uid="uid://bh3pnjoth4vc0" path="res://UI/Objects/icons/Ant.tres" id="1_0qw4v"]
+[ext_resource type="Shader" path="res://Assets/Shaders/UI/TransitionScreen.gdshader" id="1_qmdw6"]
+[ext_resource type="Texture2D" uid="uid://dg7bdqqcl1ea0" path="res://UI/Objects/icons/Centipede.tres" id="2_h7mvo"]
+[ext_resource type="Texture2D" uid="uid://dyajdsjdpx1gb" path="res://UI/Objects/icons/Moth.tres" id="3_ullij"]
+[ext_resource type="Texture2D" uid="uid://bdd7b10lccso5" path="res://UI/Objects/icons/RolyPoly.tres" id="4_rs3ub"]
+[ext_resource type="Texture2D" uid="uid://db43wtcqj631t" path="res://UI/Objects/icons/TwoBugs.tres" id="5_cpa3r"]
+[ext_resource type="Texture2D" uid="uid://cyr7rr5b7o0oy" path="res://UI/Objects/icons/BumbleBee.tres" id="6_4e4l2"]
+
+[sub_resource type="GDScript" id="GDScript_aiten"]
+script/source = "extends CanvasLayer
+
+signal enter_finished
+signal exit_finished
+
+@export var transition_textures: Array[Texture2D]
+const luck_avg = 18.62
+
+func enter():
+	var icon_rander = randf()
+	var index = 0
+	if icon_rander <= luck_avg:
+		index = 0
+	elif icon_rander <= luck_avg * 2:
+		index = 1
+	elif icon_rander <= luck_avg * 3:
+		index = 2
+	elif icon_rander <= luck_avg * 4:
+		index = 3
+	elif icon_rander <= luck_avg * 5:
+		index = 4
+	else:
+		index = 5
+	$ColorRect/TextureRect.texture = transition_textures[index]
+	$AnimationPlayer.play(\"enter\")
+
+
+func exit():
+	$AnimationPlayer.play(\"exit\")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	match anim_name:
+		\"enter\":
+			emit_signal(\"enter_finished\")
+		\"exit\":
+			emit_signal(\"exit_finished\")
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5nf5"]
+shader = ExtResource("1_qmdw6")
+shader_parameter/progress = 0.0
+shader_parameter/angle = 0.0
+shader_parameter/frags = 30
+
+[sub_resource type="Animation" id="Animation_eb3ya"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:mouse_filter")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/TextureRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_t3cay"]
+resource_name = "enter"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.02, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:mouse_filter")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.2, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/TextureRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_we3gh"]
+resource_name = "exit"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.75, 1),
+"update": 0,
+"values": [1.0, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:mouse_filter")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/TextureRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l2t65"]
+_data = {
+"RESET": SubResource("Animation_eb3ya"),
+"enter": SubResource("Animation_t3cay"),
+"exit": SubResource("Animation_we3gh")
+}
+
+[node name="TransitionScreen" type="CanvasLayer"]
+layer = 20
+script = SubResource("GDScript_aiten")
+transition_textures = Array[Texture2D]([ExtResource("1_0qw4v"), ExtResource("2_h7mvo"), ExtResource("3_ullij"), ExtResource("4_rs3ub"), ExtResource("6_4e4l2"), ExtResource("5_cpa3r")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_b5nf5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -128.0
+offset_right = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_h7mvo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l2t65")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

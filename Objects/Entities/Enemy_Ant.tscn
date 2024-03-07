@@ -1,0 +1,180 @@
+[gd_scene load_steps=18 format=3 uid="uid://vub61bsy17ik"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/Enemy_Ant.gd" id="1_jhsk0"]
+[ext_resource type="PackedScene" uid="uid://cej1moqvr63gj" path="res://Assets/Models/Monsters/Ant/ant_model_animation.glb" id="2_q7ntu"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/Idle_State.gd" id="3_r4nq6"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/Chase_State.gd" id="4_4b5nw"]
+[ext_resource type="Animation" uid="uid://j8x71e6a1qlv" path="res://Assets/Animations/Monsters/Ant/Ant_death_animation.res" id="4_58wxr"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/Run_State.gd" id="5_2pve6"]
+[ext_resource type="Animation" uid="uid://gk4spxdejsve" path="res://Assets/Animations/Monsters/Ant/Ant_idle_Animation.res" id="5_nbb22"]
+[ext_resource type="Animation" uid="uid://fgcgqjpskxn8" path="res://Assets/Animations/Monsters/Ant/Ant_walk-attack_Animation.res" id="6_2pyx6"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/Attack_State.gd" id="6_7d2ep"]
+[ext_resource type="Animation" uid="uid://cy7vjxqlsohgc" path="res://Assets/Animations/Monsters/Ant/Ant_walk_Animation.res" id="6_kwfxi"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/Dead_State.gd" id="7_pol5x"]
+[ext_resource type="AudioStream" uid="uid://dgsftux8oh0qo" path="res://Assets/Audio/Sounds/Enemies/Ant/ant_attack.wav" id="13_wka02"]
+[ext_resource type="AudioStream" uid="uid://se08byelhpmn" path="res://Assets/Audio/Sounds/Enemies/Ant/ant_die.wav" id="14_gf7ue"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tfk3q"]
+radius = 0.51304
+height = 2.75335
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8kpo4"]
+size = Vector3(38.6399, 8.0885, 5.06601)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_syeav"]
+resource_name = "AttackZone"
+size = Vector3(1.42651, 1.17715, 1.77286)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86rky"]
+_data = {
+"Animation_ATTACK": ExtResource("6_2pyx6"),
+"Animation_DEATH": ExtResource("4_58wxr"),
+"Animation_IDLE": ExtResource("5_nbb22"),
+"Animation_WALK": ExtResource("6_kwfxi")
+}
+
+[node name="Enemy_ANT" type="CharacterBody3D"]
+collision_layer = 14
+collision_mask = 132
+script = ExtResource("1_jhsk0")
+MoveSpeed = 6.0
+RageSpeed = 10.0
+LifeToSteal = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0.521138, 0.388506)
+shape = SubResource("CapsuleShape3D_tfk3q")
+
+[node name="_Enemy" type="Node3D" parent="."]
+
+[node name="Detectors" type="Node3D" parent="_Enemy"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.846605, 0.602059)
+
+[node name="PlayerDetector" type="Area3D" parent="_Enemy/Detectors"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="_Enemy/Detectors/PlayerDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.70491, 1.08399, 9.75568e-08)
+shape = SubResource("BoxShape3D_8kpo4")
+
+[node name="AttackZone" type="Area3D" parent="_Enemy/Detectors"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="_Enemy/Detectors/AttackZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7144, -0.26444, -0.00084073)
+shape = SubResource("BoxShape3D_syeav")
+
+[node name="RayCasts_WALK" type="Node3D" parent="_Enemy/Detectors"]
+
+[node name="Group_Point" type="RayCast3D" parent="_Enemy/Detectors/RayCasts_WALK"]
+target_position = Vector3(10, 0, 0)
+
+[node name="Wall_Detector" type="RayCast3D" parent="_Enemy/Detectors/RayCasts_WALK"]
+target_position = Vector3(3, 0, 0)
+
+[node name="GroundDetector" type="RayCast3D" parent="_Enemy/Detectors/RayCasts_WALK"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533069, -0.293735, 2.33012e-08)
+target_position = Vector3(0, -3, 0)
+hit_from_inside = true
+
+[node name="Graphic" parent="_Enemy" instance=ExtResource("2_q7ntu")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="_Enemy/Graphic/Armature" index="0"]
+bones/1/position = Vector3(1.07232, 0.0171151, 1.15427)
+bones/1/rotation = Quaternion(0.548941, 0.548941, -0.445718, 0.445718)
+bones/2/position = Vector3(1.31349, 0.220858, -0.270168)
+bones/2/rotation = Quaternion(-0.568186, -0.398116, -0.420909, 0.584383)
+bones/3/position = Vector3(1.3078, -0.0397617, -1.28305)
+bones/3/rotation = Quaternion(-0.455781, -0.455781, -0.540614, 0.540614)
+bones/4/position = Vector3(-2.61135e-13, 0.708347, 1.14198)
+bones/5/position = Vector3(-1.07232, 0.123117, 1.15427)
+bones/5/rotation = Quaternion(0.548941, -0.548941, 0.445718, 0.445718)
+bones/6/position = Vector3(-1.31349, 0.0484413, 0.486515)
+bones/6/rotation = Quaternion(-0.40484, 0.561462, 0.590847, 0.414446)
+bones/7/position = Vector3(-1.3078, -0.0397617, -1.28305)
+bones/7/rotation = Quaternion(-0.455781, 0.455781, 0.540614, 0.540614)
+bones/14/position = Vector3(-8.32149e-14, 0.616051, -0.480184)
+bones/15/rotation = Quaternion(0.0774495, 1.18841e-07, -2.67746e-07, 0.996996)
+bones/16/rotation = Quaternion(0.124602, -1.65066e-12, -4.15902e-07, 0.992207)
+bones/18/rotation = Quaternion(-0.658517, -0.27585, -0.0415461, 0.698953)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/position = Vector3(0.791139, -0.230423, -0.985689)
+bones/19/rotation = Quaternion(0.943192, 4.96538e-08, -3.13074e-06, -0.332248)
+bones/20/rotation = Quaternion(0.294844, 0.0435302, -0.155513, 0.9418)
+bones/21/position = Vector3(0.299506, 0.784725, 0.447557)
+bones/21/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(-0.658517, 0.27585, 0.0415461, 0.698953)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/position = Vector3(-0.791146, -0.230423, -0.985683)
+bones/24/rotation = Quaternion(0.943192, -1.05934e-06, 1.75009e-08, -0.332248)
+bones/25/rotation = Quaternion(0.294845, -0.0435271, 0.155512, 0.9418)
+bones/26/position = Vector3(-0.299503, 0.784725, 0.447558)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.995471, 1.69984e-07, 1.78001e-06, 0.0950625)
+bones/27/scale = Vector3(1, 1, 0.999997)
+bones/28/rotation = Quaternion(0.386839, 0.852598, 0.343937, 0.0716957)
+bones/29/rotation = Quaternion(0.196967, -0.0162463, -0.00847532, 0.980239)
+bones/30/rotation = Quaternion(0.0107918, -0.8939, -0.443107, 0.0669504)
+bones/31/rotation = Quaternion(0.905109, -0.0329893, -9.73449e-06, 0.423897)
+bones/31/scale = Vector3(1, 1.00001, 0.999995)
+bones/32/rotation = Quaternion(-0.553793, 0.0339649, 0.00617451, 0.831938)
+bones/33/rotation = Quaternion(0.77518, 0.58388, 0.238744, 0.034363)
+bones/34/rotation = Quaternion(0.228754, 0.0307198, 0.0305679, 0.972519)
+bones/35/rotation = Quaternion(0.314609, 0.615269, 0.33546, 0.640259)
+bones/36/rotation = Quaternion(0.951659, 0.305007, 0.0360882, 0.00356054)
+bones/37/rotation = Quaternion(0.434164, 0.584576, -0.3744, 0.574106)
+bones/38/rotation = Quaternion(-0.865814, -0.419648, -0.244453, 0.12043)
+bones/39/rotation = Quaternion(0.174218, 0.573702, 0.370263, 0.709521)
+bones/40/rotation = Quaternion(-0.618639, -0.335553, -0.661898, 0.258032)
+bones/41/rotation = Quaternion(0.563535, 0.0863063, -0.0256954, 0.82117)
+bones/42/rotation = Quaternion(0.389665, -0.867822, -0.303781, 0.0525677)
+bones/43/rotation = Quaternion(0.206116, 0.0159903, 0.008845, 0.978357)
+bones/44/rotation = Quaternion(0.0109722, 0.891552, 0.447792, 0.0670591)
+bones/45/rotation = Quaternion(0.921489, 0.030304, 0.00040263, 0.387219)
+bones/45/scale = Vector3(1, 1.00001, 0.999995)
+bones/46/rotation = Quaternion(-0.558774, -0.0335727, -0.00584442, 0.82862)
+bones/47/rotation = Quaternion(0.55365, -0.775862, -0.239146, 0.185253)
+bones/48/rotation = Quaternion(0.207358, -0.0306506, -0.0293677, 0.977344)
+bones/49/rotation = Quaternion(0.307497, -0.61908, -0.32741, 0.644196)
+bones/50/rotation = Quaternion(0.919406, -0.391696, -0.0354338, 0.00321033)
+bones/51/rotation = Quaternion(0.424561, -0.590864, 0.367219, 0.579463)
+bones/52/rotation = Quaternion(-0.865814, 0.419648, 0.244456, 0.120429)
+bones/53/rotation = Quaternion(0.174218, -0.573702, -0.370263, 0.709521)
+bones/54/rotation = Quaternion(-0.61864, 0.335553, 0.661898, 0.258032)
+bones/55/rotation = Quaternion(0.563535, -0.0863062, 0.0256954, 0.82117)
+
+[node name="Animation" type="AnimationPlayer" parent="_Enemy/Graphic"]
+libraries = {
+"": SubResource("AnimationLibrary_86rky")
+}
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="Idle_State" type="Node" parent="StateMachine"]
+script = ExtResource("3_r4nq6")
+
+[node name="Chase_State" type="Node" parent="StateMachine"]
+script = ExtResource("4_4b5nw")
+
+[node name="Run_State" type="Node" parent="StateMachine"]
+script = ExtResource("5_2pve6")
+
+[node name="Attack_State" type="Node" parent="StateMachine"]
+script = ExtResource("6_7d2ep")
+
+[node name="Dead_State" type="Node" parent="StateMachine"]
+script = ExtResource("7_pol5x")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="SoundAttack" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource("13_wka02")
+
+[node name="SoundDie" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource("14_gf7ue")
+
+[connection signal="body_entered" from="_Enemy/Detectors/PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="_Enemy/Detectors/PlayerDetector" to="." method="_on_player_detector_body_exited"]
+[connection signal="body_entered" from="_Enemy/Detectors/AttackZone" to="." method="_on_attack_zone_body_entered"]
+[connection signal="body_exited" from="_Enemy/Detectors/AttackZone" to="." method="_on_attack_zone_body_exited"]
+
+[editable path="_Enemy/Graphic"]

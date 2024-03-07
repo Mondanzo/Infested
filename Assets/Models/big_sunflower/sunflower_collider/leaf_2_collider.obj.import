@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bkivs6c4noio0"
+path="res://.godot/imported/leaf_2_collider.obj-cf5d14681642761cb8ac026c4223c1d1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/leaf_2_collider.obj-cf5d14681642761cb8ac026c4223c1d1.mesh"]
+
+source_file="res://Assets/Models/big_sunflower/sunflower_collider/leaf_2_collider.obj"
+dest_files=["res://.godot/imported/leaf_2_collider.obj-cf5d14681642761cb8ac026c4223c1d1.mesh", "res://.godot/imported/leaf_2_collider.obj-cf5d14681642761cb8ac026c4223c1d1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

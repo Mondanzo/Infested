@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dv7rscc8jogdl"]
+
+[ext_resource type="Texture2D" uid="uid://81io2ck616lb" path="res://Assets/Models/Level01_Giant_Tree/3D_mosspad_1.png" id="1_uc1ds"]
+
+[resource]
+transparency = 1
+diffuse_mode = 3
+albedo_texture = ExtResource("1_uc1ds")

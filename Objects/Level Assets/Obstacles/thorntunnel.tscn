@@ -1,0 +1,683 @@
+[gd_scene load_steps=8 format=3 uid="uid://ciqfnyr0r17ri"]
+
+[ext_resource type="PackedScene" uid="uid://djxfsgaiyr4ie" path="res://Objects/Level Assets/Obstacles/thorny_vines.tscn" id="1_5gplb"]
+[ext_resource type="PackedScene" uid="uid://cbiafxl68nj53" path="res://Objects/Level Assets/Obstacles/RosePlant.tscn" id="2_gavlq"]
+[ext_resource type="PackedScene" uid="uid://bg0qq1363lmt7" path="res://Objects/Level Assets/Obstacles/stone_roadblock.tscn" id="3_pjfwy"]
+[ext_resource type="PackedScene" uid="uid://be5m2kyok0y3c" path="res://Objects/Level Assets/Plants/berry_vines.tscn" id="4_hvqxx"]
+[ext_resource type="Material" uid="uid://bsbhft4qugvfv" path="res://Assets/Materials/Plants/Rose.tres" id="5_r4m50"]
+[ext_resource type="PackedScene" uid="uid://1pfernf7w4tp" path="res://Objects/Level Assets/Obstacles/RafflesiaJump.tscn" id="5_yqmnh"]
+[ext_resource type="Script" path="res://Scripts/Obstacles/HurtArea.gd" id="6_788vj"]
+
+[node name="thorntunnel" type="Node3D"]
+
+[node name="thorntunnel_thornyvines" type="Node3D" parent="."]
+
+[node name="thorny_vines2" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(9.38466, 0, 6.22878, 0, 11.2636, 0, -6.22878, 0, 9.38466, -233.901, 42.518, 8.09848)
+
+[node name="thorny_vines3" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-9.35928, -0.827867, -6.21193, 0.689766, -11.2331, 0.457811, -6.22878, 0, 9.38466, -245.931, 33.4502, 8.09848)
+
+[node name="thorny_vines4" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.0216236, 0, 11.2636, 0, 11.2636, 0, -11.2636, 0, -0.0216236, -207.478, 42.518, 5.50078)
+
+[node name="thorny_vines5" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-10.357, -0.456484, 4.40383, 0.689766, -11.2331, 0.457811, 4.37337, 0.690641, 10.3569, -214.111, 33.4502, 15.5367)
+
+[node name="thorny_vines6" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-10.7813, 0, 3.26082, 0, 11.2636, 0, -3.26082, 0, -10.7813, -190.075, 42.518, -3.1519)
+
+[node name="thorny_vines7" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(1.16628, 0.527691, 11.1907, 0.689766, -11.2331, 0.457811, 11.1818, 0.637892, -1.19544, -182.407, 33.4502, 6.11751)
+
+[node name="thorny_vines8" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-8.20492, 0, -7.71679, 0, 11.2636, 0, 7.71679, 0, -8.20492, -172.006, 42.518, 2.49326)
+
+[node name="thorny_vines22" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(9.38466, 0, 6.22878, 6.20561, 0.970524, -9.34976, -0.5367, 11.2217, 0.808626, -233.901, 51.5842, 21.9163)
+
+[node name="thorny_vines23" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.0216236, 0, 11.2636, 11.2217, 0.970524, 0.0215432, -0.970525, 11.2217, -0.00186319, -207.478, 54.1722, 21.6925)
+
+[node name="thorny_vines24" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-10.7813, 0, 3.26082, 3.24869, 0.970524, 10.7412, -0.280967, 11.2217, -0.928967, -190.075, 62.7927, 20.9469)
+
+[node name="thorny_vines25" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-7.12374, 0.195422, -3.598, -3.57235, 0.659523, 7.10878, 0.471264, 7.95348, -0.501073, -172.006, 53.7962, 21.4333)
+
+[node name="thorny_vines26" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(1.4972, -0.731106, 11.1397, 11.1508, 0.638279, -1.4568, -0.5367, 11.2217, 0.808625, -219.606, 97.4927, 21.9163)
+
+[node name="thorny_vines27" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(0.318892, 0.0257102, -11.2591, -11.2172, -0.970183, -0.319921, -0.970525, 11.2217, -0.00186319, -249.377, 89.8009, 21.6925)
+
+[node name="thorny_vines72" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.928976, -0.0822071, -11.225, -11.1832, -0.967036, 0.932607, -0.970525, 11.2217, -0.00186319, -238.279, 111.096, 17.3366)
+
+[node name="thorny_vines73" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-8.44526, -0.729164, 7.41723, 7.38951, 0.640496, 8.47669, -0.970525, 11.2217, -0.00186318, -238.279, 126.777, -15.93)
+
+[node name="thorny_vines28" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(10.8636, 0.0257102, -2.97513, -2.96194, -0.970183, -10.8238, -0.280967, 11.2217, -0.928967, -216.989, 60.647, 20.9469)
+
+[node name="thorny_vines29" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(7.99837, 0.0257102, 7.93063, 7.90275, -0.970183, -7.96711, 0.664914, 11.2217, -0.706973, -235.201, 65.7906, 21.4333)
+
+[node name="thorny_vines30" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(10.7962, 0.285875, 3.19839, 3.16597, 0.927465, -10.7697, -0.5367, 11.2217, 0.808625, -236.58, 51.5842, 8.16121)
+
+[node name="thorny_vines31" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.0216236, 0, 11.2636, 11.2217, 0.970524, 0.0215432, -0.970525, 11.2217, -0.00186319, -210.157, 54.1722, 7.93738)
+
+[node name="thorny_vines32" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-10.7813, 0, 3.26082, 3.24869, 0.970524, 10.7412, -0.280967, 11.2217, -0.928967, -192.755, 62.7927, 7.19183)
+
+[node name="thorny_vines33" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(1.4972, -0.731106, 11.1397, 11.1508, 0.638279, -1.4568, -0.5367, 11.2217, 0.808625, -222.286, 97.4927, 8.16121)
+
+[node name="thorny_vines59" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(8.19711, -0.164491, 7.72333, 7.70641, 0.956483, -8.15879, -0.5367, 11.2217, 0.808625, -216.895, 47.1936, -11.3674)
+
+[node name="thorny_vines60" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-5.09446, -0.438932, 10.0361, 9.9987, 0.865595, 5.11334, -0.970525, 11.2217, -0.00186319, -194.5, 61.452, -11.5912)
+
+[node name="thorny_vines61" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-3.70776, -0.940733, 10.5942, 10.6223, 0.238618, 3.7388, -0.5367, 11.2217, 0.808625, -224.909, 94.6036, -11.3674)
+
+[node name="thorny_vines62" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(11.2047, 0.459845, 1.0552, 1.01827, 0.854669, -11.1849, -0.5367, 11.2217, 0.808625, -241.927, 54.5142, -29.716)
+
+[node name="thorny_vines63" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(2.14901, 0.187695, 11.0551, 11.0141, 0.952201, -2.15719, -0.970525, 11.2217, -0.00186319, -215.502, 51.9433, -29.9398)
+
+[node name="thorny_vines64" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(3.62544, -0.593864, 10.6477, 10.6507, 0.767621, -3.58366, -0.5367, 11.2217, 0.808625, -219.024, 96.7915, -29.716)
+
+[node name="thorny_vines34" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(11.2175, 0.970203, 0.311275, 0.310278, 0.0249653, -11.2593, -0.970525, 11.2217, -0.00186319, -235.77, 89.8009, 7.93738)
+
+[node name="thorny_vines35" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(10.8636, 0.0257102, -2.97513, -2.96194, -0.970183, -10.8238, -0.280967, 11.2217, -0.928967, -219.669, 60.647, 7.19183)
+
+[node name="thorny_vines36" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(10.1641, -0.297023, 4.84479, 4.80813, -0.923955, -10.1439, 0.664914, 11.2217, -0.706973, -237.88, 65.7906, 7.67824)
+
+[node name="thorny_vines37" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-1.98623, 11.06, 0.774159, 3.09943, 1.30902, -10.7494, -10.6451, -1.68252, -3.27424, -253.772, 51.6019, -4.58744)
+
+[node name="thorny_vines38" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-2.37058, 11.0058, 0.347015, 0.228798, 0.40412, -11.2541, -11.009, -2.36151, -0.308615, -255.41, 89.7848, -5.364)
+
+[node name="thorny_vines75" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.802567, -11.0475, 2.04385, -0.58952, -2.0048, -11.0681, 11.2196, -0.895579, -0.435361, -248.767, 119.273, -5.364)
+
+[node name="thorny_vines76" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-3.52723, 7.11486, 7.9879, -6.93511, 4.88281, -7.41162, -8.1445, -7.2391, 2.85164, -249.612, 138.952, -19.0401)
+
+[node name="thorny_vines39" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.772486, 11.1964, -0.955388, 4.78437, -0.538799, -10.1828, -10.1677, -1.10417, -4.71887, -254.578, 65.7889, -3.23779)
+
+[node name="thorny_vines40" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-1.98623, 11.06, 0.774159, -3.84025, -1.42409, 10.4926, 10.4008, 1.58631, 4.02197, -253.772, 107.184, -15.1656)
+
+[node name="thorny_vines41" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-2.37058, 11.0058, 0.347015, -1.00231, -0.569166, 11.2045, 10.9656, 2.32725, 1.09917, -255.41, 69.0406, -17.0757)
+
+[node name="thorny_vines42" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.772486, 11.1964, -0.955388, -5.48746, 0.459828, 9.82577, 9.80614, 1.13932, 5.42318, -254.578, 93.1266, -17.5094)
+
+[node name="thorny_vines43" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.438991, 10.8114, -3.12893, -4.30116, 2.73248, 10.0451, 10.4008, 1.58631, 4.02197, -213.082, 106.269, -25.7192)
+
+[node name="thorny_vines44" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-1.83762, 10.4473, -3.78746, -1.80206, 3.50792, 10.5507, 10.9656, 2.32725, 1.09917, -200.614, 70.1846, -27.6294)
+
+[node name="thorny_vines45" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(1.2944, 10.2471, -4.49329, -5.38827, 4.53508, 8.79028, 9.80614, 1.13932, 5.42318, -208.676, 92.8968, -28.0631)
+
+[node name="thorny_vines46" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.438991, 10.8114, -3.12893, -4.30116, 2.73248, 10.0451, 10.4008, 1.58631, 4.02197, -213.082, 106.269, 3.12488)
+
+[node name="thorny_vines47" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-1.83762, 10.4473, -3.78746, -1.80206, 3.50792, 10.5507, 10.9656, 2.32725, 1.09917, -200.614, 70.1846, 1.21474)
+
+[node name="thorny_vines49" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(0.389989, 3.25233, -10.7768, -2.54405, 10.5297, 3.08571, 10.9656, 2.32725, 1.09917, -164.667, 55.88, 1.21474)
+
+[node name="thorny_vines50" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(0.389989, 3.25233, -10.7768, -2.54405, 10.5297, 3.08571, 10.9656, 2.32725, 1.09917, -189.648, 63.3713, 1.21474)
+
+[node name="thorny_vines48" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(1.2944, 10.2471, -4.49329, -5.38827, 4.53508, 8.79028, 9.80614, 1.13932, 5.42318, -208.676, 92.8968, 0.781033)
+
+[node name="thorny_vines10" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(9.38466, 0, 6.22878, -4.26857, 8.20287, 6.43128, -4.53619, -7.71891, 6.8345, -233.901, 16.6397, -51.9347)
+
+[node name="thorny_vines11" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.0216236, 0, 11.2636, -7.71893, 8.20287, -0.0148186, -8.20288, -7.71892, -0.0157477, -207.478, 14.8595, -53.8265)
+
+[node name="thorny_vines12" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-10.7813, 0, 3.26082, -2.23463, 8.20287, -7.3884, -2.37473, -7.71892, -7.85163, -190.075, 8.92982, -60.128)
+
+[node name="thorny_vines13" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-8.20491, 0, -7.71679, 5.2883, 8.20287, -5.62281, 5.61986, -7.71892, -5.97534, -172.006, 12.7984, -56.0168)
+
+[node name="thorny_vines51" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(9.38466, 0, 6.22878, -4.26857, 8.20287, 6.43128, -4.53619, -7.71891, 6.8345, -233.901, 28.1758, -47.1344)
+
+[node name="thorny_vines52" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-0.0216236, 0, 11.2636, -7.71893, 8.20287, -0.0148186, -8.20288, -7.71892, -0.0157477, -207.478, 26.3956, -49.0262)
+
+[node name="thorny_vines53" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-10.7813, 0, 3.26082, -2.23463, 8.20287, -7.3884, -2.37473, -7.71892, -7.85163, -190.075, 20.466, -55.3276)
+
+[node name="thorny_vines54" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-8.20491, 0, -7.71679, 5.2883, 8.20287, -5.62281, 5.61986, -7.71892, -5.97534, -172.006, 24.3346, -51.2165)
+
+[node name="thorny_vines18" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-10.7195, -0.188491, -10.7583, -10.7473, 0.922175, 10.6925, 0.520506, 15.159, -0.784226, -158.531, 36.3021, -31.5914)
+
+[node name="thorny_vines19" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(3.06428, -0.18849, -14.8748, -14.8462, 0.922174, -3.07007, 0.941242, 15.159, 0.00180697, -192.739, 25.7418, -31.3743)
+
+[node name="thorny_vines20" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(15.1222, -0.18849, -1.40221, -1.38834, 0.922173, -15.0966, 0.27249, 15.159, 0.900939, -213.399, 9.6331, -30.6512)
+
+[node name="thorny_vines21" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(8.75989, -0.18849, 12.4062, 12.3908, 0.922176, -8.73505, -0.644851, 15.159, 0.685641, -238.791, 12.1975, -31.123)
+
+[node name="thorny_vines14" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-12.8152, 1.18514e-06, -8.50566, -8.34883, -2.94009, 12.5789, -1.62587, 15.0973, 2.44964, -165.051, 23.5751, -14.3624)
+
+[node name="thorny_vines15" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(0.0295271, 9.81944e-07, -15.381, -15.0973, -2.94009, -0.0289828, -2.9401, 15.0973, -0.00564318, -201.133, 20.0932, -15.0405)
+
+[node name="thorny_vines16" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(14.7223, 1.34189e-06, -4.45279, -4.37068, -2.94009, -14.4509, -0.851159, 15.0973, -2.8142, -224.897, 8.49548, -17.2991)
+
+[node name="thorny_vines17" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(11.2042, 1.77726e-06, 10.5376, 10.3433, -2.94009, -10.9976, 2.01428, 15.0973, -2.1417, -249.571, 16.062, -32.2402)
+
+[node name="thorny_vines65" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(13.3961, -2.78403, -7.02625, -7.28435, -0.945161, -13.5137, 2.01428, 15.0973, -2.1417, -296.501, 16.062, -32.2402)
+
+[node name="thorny_vines66" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-9.66495, 2.93498, 11.5995, 11.7943, -0.173289, 9.87109, 2.01428, 15.0973, -2.1417, -280.047, 71.6451, -32.2402)
+
+[node name="thorny_vines55" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(1.15039, 15.3378, -0.0246647, -15.3373, 1.15055, 0.135094, 0.136563, 0.0144929, 15.3804, -305.398, 16.062, 16.8018)
+
+[node name="thorny_vines56" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-1.14161, -14.7062, -4.35851, -15.3373, 1.15055, 0.135094, 0.196864, 4.35614, -14.7499, -322.169, 16.062, -0.86903)
+
+[node name="thorny_vines57" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-1.15838, -15.2104, -1.96871, -15.3373, 1.15055, 0.135094, 0.0136687, 1.97329, -15.2539, -314.417, 53.3125, -3.41857)
+
+[node name="thorny_vines58" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(1.12928, 15.2489, -1.66371, -15.3373, 1.15055, 0.135094, 0.25839, 1.64906, 15.2901, -310.217, 53.3125, 19.3513)
+
+[node name="thorny_vines71" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(0.226499, 15.3787, 0.129911, 6.9304, 0.0139192, -13.7311, -13.7293, 0.260735, -6.92919, -310.217, 83.0094, -12.0875)
+
+[node name="thorny_vines67" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-1.14936, -15.3373, 0.137139, -15.3373, 1.15055, 0.135094, -0.144972, -0.126656, -15.3798, -320.638, 16.062, -34.7156)
+
+[node name="thorny_vines68" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(1.14302, 14.7377, 4.25053, -15.3373, 1.15055, 0.135094, -0.18851, -4.24848, 14.7814, -303.997, 16.062, -16.9226)
+
+[node name="thorny_vines74" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-8.15239, -3.45565, 3.43454, 3.1731, -8.84625, -1.36885, 3.69717, -0.027511, 8.7481, -298.504, 31.8852, 13.8866)
+
+[node name="CollisionShape3D" parent="thorntunnel_thornyvines/thorny_vines74/thorny_vines_hitarea/thorny_vines_collider" index="0"]
+transform = Transform3D(0.754623, 2.56114e-09, -5.96046e-08, -3.60887e-09, 0.7986, 1.90921e-08, 4.47035e-08, -9.31323e-10, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="thorntunnel_thornyvines/thorny_vines74/thorny_vines_hitarea/thorny_vines_collider/Area3D" index="0"]
+transform = Transform3D(0.753848, -3.14321e-09, -5.96046e-08, -1.00699e-07, 0.810708, 1.90921e-08, 4.47035e-08, 7.567e-10, 1, 0, 0, 0)
+
+[node name="thorny_vines69" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(1.15845, 15.2244, 1.85711, -15.3373, 1.15055, 0.135094, -0.00519727, -1.862, 15.2679, -311.766, 53.3125, -14.4298)
+
+[node name="thorny_vines70" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(-1.12736, -15.2365, 1.77548, -15.3373, 1.15055, 0.135094, -0.266641, -1.76053, -15.2776, -315.8, 53.3125, -37.2298)
+
+[node name="thorny_vines9" parent="thorntunnel_thornyvines" instance=ExtResource("1_5gplb")]
+transform = Transform3D(10.2726, 0.816102, 4.54712, 0.689766, -11.2331, 0.457811, 4.56799, -0.139074, -10.2948, -160.147, 33.4502, 0.472352)
+
+[node name="thorntunnel_roses" type="Node3D" parent="."]
+
+[node name="Roadblock_Rose" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(3.75471, 0, 6.13266, 0, 9.54134, 0, -6.13266, 0, 3.75471, -434.226, 1.85081, -2.68989)
+
+[node name="HurtArea" parent="thorntunnel_roses/Roadblock_Rose" index="2"]
+transform = Transform3D(0.743977, 0, 0, 0, 1.03501, 0, -2.38419e-07, 0, 0.660904, -0.490487, 0, -0.168958)
+
+[node name="BoneAttachment3D" parent="thorntunnel_roses/Roadblock_Rose" index="3"]
+transform = Transform3D(-1.19014, -0.439797, -0.560997, -0.348971, 1.31147, -0.287805, 0.621578, -0.105787, -1.23573, -0.454515, 2.89968, -0.288284)
+
+[node name="CollisionShape3D" parent="thorntunnel_roses/Roadblock_Rose/BoneAttachment3D/StaticBody3D" index="0"]
+transform = Transform3D(1, 5.96046e-08, 5.96046e-08, -2.98023e-08, 1, 0, 0, 1.30385e-08, 1, 1.19209e-07, 0.0899162, 0)
+
+[node name="Roadblock_Rose2" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(3.75471, 0, 6.13266, 0, 9.54134, 0, -6.13266, 0, 3.75471, -320.507, 1.85081, 15.2815)
+
+[node name="HurtArea" parent="thorntunnel_roses/Roadblock_Rose2" index="2"]
+transform = Transform3D(0.743977, 0, 0, 0, 1.03501, 0, -2.38419e-07, 0, 0.660904, -0.490487, 0, -0.168958)
+
+[node name="BoneAttachment3D" parent="thorntunnel_roses/Roadblock_Rose2" index="3"]
+transform = Transform3D(-1.19014, -0.439797, -0.560997, -0.348971, 1.31147, -0.287805, 0.621578, -0.105787, -1.23573, -0.454517, 2.89968, -0.288284)
+
+[node name="CollisionShape3D" parent="thorntunnel_roses/Roadblock_Rose2/BoneAttachment3D/StaticBody3D" index="0"]
+transform = Transform3D(1, 5.96046e-08, 5.96046e-08, -2.98023e-08, 1, 0, 0, 1.30385e-08, 1, 1.19209e-07, 0.0899162, 0)
+
+[node name="Roadblock_Rose4" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(4.2432, 0, 6.93051, 5.65933, 6.22408, -3.46491, -4.00051, 8.80492, 2.4493, -248.288, 35.1883, -3.95108)
+
+[node name="Roadblock_Rose12" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(4.79081, 0, 7.82494, 6.3897, 7.02734, -3.91208, -4.5168, 9.94125, 2.7654, -309.957, 35.1883, 0.624994)
+
+[node name="Roadblock_Rose13" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(1.09261, 4.2031, 6.0729, 4.83036, 5.3124, -2.95738, -4.85609, 6.22994, -1.57533, -313.503, 11.952, 11.1768)
+
+[node name="Roadblock_Rose14" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(1.10179, 1.85433, 3.69151, 2.85398, 3.13879, -1.74735, -2.72673, 4.03457, -0.337265, -308.01, 36.5436, 9.35819)
+
+[node name="Roadblock_Rose10" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(2.45122, 5.52815, 6.53226, 7.07951, 2.09542, -3.66379, -3.14781, 9.01745, -3.15324, -179.157, 39.305, -5.9227)
+
+[node name="Roadblock_Rose11" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(2.1025, -0.969255, 3.74779, 3.68161, -0.990862, -2.21092, 1.01257, 5.61521, 0.256775, -239.131, 39.305, 4.95535)
+
+[node name="Roadblock_Rose5" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(5.91933, 3.09364, 3.35156, 2.03409, 4.55659, -5.9814, -3.53996, 7.79128, 2.16733, -212.607, 48.7242, 0.58869)
+
+[node name="Roadblock_Rose6" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(5.10029, -0.971871, 1.31394, 1.50419, 3.36955, -4.42318, -0.018229, 6.12248, 2.6429, -247.865, 72.4974, 6.89364)
+
+[node name="Roadblock_Rose7" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(4.61321, 1.33802, 2.44487, 2.28055, 1.2902, -4.7042, -1.33915, 6.80649, 0.411089, -224.907, 72.4974, 4.94983)
+
+[node name="Roadblock_Rose8" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(5.63839, 1.63536, 2.98819, 1.92516, 4.70504, -5.09509, -2.59655, 7.03964, 2.71119, -224.907, 95.8377, -2.16906)
+
+[node name="Roadblock_Rose9" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(6.47771, 1.8788, 3.43301, 2.97857, 2.84121, -6.50341, -2.21779, 9.30346, 1.29281, -248.154, 95.8377, -2.16906)
+
+[node name="Roadblock_Rose3" parent="thorntunnel_roses" instance=ExtResource("2_gavlq")]
+transform = Transform3D(-7.99692, -1.02741, 4.9814, 4.91445, 1.17324, 8.02689, -1.1234, 12.4461, -0.345456, -234.03, 33.7522, -18.4097)
+
+[node name="Skeleton3D" parent="thorntunnel_roses/Roadblock_Rose3/rose_obstacle/Armature" index="0"]
+bones/31/position = Vector3(4.80365e-07, 0.368024, -2.48705e-06)
+bones/31/rotation = Quaternion(-0.178591, 0.0124373, -0.145583, 0.973014)
+bones/32/position = Vector3(4.08365e-07, 0.368026, -4.53894e-07)
+bones/32/rotation = Quaternion(-0.115155, -0.0144923, -0.0476872, 0.992096)
+
+[node name="HurtArea" parent="thorntunnel_roses/Roadblock_Rose3" index="2"]
+transform = Transform3D(0.743977, 0, 0, 0, 1.03501, 0, -2.38419e-07, 0, 0.660904, -0.490487, 0, -0.168958)
+
+[node name="BoneAttachment3D" parent="thorntunnel_roses/Roadblock_Rose3" index="3"]
+transform = Transform3D(-1.28044, -0.0464002, -0.53187, -0.245526, 1.2784, 0.479562, 0.474084, 0.536759, -1.18816, -0.350948, 2.91766, -0.119112)
+
+[node name="CollisionShape3D" parent="thorntunnel_roses/Roadblock_Rose3/BoneAttachment3D/StaticBody3D" index="0"]
+transform = Transform3D(1, 5.96046e-08, 5.96046e-08, -2.98023e-08, 1, 0, 0, 1.30385e-08, 1, 1.19209e-07, 0.0899162, 0)
+
+[node name="stone_roadblock19" parent="." instance=ExtResource("3_pjfwy")]
+transform = Transform3D(6.74526, 1.18645, -0.434347, 1.07274, -3.79702, 5.48973, 0.737854, -5.32586, -4.01057, -407.007, -9.08421, 0.0742255)
+
+[node name="thorntunnel_vines" type="Node3D" parent="."]
+
+[node name="berry_vine6" parent="thorntunnel_vines" instance=ExtResource("4_hvqxx")]
+transform = Transform3D(7.583, 0, 0, 0, 3.10398, -6.91861, 0, 6.91861, 3.10398, -242.178, 40.0801, 4.89893)
+
+[node name="Skeleton3D" parent="thorntunnel_vines/berry_vine6/berry_vine/posable_thorny_vines_armature" index="0"]
+bones/2/rotation = Quaternion(-0.249782, -0.0551373, -0.0817413, 0.963269)
+bones/3/position = Vector3(1.0865e-06, 1.51346, 2.09563e-07)
+bones/3/rotation = Quaternion(-0.318108, -0.137005, -0.227268, 0.910157)
+bones/4/position = Vector3(3.11846e-06, 1.51346, 3.92348e-07)
+bones/4/rotation = Quaternion(-0.0480089, 0.037003, -0.143102, 0.98785)
+bones/5/position = Vector3(6.13918e-07, 1.51346, 5.72123e-07)
+bones/5/rotation = Quaternion(0.00174255, -0.0103281, 0.0885552, 0.996016)
+bones/6/position = Vector3(1.91481e-06, 1.51346, -8.31267e-08)
+bones/6/rotation = Quaternion(0.00664129, -0.0393623, 0.337502, 0.940478)
+bones/7/position = Vector3(-3.30381e-07, 1.51346, 7.68151e-07)
+bones/7/rotation = Quaternion(0.0031324, -0.0185655, 0.159185, 0.987069)
+bones/8/position = Vector3(3.88956e-07, 1.51346, 1.26358e-07)
+bones/8/rotation = Quaternion(0.00533861, -0.0316418, 0.271304, 0.961959)
+bones/9/position = Vector3(-4.75808e-07, 1.51346, 1.23936e-06)
+bones/9/rotation = Quaternion(0.00674684, -0.0399881, 0.342867, 0.938508)
+bones/9/scale = Vector3(1, 0.999999, 1)
+bones/10/position = Vector3(1.58664e-06, 1.51346, -2.55361e-07)
+bones/10/rotation = Quaternion(0.0534658, 0.0606148, -0.290948, 0.953319)
+bones/11/position = Vector3(1.29222e-06, 1.51346, 4.99071e-07)
+bones/11/rotation = Quaternion(0.020068, 0.0055809, -0.302985, 0.952768)
+
+[node name="posable_thorny_vines" parent="thorntunnel_vines/berry_vine6/berry_vine/posable_thorny_vines_armature/Skeleton3D" index="0"]
+material_override = ExtResource("5_r4m50")
+
+[node name="berry_vine7" parent="thorntunnel_vines" instance=ExtResource("4_hvqxx")]
+transform = Transform3D(5.05836, -2.31246, 5.15436, 5.64732, 1.8857, -4.69614, 0.150346, 6.97126, 2.98005, -206.383, 40.0801, 4.89893)
+
+[node name="Skeleton3D" parent="thorntunnel_vines/berry_vine7/berry_vine/posable_thorny_vines_armature" index="0"]
+bones/2/rotation = Quaternion(-0.249782, -0.0551373, -0.0817413, 0.963269)
+bones/3/position = Vector3(1.0865e-06, 1.51346, 2.09563e-07)
+bones/3/rotation = Quaternion(-0.318108, -0.137005, -0.227268, 0.910157)
+bones/4/position = Vector3(2.15852e-06, 1.51346, 1.68312e-07)
+bones/4/rotation = Quaternion(0.00222843, 0.0379166, -0.145173, 0.988677)
+bones/5/position = Vector3(6.13918e-07, 1.51346, 5.72123e-07)
+bones/5/rotation = Quaternion(0.00174255, -0.0103281, 0.0885552, 0.996016)
+bones/6/position = Vector3(1.45326e-06, 1.51346, -2.74116e-06)
+bones/6/rotation = Quaternion(-0.205753, 0.0290991, 0.395889, 0.894478)
+bones/7/position = Vector3(-4.13985e-07, 1.51346, 2.21102e-07)
+bones/7/rotation = Quaternion(-0.0900224, -0.0738244, 0.116344, 0.986362)
+bones/8/position = Vector3(3.88956e-07, 1.51346, 1.26358e-07)
+bones/8/rotation = Quaternion(0.00533861, -0.0316418, 0.271304, 0.961959)
+bones/9/position = Vector3(-2.3761e-06, 1.51346, -1.22841e-06)
+bones/9/rotation = Quaternion(0.482763, -0.134691, 0.390133, 0.772395)
+bones/9/scale = Vector3(1, 0.999999, 1)
+bones/10/position = Vector3(4.46589e-07, 1.51346, 8.3653e-07)
+bones/10/rotation = Quaternion(-0.319107, 0.408897, 0.171733, 0.837545)
+bones/10/scale = Vector3(1, 0.999999, 1)
+bones/11/position = Vector3(1.59589e-06, 1.51347, -3.19881e-06)
+bones/11/rotation = Quaternion(-0.510115, -0.293282, -0.0179334, 0.80836)
+bones/11/scale = Vector3(1, 0.999999, 1)
+
+[node name="posable_thorny_vines" parent="thorntunnel_vines/berry_vine7/berry_vine/posable_thorny_vines_armature/Skeleton3D" index="0"]
+material_override = ExtResource("5_r4m50")
+
+[node name="berry_vine" parent="thorntunnel_vines" instance=ExtResource("4_hvqxx")]
+transform = Transform3D(8.84514, 0, 0, 0, 8.84514, 0, 0, 0, 8.84514, -320.628, 4.68705, 26.8869)
+
+[node name="Skeleton3D" parent="thorntunnel_vines/berry_vine/berry_vine/posable_thorny_vines_armature" index="0"]
+bones/0/position = Vector3(-0.321278, 0, 0)
+bones/0/rotation = Quaternion(-0.0623441, 0.00534532, -0.0852582, 0.994392)
+bones/1/position = Vector3(-1.83092e-06, 1, 5.01158e-09)
+bones/1/rotation = Quaternion(0.025672, 0.021179, -0.108725, 0.993515)
+bones/2/position = Vector3(-1.52228e-06, 1.51346, -8.89371e-08)
+bones/2/rotation = Quaternion(-0.00210637, -0.00780331, 0.102709, 0.994679)
+bones/3/position = Vector3(1.18354e-07, 1.51346, -5.53651e-08)
+bones/3/rotation = Quaternion(0.186979, 0.0284948, -0.0454371, 0.980899)
+bones/4/position = Vector3(-1.05789e-06, 1.51346, 2.33069e-08)
+bones/4/rotation = Quaternion(-0.0868542, 0.0518385, 0.186057, 0.977319)
+bones/5/position = Vector3(-5.32381e-07, 1.51346, -3.64529e-08)
+bones/5/rotation = Quaternion(-0.467504, 0.0401578, -0.244839, 0.848458)
+bones/6/position = Vector3(2.81226e-06, 1.51346, 1.95671e-06)
+bones/6/rotation = Quaternion(0.045592, -0.17786, 0.155842, 0.970567)
+bones/7/position = Vector3(3.30107e-06, 1.51346, 4.17551e-07)
+bones/7/rotation = Quaternion(0.00204125, -0.25761, 0.258258, 0.931094)
+bones/8/position = Vector3(-1.17718e-07, 1.51346, 9.55216e-08)
+bones/8/rotation = Quaternion(-0.0025351, 0.319925, -0.32073, 0.891501)
+bones/9/position = Vector3(-1.03387e-06, 1.51346, 6.15722e-07)
+bones/9/rotation = Quaternion(-0.00161788, 0.204175, -0.204689, 0.957294)
+bones/10/position = Vector3(4.28238e-07, 1.51346, 1.10272e-06)
+bones/10/rotation = Quaternion(0.219323, 0.125085, 0.123037, 0.959746)
+bones/11/position = Vector3(1.39631e-06, 1.51346, 7.83313e-07)
+bones/11/rotation = Quaternion(0.00711809, 0.562722, -0.186017, 0.805413)
+bones/11/scale = Vector3(1, 1, 0.999999)
+
+[node name="posable_thorny_vines" parent="thorntunnel_vines/berry_vine/berry_vine/posable_thorny_vines_armature/Skeleton3D" index="0"]
+material_override = ExtResource("5_r4m50")
+
+[node name="berry_vine3" parent="thorntunnel_vines" instance=ExtResource("4_hvqxx")]
+transform = Transform3D(-8.84514, 0, 7.73267e-07, 0, 8.84514, 0, -7.73267e-07, 0, -8.84514, -232.986, 0.11245, -13.4181)
+
+[node name="Skeleton3D" parent="thorntunnel_vines/berry_vine3/berry_vine/posable_thorny_vines_armature" index="0"]
+bones/0/position = Vector3(-0.321278, 0, 0)
+bones/0/rotation = Quaternion(-0.0623441, 0.00534532, -0.0852582, 0.994392)
+bones/1/position = Vector3(-1.83092e-06, 1, 5.01158e-09)
+bones/1/rotation = Quaternion(0.025672, 0.021179, -0.108725, 0.993515)
+bones/2/position = Vector3(-1.52228e-06, 1.51346, -8.89371e-08)
+bones/2/rotation = Quaternion(-0.00210637, -0.00780331, 0.102709, 0.994679)
+bones/3/position = Vector3(1.18354e-07, 1.51346, -5.53651e-08)
+bones/3/rotation = Quaternion(0.186979, 0.0284948, -0.0454371, 0.980899)
+bones/4/position = Vector3(-1.05789e-06, 1.51346, 2.33069e-08)
+bones/4/rotation = Quaternion(-0.0868542, 0.0518385, 0.186057, 0.977319)
+bones/5/position = Vector3(-5.32381e-07, 1.51346, -3.64529e-08)
+bones/5/rotation = Quaternion(-0.467504, 0.0401578, -0.244839, 0.848458)
+bones/6/position = Vector3(2.81226e-06, 1.51346, 1.95671e-06)
+bones/6/rotation = Quaternion(0.045592, -0.17786, 0.155842, 0.970567)
+bones/7/position = Vector3(3.30107e-06, 1.51346, 4.17551e-07)
+bones/7/rotation = Quaternion(0.00204125, -0.25761, 0.258258, 0.931094)
+bones/8/position = Vector3(-1.17718e-07, 1.51346, 9.55216e-08)
+bones/8/rotation = Quaternion(-0.0025351, 0.319925, -0.32073, 0.891501)
+bones/9/position = Vector3(-1.03387e-06, 1.51346, 6.15722e-07)
+bones/9/rotation = Quaternion(-0.00161788, 0.204175, -0.204689, 0.957294)
+bones/10/position = Vector3(4.28238e-07, 1.51346, 1.10272e-06)
+bones/10/rotation = Quaternion(0.219323, 0.125085, 0.123037, 0.959746)
+bones/11/position = Vector3(1.39631e-06, 1.51346, 7.83313e-07)
+bones/11/rotation = Quaternion(0.00711809, 0.562722, -0.186017, 0.805413)
+bones/11/scale = Vector3(1, 1, 0.999999)
+
+[node name="posable_thorny_vines" parent="thorntunnel_vines/berry_vine3/berry_vine/posable_thorny_vines_armature/Skeleton3D" index="0"]
+material_override = ExtResource("5_r4m50")
+
+[node name="berry_vine4" parent="thorntunnel_vines" instance=ExtResource("4_hvqxx")]
+transform = Transform3D(-7.363, 4.20216, -2.52281, 4.38428, 7.6821, -3.83286e-07, 2.19109, -1.25048, -8.47773, -259.418, 0.11245, -13.4181)
+
+[node name="Skeleton3D" parent="thorntunnel_vines/berry_vine4/berry_vine/posable_thorny_vines_armature" index="0"]
+bones/0/position = Vector3(-0.321278, 0, 0)
+bones/0/rotation = Quaternion(-0.0623441, 0.00534532, -0.0852582, 0.994392)
+bones/1/position = Vector3(-1.83092e-06, 1, 5.01158e-09)
+bones/1/rotation = Quaternion(0.025672, 0.021179, -0.108725, 0.993515)
+bones/2/position = Vector3(-1.52228e-06, 1.51346, -8.89371e-08)
+bones/2/rotation = Quaternion(-0.00210637, -0.00780331, 0.102709, 0.994679)
+bones/3/position = Vector3(1.18354e-07, 1.51346, -5.53651e-08)
+bones/3/rotation = Quaternion(0.186979, 0.0284948, -0.0454371, 0.980899)
+bones/4/position = Vector3(-1.05789e-06, 1.51346, 2.33069e-08)
+bones/4/rotation = Quaternion(-0.0868542, 0.0518385, 0.186057, 0.977319)
+bones/5/position = Vector3(-5.32381e-07, 1.51346, -3.64529e-08)
+bones/5/rotation = Quaternion(-0.467504, 0.0401578, -0.244839, 0.848458)
+bones/6/position = Vector3(2.81226e-06, 1.51346, 1.95671e-06)
+bones/6/rotation = Quaternion(0.045592, -0.17786, 0.155842, 0.970567)
+bones/7/position = Vector3(3.30107e-06, 1.51346, 4.17551e-07)
+bones/7/rotation = Quaternion(0.00204125, -0.25761, 0.258258, 0.931094)
+bones/8/position = Vector3(-1.17718e-07, 1.51346, 9.55216e-08)
+bones/8/rotation = Quaternion(-0.0025351, 0.319925, -0.32073, 0.891501)
+bones/9/position = Vector3(-1.03387e-06, 1.51346, 6.15722e-07)
+bones/9/rotation = Quaternion(-0.00161788, 0.204175, -0.204689, 0.957294)
+bones/10/position = Vector3(4.28238e-07, 1.51346, 1.10272e-06)
+bones/10/rotation = Quaternion(0.219323, 0.125085, 0.123037, 0.959746)
+bones/11/position = Vector3(1.39631e-06, 1.51346, 7.83313e-07)
+bones/11/rotation = Quaternion(0.00711809, 0.562722, -0.186017, 0.805413)
+bones/11/scale = Vector3(1, 1, 0.999999)
+
+[node name="posable_thorny_vines" parent="thorntunnel_vines/berry_vine4/berry_vine/posable_thorny_vines_armature/Skeleton3D" index="0"]
+material_override = ExtResource("5_r4m50")
+
+[node name="berry_vine5" parent="thorntunnel_vines" instance=ExtResource("4_hvqxx")]
+transform = Transform3D(6.54501, -3.73533, 4.63105, 4.38428, 7.6821, -3.12402e-07, -4.02211, 2.29548, 7.53591, -211.103, 0.11245, -11.4401)
+
+[node name="Skeleton3D" parent="thorntunnel_vines/berry_vine5/berry_vine/posable_thorny_vines_armature" index="0"]
+bones/0/position = Vector3(-0.321278, 0, 0)
+bones/0/rotation = Quaternion(-0.0623441, 0.00534532, -0.0852582, 0.994392)
+bones/1/position = Vector3(-1.83092e-06, 1, 5.01158e-09)
+bones/1/rotation = Quaternion(0.025672, 0.021179, -0.108725, 0.993515)
+bones/2/position = Vector3(-1.52228e-06, 1.51346, -8.89371e-08)
+bones/2/rotation = Quaternion(-0.00210637, -0.00780331, 0.102709, 0.994679)
+bones/3/position = Vector3(1.18354e-07, 1.51346, -5.53651e-08)
+bones/3/rotation = Quaternion(0.186979, 0.0284948, -0.0454371, 0.980899)
+bones/4/position = Vector3(-1.05789e-06, 1.51346, 2.33069e-08)
+bones/4/rotation = Quaternion(-0.0868542, 0.0518385, 0.186057, 0.977319)
+bones/5/position = Vector3(-5.32381e-07, 1.51346, -3.64529e-08)
+bones/5/rotation = Quaternion(-0.467504, 0.0401578, -0.244839, 0.848458)
+bones/6/position = Vector3(2.81226e-06, 1.51346, 1.95671e-06)
+bones/6/rotation = Quaternion(0.045592, -0.17786, 0.155842, 0.970567)
+bones/7/position = Vector3(3.30107e-06, 1.51346, 4.17551e-07)
+bones/7/rotation = Quaternion(0.00204125, -0.25761, 0.258258, 0.931094)
+bones/8/position = Vector3(-1.17718e-07, 1.51346, 9.55216e-08)
+bones/8/rotation = Quaternion(-0.0025351, 0.319925, -0.32073, 0.891501)
+bones/9/position = Vector3(-1.03387e-06, 1.51346, 6.15722e-07)
+bones/9/rotation = Quaternion(-0.00161788, 0.204175, -0.204689, 0.957294)
+bones/10/position = Vector3(4.28238e-07, 1.51346, 1.10272e-06)
+bones/10/rotation = Quaternion(0.219323, 0.125085, 0.123037, 0.959746)
+bones/11/position = Vector3(1.39631e-06, 1.51346, 7.83313e-07)
+bones/11/rotation = Quaternion(0.00711809, 0.562722, -0.186017, 0.805413)
+bones/11/scale = Vector3(1, 1, 0.999999)
+
+[node name="posable_thorny_vines" parent="thorntunnel_vines/berry_vine5/berry_vine/posable_thorny_vines_armature/Skeleton3D" index="0"]
+material_override = null
+
+[node name="berry_vine8" parent="thorntunnel_vines" instance=ExtResource("4_hvqxx")]
+transform = Transform3D(7.82554, 0.191591, 4.11834, 0.905551, 8.53994, -2.11799, -4.02211, 2.29548, 7.53591, -187.321, 0.11245, -11.4401)
+
+[node name="Skeleton3D" parent="thorntunnel_vines/berry_vine8/berry_vine/posable_thorny_vines_armature" index="0"]
+bones/0/position = Vector3(-0.321278, 0, 0)
+bones/0/rotation = Quaternion(-0.0623441, 0.00534532, -0.0852582, 0.994392)
+bones/1/position = Vector3(-1.83092e-06, 1, 5.01158e-09)
+bones/1/rotation = Quaternion(0.025672, 0.021179, -0.108725, 0.993515)
+bones/2/position = Vector3(-1.52228e-06, 1.51346, -8.89371e-08)
+bones/2/rotation = Quaternion(-0.00210637, -0.00780331, 0.102709, 0.994679)
+bones/3/position = Vector3(1.18354e-07, 1.51346, -5.53651e-08)
+bones/3/rotation = Quaternion(0.186979, 0.0284948, -0.0454371, 0.980899)
+bones/4/position = Vector3(-1.05789e-06, 1.51346, 2.33069e-08)
+bones/4/rotation = Quaternion(-0.0868542, 0.0518385, 0.186057, 0.977319)
+bones/5/position = Vector3(-5.32381e-07, 1.51346, -3.64529e-08)
+bones/5/rotation = Quaternion(-0.467504, 0.0401578, -0.244839, 0.848458)
+bones/6/position = Vector3(2.81226e-06, 1.51346, 1.95671e-06)
+bones/6/rotation = Quaternion(0.045592, -0.17786, 0.155842, 0.970567)
+bones/7/position = Vector3(3.30107e-06, 1.51346, 4.17551e-07)
+bones/7/rotation = Quaternion(0.00204125, -0.25761, 0.258258, 0.931094)
+bones/8/position = Vector3(-1.17718e-07, 1.51346, 9.55216e-08)
+bones/8/rotation = Quaternion(-0.0025351, 0.319925, -0.32073, 0.891501)
+bones/9/position = Vector3(-1.03387e-06, 1.51346, 6.15722e-07)
+bones/9/rotation = Quaternion(-0.00161788, 0.204175, -0.204689, 0.957294)
+bones/10/position = Vector3(4.28238e-07, 1.51346, 1.10272e-06)
+bones/10/rotation = Quaternion(0.219323, 0.125085, 0.123037, 0.959746)
+bones/11/position = Vector3(1.39631e-06, 1.51346, 7.83313e-07)
+bones/11/rotation = Quaternion(0.00711809, 0.562722, -0.186017, 0.805413)
+bones/11/scale = Vector3(1, 1, 0.999999)
+
+[node name="posable_thorny_vines" parent="thorntunnel_vines/berry_vine8/berry_vine/posable_thorny_vines_armature/Skeleton3D" index="0"]
+material_override = null
+
+[node name="berry_vine2" parent="thorntunnel_vines" instance=ExtResource("4_hvqxx")]
+transform = Transform3D(6.52633, 4.98482, 0.665526, -2.90563, 4.62748, -6.16669, -4.10472, 4.64998, 5.4234, -173.12, 39.4787, 9.34422)
+
+[node name="Skeleton3D" parent="thorntunnel_vines/berry_vine2/berry_vine/posable_thorny_vines_armature" index="0"]
+bones/0/rotation = Quaternion(0.126526, -0.143333, -0.167174, 0.967212)
+bones/1/position = Vector3(0, 0.999999, 4.76837e-07)
+bones/1/rotation = Quaternion(-0.115494, 0.130835, 0.152597, 0.972758)
+bones/2/position = Vector3(1.56848e-06, 1.51346, 6.73956e-07)
+bones/2/rotation = Quaternion(-0.392173, 0.201882, 0.259372, 0.859168)
+bones/3/position = Vector3(1.09362e-06, 1.51346, 8.50834e-07)
+bones/3/rotation = Quaternion(-0.229023, 0.215114, 0.28425, 0.905802)
+bones/4/position = Vector3(2.25437e-06, 1.51346, 3.86788e-06)
+bones/4/rotation = Quaternion(-0.468097, 0.037534, 0.0616938, 0.880722)
+bones/5/position = Vector3(1.25786e-06, 1.51346, -2.27484e-06)
+bones/5/rotation = Quaternion(-0.115096, -0.0303882, 0.0861403, 0.989146)
+bones/6/position = Vector3(1.63997e-07, 1.51346, -7.18661e-07)
+bones/6/rotation = Quaternion(0.156111, -0.118359, 0.166833, 0.966327)
+bones/7/position = Vector3(6.8966e-08, 1.51346, -1.81141e-06)
+bones/7/rotation = Quaternion(0.221717, -0.0905518, -0.27171, 0.932103)
+bones/8/position = Vector3(1.48621e-07, 1.51346, -5.42973e-07)
+bones/8/rotation = Quaternion(-0.119719, -0.0576344, -0.382064, 0.914534)
+bones/8/scale = Vector3(1, 0.999999, 1)
+bones/9/position = Vector3(-6.77754e-07, 1.51346, -5.48125e-07)
+bones/9/rotation = Quaternion(0.239871, 0.210578, -0.422615, 0.848242)
+bones/9/scale = Vector3(1, 0.999999, 1)
+bones/10/position = Vector3(9.68797e-07, 1.51346, -5.47721e-07)
+bones/10/rotation = Quaternion(0.227309, 0.19955, -0.400484, 0.864941)
+bones/10/scale = Vector3(1, 0.999999, 1)
+bones/11/position = Vector3(-2.21416e-08, 1.51346, 4.48197e-07)
+bones/11/rotation = Quaternion(0.128841, 0.113107, -0.226999, 0.958686)
+bones/11/scale = Vector3(1, 0.999999, 1)
+
+[node name="posable_thorny_vines" parent="thorntunnel_vines/berry_vine2/berry_vine/posable_thorny_vines_armature/Skeleton3D" index="0"]
+material_override = ExtResource("5_r4m50")
+
+[node name="thorntunnel_rafflesias" type="Node3D" parent="."]
+
+[node name="rafflesia_jump4" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-3.53847, 1.26173, 1.43433, 0.863308, 4.90485, -0.478946, -1.5305, -0.150411, -3.58629, -404.222, 5.32639, 0.432918)
+
+[node name="rafflesia_jump12" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-3.88664, -0.617083, 0.51287, -0.247554, 4.66812, 1.49348, -0.664278, 1.87085, -3.55734, -368.666, 43.8011, 0.432918)
+
+[node name="rafflesia_jump13" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-3.5924, 0.897379, 1.46569, 1.11922, 4.69341, 0.966716, -1.20436, 1.68488, -3.47353, -391.011, 76.5804, 0.432918)
+
+[node name="rafflesia_jump14" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-3.57851, 1.00547, 1.45725, 1.01218, 4.86535, 0.431436, -1.33352, 0.994762, -3.58308, -358.194, 105.593, 0.432918)
+
+[node name="rafflesia_jump15" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-3.4993, -1.34415, 1.4826, -0.412031, 4.62776, 1.53185, -1.78707, 1.56503, -3.2563, -325.184, 119.377, 0.432918)
+
+[node name="rafflesia_jump16" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-3.4993, -1.34415, 1.4826, -0.669982, 4.8074, 1.03708, -1.70719, 0.868509, -3.44594, -268.25, 116.569, 0.432918)
+knockback = Vector2(0, 40)
+
+[node name="rafflesia_jump6" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-2.16932, -0.605562, 2.40881, -0.560402, 4.17081, 0.128888, -2.42644, -0.421885, -2.18334, -239.544, 3.6328, 0)
+knockback = Vector2(0, 50)
+
+[node name="rafflesia_jump10" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-3.14071, -0.161134, 1.3048, -0.155089, 4.36949, -0.0439002, -1.32135, -0.129858, -3.09622, -266.321, 1.98872, 0)
+
+[node name="rafflesia_jump11" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-3.79594, 2.32087, 5.0745, 1.58762, 4.95406, -2.5084, -5.81451, -0.162476, -3.99775, -294.344, 38.0956, 0.324085)
+knockback = Vector2(0, 120)
+
+[node name="rafflesia_jump7" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(3.46739, 0.757165, 0.173937, -0.597572, 4.44744, 0.137437, -0.15047, -0.214581, 3.46232, -205.912, 3.6328, 0)
+knockback = Vector2(0, 50)
+
+[node name="rafflesia_jump9" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(3.79889, -0.16789, 0.15409, 0.123212, 4.87062, 0.183314, -0.162546, -0.231802, 3.74019, -179.38, 2.83449, 0)
+knockback = Vector2(0, 50)
+
+[node name="rafflesia_jump8" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(2.88976, 0.195205, -1.73617, -0.22666, 4.33433, -0.0785851, 1.75433, 0.238454, 2.84969, -223.185, 3.6328, 0)
+knockback = Vector2(0, 50)
+
+[node name="rafflesia_jump5" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(-2.36897, -1.82821, -0.3358, -1.4583, 3.02337, 0.271878, 0.147229, 0.529828, -2.71013, 74.0119, 69.502, -2.05749)
+
+[node name="rafflesia_jump3" parent="thorntunnel_rafflesias" instance=ExtResource("5_yqmnh")]
+transform = Transform3D(3.53847, -1.26173, -1.43433, 0.863308, 4.90485, -0.478946, 1.5305, 0.150411, 3.58629, -462.95, 5.32639, 0.0742254)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 129
+script = ExtResource("6_788vj")
+knockback = Vector2(0, -30)
+relative_knockback = false
+damage = 25.0
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D"]
+transform = Transform3D(0.964451, 0, 0, 0, 0.964451, 0, 0, 0, 0.964451, -9.0697, 3.7346, 0)
+depth = 80.0
+polygon = PackedVector2Array(-261.806, 115.236, -241.295, 139.453, -235.117, 134.017, -226.714, 128.827, -228.197, 117.46, -217.818, 121.167, -212.382, 115.977, -196.566, 74.4609, -164.934, 58.1509, -140.717, 54.4441, -130.338, 52.7143, -125.148, 24.5426, -252.415, 27.2609, -260.57, 39.3698, -261.806, 65.3174, -257.604, 81.6273, -261.806, 99.9142)
+
+[node name="Area3D2" type="Area3D" parent="."]
+collision_layer = 129
+script = ExtResource("6_788vj")
+knockback = Vector2(0, -30)
+relative_knockback = false
+damage = 25.0
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D2"]
+depth = 80.0
+polygon = PackedVector2Array(-316.661, 117.931, -317.837, 83.4222, -324.112, 84.2065, -326.464, 2.24743, -300.975, -0.497608, -304.896, 60.2855, -304.504, 91.2652, -304.504, 117.147)
+
+[editable path="thorntunnel_thornyvines/thorny_vines74"]
+[editable path="thorntunnel_thornyvines/thorny_vines74/thorny_vines"]
+[editable path="thorntunnel_thornyvines/thorny_vines74/thorny_vines_hitarea"]
+[editable path="thorntunnel_roses/Roadblock_Rose"]
+[editable path="thorntunnel_roses/Roadblock_Rose/rose_obstacle"]
+[editable path="thorntunnel_roses/Roadblock_Rose2"]
+[editable path="thorntunnel_roses/Roadblock_Rose2/rose_obstacle"]
+[editable path="thorntunnel_roses/Roadblock_Rose3"]
+[editable path="thorntunnel_roses/Roadblock_Rose3/rose_obstacle"]
+[editable path="thorntunnel_vines/berry_vine6"]
+[editable path="thorntunnel_vines/berry_vine6/berry_vine"]
+[editable path="thorntunnel_vines/berry_vine7"]
+[editable path="thorntunnel_vines/berry_vine7/berry_vine"]
+[editable path="thorntunnel_vines/berry_vine"]
+[editable path="thorntunnel_vines/berry_vine/berry_vine"]
+[editable path="thorntunnel_vines/berry_vine3"]
+[editable path="thorntunnel_vines/berry_vine3/berry_vine"]
+[editable path="thorntunnel_vines/berry_vine4"]
+[editable path="thorntunnel_vines/berry_vine4/berry_vine"]
+[editable path="thorntunnel_vines/berry_vine5"]
+[editable path="thorntunnel_vines/berry_vine5/berry_vine"]
+[editable path="thorntunnel_vines/berry_vine8"]
+[editable path="thorntunnel_vines/berry_vine8/berry_vine"]
+[editable path="thorntunnel_vines/berry_vine2"]
+[editable path="thorntunnel_vines/berry_vine2/berry_vine"]

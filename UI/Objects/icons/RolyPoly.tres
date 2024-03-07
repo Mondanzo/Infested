@@ -1,0 +1,20 @@
+[gd_resource type="AnimatedTexture" load_steps=6 format=3 uid="uid://bdd7b10lccso5"]
+
+[ext_resource type="Texture2D" uid="uid://20o4f7nhuuxy" path="res://Assets/UI/Sprites/loading_icon/roly_poly/0001.png" id="1_q4f6c"]
+[ext_resource type="Texture2D" uid="uid://b0xtdhud5sm28" path="res://Assets/UI/Sprites/loading_icon/roly_poly/0002.png" id="2_p5uq2"]
+[ext_resource type="Texture2D" uid="uid://d2ld7yohls6ww" path="res://Assets/UI/Sprites/loading_icon/roly_poly/0003.png" id="3_m82wm"]
+[ext_resource type="Texture2D" uid="uid://b83s1hqlgwm4o" path="res://Assets/UI/Sprites/loading_icon/roly_poly/0004.png" id="4_45wtb"]
+[ext_resource type="Texture2D" uid="uid://b8t4ch3o6sak2" path="res://Assets/UI/Sprites/loading_icon/roly_poly/0005.png" id="5_qk2ex"]
+
+[resource]
+frames = 5
+frame_0/texture = ExtResource("1_q4f6c")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_p5uq2")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("3_m82wm")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("4_45wtb")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("5_qk2ex")
+frame_4/duration = 0.1

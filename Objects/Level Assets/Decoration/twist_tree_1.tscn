@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://2a37iaovk20"]
+
+[ext_resource type="PackedScene" uid="uid://0fi73jel3n20" path="res://Assets/Models/twisted_trees/twist_tree_1.glb" id="1_dh3a8"]
+[ext_resource type="PackedScene" uid="uid://dbqa6g5fdectm" path="res://Assets/Models/twisted_trees/twist_tree_1_leaves.glb" id="2_t4esn"]
+
+[node name="twist_tree_1" type="Node3D"]
+
+[node name="twist_tree_1" parent="." instance=ExtResource("1_dh3a8")]
+
+[node name="twist_tree_1_leaves" parent="." instance=ExtResource("2_t4esn")]

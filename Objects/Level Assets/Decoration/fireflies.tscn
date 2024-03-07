@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://o4vtev64dowm"]
+
+[sub_resource type="Gradient" id="Gradient_a4ips"]
+offsets = PackedFloat32Array(0, 0.457831, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gs8t8"]
+gradient = SubResource("Gradient_a4ips")
+
+[sub_resource type="Curve" id="Curve_45dii"]
+max_value = 5.0
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.746429, 0), -22.6263, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6l702"]
+curve = SubResource("Curve_45dii")
+
+[sub_resource type="Curve" id="Curve_axve2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0357143, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5b4qr"]
+curve = SubResource("Curve_axve2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dyvq1"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -0.5
+radial_accel_max = 0.5
+radial_accel_curve = SubResource("CurveTexture_6l702")
+damping_min = 0.2
+damping_max = 0.25
+scale_curve = SubResource("CurveTexture_5b4qr")
+color_ramp = SubResource("GradientTexture1D_gs8t8")
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.0
+turbulence_initial_displacement_min = -1.0
+turbulence_initial_displacement_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjjvj"]
+transparency = 4
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.529412, 0.529412, 0, 1)
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.784314, 0.784314, 0.0941176, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_6gvo7"]
+material = SubResource("StandardMaterial3D_bjjvj")
+radius = 0.1
+height = 0.2
+
+[node name="Fireflies" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 16
+lifetime = 5.0
+preprocess = 2.0
+visibility_aabb = AABB(-2.38104, -2.026, -2.05288, 4.00353, 4.33734, 6.04924)
+process_material = SubResource("ParticleProcessMaterial_dyvq1")
+draw_pass_1 = SubResource("SphereMesh_6gvo7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.330812, 0)
+light_color = Color(0.988235, 0.552941, 0.0705882, 1)
+light_energy = 11.214
+light_indirect_energy = 9.752
+light_volumetric_fog_energy = 10.667
+light_size = 1.0
+shadow_enabled = true

@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpwq25htsvs3t"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/Enemy_Ant.gd" id="1_scf71"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/Idle_State.gd" id="3_r4nq6"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/Chase_State.gd" id="4_4b5nw"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/Run_State.gd" id="5_2pve6"]
+[ext_resource type="Script" path="res://Scripts/Enemy_State/Attack_State.gd" id="6_vq1d4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6phj"]
+size = Vector3(1, 2.03656, 0.998442)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8kpo4"]
+size = Vector3(6.3762, 1, 0.002)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_syeav"]
+size = Vector3(0.627931, 0.634225, 0.002)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5p8a"]
+size = Vector3(1, 2, 1)
+
+[node name="Enemy" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 1.03614, 0)
+collision_layer = 3
+collision_mask = 3
+axis_lock_linear_z = true
+script = ExtResource("1_scf71")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.462358, 0)
+shape = SubResource("BoxShape3D_c6phj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(40, 4)
+
+[node name="StunBar" type="ProgressBar" parent="SubViewport"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -648.0
+offset_right = -536.0
+offset_bottom = -644.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="Idle_State" type="Node" parent="StateMachine"]
+script = ExtResource("3_r4nq6")
+
+[node name="Chase_State" type="Node" parent="StateMachine"]
+script = ExtResource("4_4b5nw")
+
+[node name="Run_State" type="Node" parent="StateMachine"]
+script = ExtResource("5_2pve6")
+
+[node name="Attack_State" type="Node" parent="StateMachine"]
+script = ExtResource("6_vq1d4")
+
+[node name="_Enemy" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Detectors" type="Node3D" parent="_Enemy"]
+transform = Transform3D(2.6575, 0, 0, 0, 4.20864, 0, 0, 0, 1.90739, 0, 0.496427, 0)
+
+[node name="PlayerDetector" type="Area3D" parent="_Enemy/Detectors"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="_Enemy/Detectors/PlayerDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38598, 0, 0)
+shape = SubResource("BoxShape3D_8kpo4")
+
+[node name="AttackZone" type="Area3D" parent="_Enemy/Detectors"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="_Enemy/Detectors/AttackZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0200791, -4.76837e-07, -0.000840813)
+shape = SubResource("BoxShape3D_syeav")
+
+[node name="Hole_Detector" type="RayCast3D" parent="_Enemy/Detectors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.585, 0, 0)
+target_position = Vector3(0, -0.354, 0)
+
+[node name="RayCasts_WALK" type="Node3D" parent="_Enemy/Detectors"]
+
+[node name="RageZone" type="RayCast3D" parent="_Enemy/Detectors/RayCasts_WALK"]
+target_position = Vector3(3, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="_Enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00483429, 0.467, -0.000525355)
+mesh = SubResource("BoxMesh_i5p8a")
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="_Enemy/Detectors/PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="_Enemy/Detectors/PlayerDetector" to="." method="_on_player_detector_body_exited"]
+[connection signal="body_entered" from="_Enemy/Detectors/AttackZone" to="." method="_on_attack_zone_body_entered"]
+[connection signal="body_exited" from="_Enemy/Detectors/AttackZone" to="." method="_on_attack_zone_body_exited"]

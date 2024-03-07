@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsy3isus06abg"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/ShadowCaster.gd" id="1_g3sqm"]
+[ext_resource type="Texture2D" uid="uid://6b7vjvksm8a2" path="res://Assets/Decals/shadowww.png" id="2_ij40g"]
+
+[node name="ShadowCaster" type="RayCast3D"]
+collision_mask = 129
+script = ExtResource("1_g3sqm")
+
+[node name="ShadowDecal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.3689, 0)
+size = Vector3(3, 3, 3)
+texture_albedo = ExtResource("2_ij40g")
+distance_fade_enabled = true
+cull_mask = 2

@@ -1,0 +1,158 @@
+[gd_scene load_steps=12 format=3 uid="uid://tc6p8nh6rwnn"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/Bomb.gd" id="1_axod3"]
+[ext_resource type="Material" uid="uid://d4emgqsjq8tyf" path="res://Assets/Particles/BombParticles.tres" id="2_q11c1"]
+[ext_resource type="Texture2D" uid="uid://xfjth12xt1uy" path="res://Assets/Particles/Textures/dust_cloud_particle.png" id="3_4lddc"]
+[ext_resource type="PackedScene" uid="uid://dfwufppwih0j1" path="res://Assets/Models/moth/moth_silkball_projectile.gltf" id="5_2a4kn"]
+
+[sub_resource type="Animation" id="Animation_lsudf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BombArea/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("moth_silkball_projectile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_023f7"]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BombArea/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("moth_silkball_projectile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkumo"]
+_data = {
+"RESET": SubResource("Animation_lsudf"),
+"explode": SubResource("Animation_023f7")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sikuc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c1htr"]
+radius = 9.93106
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0p14"]
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_4lddc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_khmn3"]
+material = SubResource("StandardMaterial3D_j0p14")
+size = Vector2(1, 1)
+orientation = 2
+
+[node name="Bomb" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 128
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_axod3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tkumo")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_sikuc")
+
+[node name="BombArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BombArea"]
+shape = SubResource("SphereShape3D_c1htr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+emitting = false
+amount = 1200
+one_shot = true
+preprocess = 0.1
+speed_scale = 1.5
+explosiveness = 1.0
+transform_align = 3
+process_material = ExtResource("2_q11c1")
+draw_pass_1 = SubResource("PlaneMesh_khmn3")
+
+[node name="moth_silkball_projectile" parent="." instance=ExtResource("5_2a4kn")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,18 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://db43wtcqj631t"]
+
+[ext_resource type="Texture2D" uid="uid://2itdjbrtyo8s" path="res://Assets/UI/Sprites/loading_icon/TwoBugs/001.png" id="1_hun0q"]
+[ext_resource type="Texture2D" uid="uid://bc8qga2cwou10" path="res://Assets/UI/Sprites/loading_icon/TwoBugs/002.png" id="2_m06qg"]
+[ext_resource type="Texture2D" uid="uid://conubi4au64nu" path="res://Assets/UI/Sprites/loading_icon/TwoBugs/003.png" id="3_wrmlq"]
+[ext_resource type="Texture2D" uid="uid://dcvij3ivcdiaa" path="res://Assets/UI/Sprites/loading_icon/TwoBugs/004.png" id="4_xnttu"]
+
+[resource]
+frames = 4
+speed_scale = 2.0
+frame_0/texture = ExtResource("1_hun0q")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("2_m06qg")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("3_wrmlq")
+frame_2/duration = 0.2
+frame_3/texture = ExtResource("4_xnttu")
+frame_3/duration = 0.2

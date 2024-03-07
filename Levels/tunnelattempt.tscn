@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bit1fsg8lq3qr"]
+
+[ext_resource type="Material" uid="uid://da876abs5shp8" path="res://Assets/Materials/ground.tres" id="1_0boie"]
+[ext_resource type="PackedScene" uid="uid://csbq60jkoknc2" path="res://Objects/Entities/Player.tscn" id="1_u8tmj"]
+[ext_resource type="PackedScene" uid="uid://ci56a5nvs2ymc" path="res://Objects/Utils/CameraRig.tscn" id="2_nulvc"]
+[ext_resource type="Environment" uid="uid://drijv037f8job" path="res://Assets/Misc/custom_environment_rainy.tres" id="4_k41hw"]
+[ext_resource type="CameraAttributesPractical" uid="uid://dpetxvpomqthq" path="res://Assets/Misc/custom_dof.tres" id="5_dp0xq"]
+
+[sub_resource type="Curve3D" id="Curve3D_52syy"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2426.31, 252.476, -19.8778, -40.1779, -0.738861, 0.00012207, 40.1779, 0.738861, -0.00012207, -1885.46, 236.055, -0.00012207, -25.0441, -0.913544, -0.00012207, 25.0441, 0.913544, 0.00012207, -1345.13, 240.047, -0.00012207, -19.0981, -6.24759, -2.53357, 19.0981, 6.24759, 2.53357, -973.956, 234.975, 0.00012207, 0, 0, 0, 0, 0, 0, -577.745, 280.293, 0, -47.749, 6.03659, -6.48499e-05, 47.749, -6.03659, 6.48499e-05, -153.511, 278.607, -9.11591, 0, 0, 0, 0, 0, 0, 623.993, 228.607, -9.11584),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[node name="tunnelattempt" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("ability_container") instance=ExtResource("1_u8tmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 406.467, -53.9722, 0)
+trauma_regress = 0.3
+ability_container = NodePath("..")
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("node_to_track") instance=ExtResource("2_nulvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 414.217, -89.796, 52.3701)
+node_to_track = NodePath("../Player")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1866.09)
+
+[node name="Path3D" type="Path3D" parent="Node3D"]
+transform = Transform3D(1.2296, 0, 0, 0, 1, 0, 0, 0, 1, -25.6358, -268.49, -1854.69)
+curve = SubResource("Curve3D_52syy")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Node3D/Path3D"]
+transform = Transform3D(-0.225348, 0, -1.97005e-08, 0, 0.225348, 0, 1.97005e-08, 0, -0.225348, 509.763, 166.325, -210.436)
+use_collision = true
+collision_layer = 129
+collision_mask = 129
+polygon = PackedVector2Array(-964.549, 458.179, -965.201, 398.187, -886.298, 404.056, -806.744, 394.927, -776.096, 375.364, -757.837, 340.804, -758.49, 229.297, -770.227, 196.041, -793.05, 175.826, -835.436, 177.13, -925.423, 168.653, -957.376, 172.566, -956.724, 101.489, -851.738, 128.224, -778.704, 127.572, -726.537, 157.568, -718.06, 233.21, -718.06, 372.756, -736.971, 413.185, -777.4, 434.704, -867.388, 455.571)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("1_0boie")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_k41hw")
+camera_attributes = ExtResource("5_dp0xq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.213917, 0.976852, 0, -0.976852, -0.213917, -772.972, 159.804, 133.915)
+light_color = Color(0.682353, 0.796078, 0.988235, 1)
+light_energy = 0.2
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.31
+shadow_blur = 8.545
+directional_shadow_fade_start = 0.537

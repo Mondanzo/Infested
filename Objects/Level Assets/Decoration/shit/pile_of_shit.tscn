@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxeeau4vdckv7"]
+
+[ext_resource type="PackedScene" uid="uid://bknpbuvqjyc1a" path="res://Assets/Models/Decoration/poop/shit_poop.glb" id="1_nnyuh"]
+[ext_resource type="PackedScene" uid="uid://davu73ysl8lqm" path="res://Objects/Entities/Enemy_Fly.tscn" id="2_h3xe8"]
+[ext_resource type="Script" path="res://Scripts/Utils/FLY_Path_Fallow.gd" id="3_brqrc"]
+
+[sub_resource type="Curve3D" id="Curve3D_s484c"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.941951, 14.418, -23.8369, 7.9653, -0.618488, -6.49418, -7.9653, 0.618488, 6.49418, -14.2519, 17.6624, -19.281, 1.25023, -1.86969, -6.97571, -1.25023, 1.86969, 6.97571, -33.3214, 6.7985, 0.389608, -8.81252, -0.564861, 2.98521, 8.81252, 0.564861, -2.98521, -20.2803, -3.17999, 20.5577, -14.9343, 4.15987, 3.57251, 14.9343, -4.15987, -3.57251, -3.65263, -15.4155, 29.5789, -7.28472, 1.50007, 10.9933, 7.28472, -1.50007, -10.9933, 11.5148, -1.08513, 28.3896, -8.81028, -5.29172, 10.4891, 8.81028, 5.29172, -10.4891, 28.4331, 6.92507, 7.80087, 0, 0, 0, 0, 0, 0, -1.00363, 14.2824, -23.9631),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[node name="pile_of_shit" type="Node3D"]
+
+[node name="shit_poop" parent="." instance=ExtResource("1_nnyuh")]
+transform = Transform3D(17.6406, -2.73911, 0, 2.73911, 17.6406, 0, 0, 0, 17.852, 0, 2.63699, 0)
+
+[node name="Enemy_FLY" parent="." node_paths=PackedStringArray("target", "IDLE_target") instance=ExtResource("2_h3xe8")]
+transform = Transform3D(-0.00396184, 0, 0.999992, 0, 1, 0, -0.999992, 0, -0.00396184, 3.46248, 43.3588, -23.7027)
+target = NodePath("../../../Player")
+IDLE_target = NodePath("../Path3D/PathFollow3D")
+move_speed = 65.0
+run_speed = 30.0
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.90347, -0.428651, 0, 0.428651, -0.90347, 3.20047, 23.4585, -2.65025)
+curve = SubResource("Curve3D_s484c")
+script = ExtResource("3_brqrc")
+procent_per_second = 0.15
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.323849, 0.212612, -0.921909, 0, 0.974422, 0.224723, 0.946108, -0.0727763, 0.315566, -0.941951, 14.418, -23.8369)
+
+[node name="Enemy_FLY2" parent="." node_paths=PackedStringArray("target", "IDLE_target") instance=ExtResource("2_h3xe8")]
+transform = Transform3D(-0.776706, 0, -0.629863, -0.248463, 0.918908, 0.306388, 0.578786, 0.394471, -0.713722, -11.3506, 32.4931, 24.887)
+target = NodePath("../../../Player")
+IDLE_target = NodePath("../Path3D2/PathFollow3D")
+move_speed = 45.0
+run_speed = 30.0
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(0.679442, 0.204365, -0.704694, -0.160277, -0.895895, -0.414347, -0.71601, 0.394471, -0.575954, 3.37687, 33.2898, -7.81578)
+curve = SubResource("Curve3D_s484c")
+script = ExtResource("3_brqrc")
+procent_per_second = 0.15
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(0.323849, 0.212612, -0.921909, 0, 0.974422, 0.224723, 0.946108, -0.0727763, 0.315566, -0.941951, 14.418, -23.8369)
+
+[node name="Enemy_FLY3" parent="." node_paths=PackedStringArray("target", "IDLE_target") instance=ExtResource("2_h3xe8")]
+transform = Transform3D(-0.639959, -0.32274, -0.697346, -0.505429, 0.860367, 0.0656482, 0.578786, 0.394471, -0.713722, -26.3408, 12.7115, 24.887)
+target = NodePath("../../../Player")
+IDLE_target = NodePath("../Path3D3/PathFollow3D")
+move_speed = 55.0
+run_speed = 30.0
+
+[node name="Path3D3" type="Path3D" parent="."]
+transform = Transform3D(-0.0185585, -0.000453542, 1.38831, -0.0694776, 0.018625, 0.032685, -1.31323, -0.000978962, -0.0213487, -4.67404, 11.5064, -4.01154)
+curve = SubResource("Curve3D_s484c")
+script = ExtResource("3_brqrc")
+procent_per_second = 0.15
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(0.323849, 0.212612, -0.921909, 0, 0.974422, 0.224723, 0.946108, -0.0727763, 0.315566, -0.941951, 14.418, -23.8369)
+
+[node name="Enemy_FLY4" parent="." node_paths=PackedStringArray("target", "IDLE_target") instance=ExtResource("2_h3xe8")]
+transform = Transform3D(0.892743, 0, -0.450566, 0, 1, 0, 0.450566, 0, 0.892743, 17.3123, 43.3588, 12.9715)
+target = NodePath("../../../Player")
+IDLE_target = NodePath("../Path3D4/PathFollow3D")
+move_speed = 35.0
+run_speed = 30.0
+
+[node name="Path3D4" type="Path3D" parent="."]
+transform = Transform3D(-0.454099, 0, -0.890951, 0, 1, 0, 0.890951, 0, -0.454099, -3.68661, 37.9358, 1.97474)
+curve = SubResource("Curve3D_s484c")
+script = ExtResource("3_brqrc")
+procent_per_second = 0.15
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D4"]
+transform = Transform3D(0.323849, 0.212612, -0.921909, 0, 0.974422, 0.224723, 0.946108, -0.0727763, 0.315566, -0.941951, 14.418, -23.8369)
+
+[node name="Enemy_FLY5" parent="." node_paths=PackedStringArray("target", "IDLE_target") instance=ExtResource("2_h3xe8")]
+transform = Transform3D(-0.162968, -0.351455, 0.921912, -0.248463, 0.918908, 0.306388, -0.954834, -0.179129, -0.237076, -19.2521, 32.4931, -22.2907)
+target = NodePath("../../../Player")
+IDLE_target = NodePath("../Path3D5/PathFollow3D")
+move_speed = 72.0
+run_speed = 30.0
+
+[node name="Path3D5" type="Path3D" parent="."]
+transform = Transform3D(0.92255, -0.351455, 0.159314, 0.30737, 0.918908, 0.247247, -0.233291, -0.179129, 0.955766, -13.8117, 33.2898, 1.39601)
+curve = SubResource("Curve3D_s484c")
+script = ExtResource("3_brqrc")
+procent_per_second = 0.15
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D5"]
+transform = Transform3D(0.323849, 0.212612, -0.921909, 0, 0.974422, 0.224723, 0.946108, -0.0727763, 0.315566, -0.941951, 14.418, -23.8369)
+
+[node name="Enemy_FLY6" parent="." node_paths=PackedStringArray("target", "IDLE_target") instance=ExtResource("2_h3xe8")]
+transform = Transform3D(-0.225065, -0.204899, 0.952555, -0.505429, 0.860367, 0.0656482, -0.832999, -0.466674, -0.2972, -12.4451, 12.7115, -35.6462)
+target = NodePath("../../../Player")
+IDLE_target = NodePath("../Path3D6/PathFollow3D")
+move_speed = 27.0
+run_speed = 30.0
+
+[node name="Path3D6" type="Path3D" parent="."]
+transform = Transform3D(1.17845, 0.00107816, -0.61141, -0.0694776, 0.018625, 0.032685, 0.579804, 4.04618e-05, 1.24661, 3.46328, 11.5064, -3.21943)
+curve = SubResource("Curve3D_s484c")
+script = ExtResource("3_brqrc")
+procent_per_second = 0.15
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D6"]
+transform = Transform3D(0.323849, 0.212612, -0.921909, 0, 0.974422, 0.224723, 0.946108, -0.0727763, 0.315566, -0.941951, 14.418, -23.8369)

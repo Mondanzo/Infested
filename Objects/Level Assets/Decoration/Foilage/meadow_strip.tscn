@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnapm8jwi3j7t"]
+
+[ext_resource type="PackedScene" uid="uid://c61qioy0pbrt3" path="res://Objects/Level Assets/Decoration/Foilage/meadow.tscn" id="1_keksb"]
+
+[node name="meadow_strip" type="Node3D"]
+
+[node name="meadow" parent="." instance=ExtResource("1_keksb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.02891, 0, 1.32398e-07)
+
+[node name="meadow2" parent="." instance=ExtResource("1_keksb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8169, 0, 0)
+
+[node name="meadow3" parent="." instance=ExtResource("1_keksb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55.3354, 0, 5.36119)
+
+[node name="meadow4" parent="." instance=ExtResource("1_keksb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.8865, 0, 0)

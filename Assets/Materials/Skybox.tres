@@ -1,0 +1,7 @@
+[gd_resource type="PanoramaSkyMaterial" load_steps=2 format=3 uid="uid://caxfonqkyesum"]
+
+[ext_resource type="Texture2D" uid="uid://dq676ybd84de" path="res://Assets/Sprites/backgrounds/skybox_sunny_3.hdr" id="1_cjpmq"]
+
+[resource]
+panorama = ExtResource("1_cjpmq")
+filter = false

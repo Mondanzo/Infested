@@ -1,0 +1,189 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgsd5b4xo0wt3"]
+
+[ext_resource type="Script" path="res://Scripts/Collectible.gd" id="1_82loe"]
+[ext_resource type="Material" uid="uid://c4sgw2dxaj7uh" path="res://Assets/Particles/Collectible.tres" id="2_h6njd"]
+[ext_resource type="AudioStream" uid="uid://byytkthfdaxwt" path="res://Assets/Audio/Sounds/Collectibles/s_plop.wav" id="3_gqqyn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17kgb"]
+size = Vector3(2.05291, 2.32257, 2.01248)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gd2uu"]
+transparency = 4
+blend_mode = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.717647, 0.309804, 0.717647, 0.741176)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_oodc4"]
+material = SubResource("StandardMaterial3D_gd2uu")
+radius = 0.05
+height = 0.1
+radial_segments = 4
+rings = 10
+
+[sub_resource type="Animation" id="Animation_bw6u7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticlesAttractorBox3D:strength")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D:layers")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
+[sub_resource type="Animation" id="Animation_76v0w"]
+resource_name = "destroy"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticlesAttractorBox3D:strength")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles3D:layers")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_gqqyn")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7p6cb"]
+_data = {
+"RESET": SubResource("Animation_bw6u7"),
+"destroy": SubResource("Animation_76v0w")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoh5y"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.498039, 0, 0.498039, 1)
+
+[node name="Collectible" type="Area3D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_82loe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_17kgb")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0470577, 0)
+layers = 16
+cast_shadow = 0
+amount = 2048
+lifetime = 5.0
+process_material = ExtResource("2_h6njd")
+draw_pass_1 = SubResource("SphereMesh_oodc4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7p6cb")
+}
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-3.66802, -3.36692, -3.87325, 7.33604, 6.73384, 7.7465)
+
+[node name="GPUParticlesAttractorBox3D" type="GPUParticlesAttractorSphere3D" parent="."]
+layers = 2
+attenuation = -0.965936
+cull_mask = 4293918736
+
+[node name="VisibleOnScreenEnabler3D2" type="VisibleOnScreenEnabler3D" parent="."]
+enable_node_path = NodePath("../GPUParticles3D")
+
+[node name="DebugShape" type="CSGSphere3D" parent="."]
+radius = 1.027
+radial_segments = 4
+rings = 2
+material = SubResource("StandardMaterial3D_xoh5y")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="on_body_entered"]

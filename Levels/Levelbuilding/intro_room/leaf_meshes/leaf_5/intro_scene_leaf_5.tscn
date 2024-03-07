@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfv3gehfim3ic"]
+
+[ext_resource type="PackedScene" uid="uid://bh4ggpdov5xkh" path="res://Levels/Levelbuilding/intro_room/leaf_meshes/leaf_5/leaf_5.glb" id="1_vwqdf"]
+[ext_resource type="Material" uid="uid://b5p3n7it7h7cd" path="res://Levels/Levelbuilding/intro_room/leaf_meshes/leaf_5/intro_scene_leaf_5_mat.tres" id="2_3fc7j"]
+
+[node name="leaf_5" instance=ExtResource("1_vwqdf")]
+
+[node name="leaf_52" parent="leaf_armature/Skeleton3D" index="0"]
+material_override = ExtResource("2_3fc7j")

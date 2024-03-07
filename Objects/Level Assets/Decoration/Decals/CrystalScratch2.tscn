@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://da4c6hvhgn1f1"]
+
+[ext_resource type="Texture2D" uid="uid://cgr58pob4m7rr" path="res://Assets/Decals/crystal_scratch_02_decal.png" id="1_sp2sb"]
+
+[node name="CrystalScratch_2" type="Decal"]
+texture_albedo = ExtResource("1_sp2sb")
+cull_mask = 2

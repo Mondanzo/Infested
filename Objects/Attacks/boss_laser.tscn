@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dku4dyol2yaaf"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/BOSS_Laser.gd" id="1_m3nbt"]
+
+[node name="BOSS_Laser" type="Node3D"]
+script = ExtResource("1_m3nbt")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 150, 0)
+collision_mask = 129
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 75.021, 0)
+radius = 0.077
+height = 150.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150.02, 0)
+operation = 2
+size = Vector3(0.45, 0.118, 0.45)

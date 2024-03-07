@@ -1,0 +1,162 @@
+[gd_scene load_steps=9 format=3 uid="uid://c45ieop2ocayq"]
+
+[ext_resource type="Theme" uid="uid://whrxg447a0wk" path="res://Assets/UI/Themes/Infested_UI_Theme.tres" id="1_8ylpd"]
+[ext_resource type="PackedScene" uid="uid://deghqcp5e03fv" path="res://UI/Objects/CustomButton.tscn" id="2_qvxyo"]
+[ext_resource type="PackedScene" uid="uid://6kfepiloqtwq" path="res://UI/Menus/Options/Controls.tscn" id="3_dolu3"]
+[ext_resource type="Texture2D" uid="uid://bh3o8kt0c8wg4" path="res://Assets/UI/Sprites/backgrounds/panel_background.png" id="3_j7qa5"]
+[ext_resource type="PackedScene" uid="uid://dm6kqc32no8g2" path="res://UI/Menus/Options/DisplaySettings.tscn" id="4_ojik8"]
+[ext_resource type="PackedScene" uid="uid://0w808c0ict5l" path="res://UI/Menus/Options/AudioSettings.tscn" id="6_fcegf"]
+
+[sub_resource type="GDScript" id="GDScript_t8vsb"]
+script/source = "extends Menu
+
+
+@export var start_menu = \"\"
+
+
+func _ready():
+	change_menu(start_menu)
+
+
+func on_enter():
+	_ready()
+
+
+func change_menu(new_menu):
+	var is_visible = false
+	for menu in %Menus.get_children():
+		menu.visible = menu.name == new_menu
+		if menu.name == new_menu:
+			is_visible = true
+	%OptionsBackgroundContainer.visible = is_visible
+
+func _on_btn_back_pressed():
+	root_menu.change_menu(\"MainMenu\")
+
+
+func _on_btn_controls_pressed():
+	change_menu(\"Controls\")
+
+
+func _on_btn_display_pressed():
+	change_menu(\"DisplaySettings\")
+
+
+func _on_btn_sounds_pressed():
+	change_menu(\"AudioSettings\")
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78ipg"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("3_j7qa5")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.176471, 0.2, 0.0196078, 0)
+
+[node name="Options" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8ylpd")
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+script = SubResource("GDScript_t8vsb")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 2
+vertical = true
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 32
+vertical = true
+
+[node name="Label2" type="MarginContainer" parent="BoxContainer/BoxContainer/BoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="BoxContainer/BoxContainer/BoxContainer/Label2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "Options"
+
+[node name="btnSounds" parent="BoxContainer/BoxContainer/BoxContainer" instance=ExtResource("2_qvxyo")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+label = "Sounds"
+
+[node name="btnDisplay" parent="BoxContainer/BoxContainer/BoxContainer" instance=ExtResource("2_qvxyo")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+label = "Display"
+
+[node name="btnControls" parent="BoxContainer/BoxContainer/BoxContainer" instance=ExtResource("2_qvxyo")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+label = "Controls"
+
+[node name="btnBack" parent="BoxContainer/BoxContainer/BoxContainer" instance=ExtResource("2_qvxyo")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_vertical = 10
+label = "Back to Menu"
+
+[node name="OptionsBackgroundContainer" type="PanelContainer" parent="BoxContainer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_78ipg")
+
+[node name="OptionsSubWindow" type="MarginContainer" parent="BoxContainer/BoxContainer/OptionsBackgroundContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="SubWindowContainer" type="ScrollContainer" parent="BoxContainer/BoxContainer/OptionsBackgroundContainer/OptionsSubWindow"]
+layout_mode = 2
+
+[node name="Menus" type="Control" parent="BoxContainer/BoxContainer/OptionsBackgroundContainer/OptionsSubWindow/SubWindowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Controls" parent="BoxContainer/BoxContainer/OptionsBackgroundContainer/OptionsSubWindow/SubWindowContainer/Menus" instance=ExtResource("3_dolu3")]
+layout_mode = 1
+
+[node name="DisplaySettings" parent="BoxContainer/BoxContainer/OptionsBackgroundContainer/OptionsSubWindow/SubWindowContainer/Menus" instance=ExtResource("4_ojik8")]
+visible = false
+layout_mode = 1
+
+[node name="AudioSettings" parent="BoxContainer/BoxContainer/OptionsBackgroundContainer/OptionsSubWindow/SubWindowContainer/Menus" instance=ExtResource("6_fcegf")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="BoxContainer/BoxContainer/BoxContainer/btnSounds" to="." method="_on_btn_sounds_pressed"]
+[connection signal="pressed" from="BoxContainer/BoxContainer/BoxContainer/btnDisplay" to="." method="_on_btn_display_pressed"]
+[connection signal="pressed" from="BoxContainer/BoxContainer/BoxContainer/btnControls" to="." method="_on_btn_controls_pressed"]
+[connection signal="pressed" from="BoxContainer/BoxContainer/BoxContainer/btnBack" to="." method="_on_btn_back_pressed"]

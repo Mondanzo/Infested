@@ -1,0 +1,45 @@
+[gd_resource type="MeshLibrary" load_steps=7 format=3 uid="uid://c7386yrbejy2w"]
+
+[ext_resource type="Material" uid="uid://cawxjwntk1ltg" path="res://Assets/Materials/Prototyping/PrototypingUnit.tres" id="1_10b6f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uhfap"]
+material = ExtResource("1_10b6f")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2b2oq"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_7w73b"]
+material = ExtResource("1_10b6f")
+left_to_right = 1.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_sy1f6"]
+material = ExtResource("1_10b6f")
+left_to_right = 0.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n6t78"]
+points = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[resource]
+item/0/name = "1 Unit"
+item/0/mesh = SubResource("BoxMesh_uhfap")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = [SubResource("BoxShape3D_2b2oq"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+item/1/name = "1 Unit Slope Right"
+item/1/mesh = SubResource("PrismMesh_7w73b")
+item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/shapes = []
+item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/navigation_layers = 1
+item/2/name = "1 Unit Slope Left"
+item/2/mesh = SubResource("PrismMesh_sy1f6")
+item/2/mesh_transform = Transform3D(0, 1, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0)
+item/2/shapes = [SubResource("ConvexPolygonShape3D_n6t78"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/navigation_layers = 1
+item/3/name = ""
+item/3/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/3/shapes = []
+item/3/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/3/navigation_layers = 1
+metadata/_editor_source_scene = "res://Objects/Prototyping/Block.tscn"

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cfmimjur680ml"]
+
+[ext_resource type="Texture2D" uid="uid://c1i86u8ipa2f0" path="res://Assets/Models/Decoration/godrays/god_ray_albedo.png" id="1_ps5wa"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+diffuse_mode = 3
+albedo_color = Color(0.988235, 0.615686, 0, 0.0470588)
+albedo_texture = ExtResource("1_ps5wa")
+emission_enabled = true
+emission = Color(0.929412, 0.847059, 0.694118, 1)
+emission_energy_multiplier = 0.5

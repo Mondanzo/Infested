@@ -1,0 +1,275 @@
+[gd_scene load_steps=9 format=3 uid="uid://cag5cyt5jrw67"]
+
+[ext_resource type="Theme" uid="uid://whrxg447a0wk" path="res://Assets/UI/Themes/Infested_UI_Theme.tres" id="1_ukwwy"]
+[ext_resource type="Texture2D" uid="uid://dr77gipohaphp" path="res://Assets/Branding/logo.png" id="2_0xtbx"]
+[ext_resource type="PackedScene" uid="uid://deghqcp5e03fv" path="res://UI/Objects/CustomButton.tscn" id="4_hrvfi"]
+
+[sub_resource type="GDScript" id="GDScript_hp1db"]
+script/source = "extends Menu
+
+@export_file(\"*.tscn\") var startScene
+@export_file(\"*.tscn\") var bonusContentScene
+@export_file(\"*.tscn\") var creditsScene = \"res://UI/Menus/Credits.tscn\"
+
+
+func quit_game():
+	get_tree().quit()
+
+
+func on_enter():
+	%ButtonGroup/btnStart.grab_focus()
+	%ButtonGroup/btnContinue.disabled = !SaveLoad.HasSaveGame()
+
+
+func change_scene(new_scene):
+	root_menu.change_menu(new_scene)
+
+
+func _on_btn_quit_pressed():
+	quit_game()
+
+
+func _on_btn_start_pressed():
+	change_scene(startScene)
+
+
+func _on_btn_continue_pressed():
+	change_scene(\"LoadSave\")
+
+
+func _on_btn_options_pressed():
+	root_menu.change_menu(\"Options\")
+
+
+func _on_btn_bonus_content_pressed():
+	change_scene(bonusContentScene)
+
+
+func _on_btn_credits_pressed():
+	change_scene(creditsScene)
+"
+
+[sub_resource type="Animation" id="Animation_nkd0a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1000, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x4cgr"]
+resource_name = "enter"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 3.86374),
+"update": 0,
+"values": [Vector2(-1000, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2nkd"]
+_data = {
+"RESET": SubResource("Animation_nkd0a"),
+"enter": SubResource("Animation_x4cgr")
+}
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t6tpt"]
+size = Vector2(64, 64)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ukwwy")
+script = SubResource("GDScript_hp1db")
+startScene = "res://Levels/Levelbuilding/intro_room/intro_room.tscn"
+bonusContentScene = "res://Levels/Debug/AssetsView.tscn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "enter"
+libraries = {
+"": SubResource("AnimationLibrary_v2nkd")
+}
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HFlowContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HFlowContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="GameLogo" type="TextureRect" parent="HFlowContainer/MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 4
+texture_repeat = 1
+layout_mode = 2
+texture = ExtResource("2_0xtbx")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="HFlowContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LinkWebsite" type="TextureButton" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_t6tpt")
+
+[node name="LinkItchIo" type="TextureButton" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_t6tpt")
+
+[node name="LinkTwitter" type="TextureButton" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_t6tpt")
+
+[node name="Control" type="Control" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonGroup" type="HFlowContainer" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = -1000.0
+offset_right = -400.0
+offset_bottom = 1060.0
+theme_override_constants/v_separation = 34
+
+[node name="btnStart" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup" instance=ExtResource("4_hrvfi")]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../btnContinue")
+focus_next = NodePath("../btnContinue")
+focus_previous = NodePath("../../../../../../../../btn_quit")
+shortcut_in_tooltip = false
+label = "New Game"
+
+[node name="btnContinue" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup" instance=ExtResource("4_hrvfi")]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../btnStart")
+focus_neighbor_bottom = NodePath("../btnOptions")
+focus_next = NodePath("../btnOptions")
+focus_previous = NodePath("../btnStart")
+shortcut_in_tooltip = false
+label = "Continue"
+
+[node name="btnOptions" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup" instance=ExtResource("4_hrvfi")]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../btnContinue")
+focus_neighbor_bottom = NodePath("../btnBonusContent")
+focus_next = NodePath("../btnBonusContent")
+focus_previous = NodePath("../btnContinue")
+shortcut_in_tooltip = false
+label = "Options"
+
+[node name="btnBonusContent" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup" instance=ExtResource("4_hrvfi")]
+visible = false
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../btnOptions")
+focus_neighbor_bottom = NodePath("../../../../../../../../btn_quit")
+focus_next = NodePath("../../../../../../../../btn_quit")
+focus_previous = NodePath("../btnOptions")
+disabled = true
+shortcut_in_tooltip = false
+label = "Bonus Content"
+
+[node name="btnCredits" parent="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup" instance=ExtResource("4_hrvfi")]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../btnOptions")
+focus_neighbor_bottom = NodePath("../../../../../../../../btn_quit")
+focus_next = NodePath("../../../../../../../../btn_quit")
+focus_previous = NodePath("../btnOptions")
+shortcut_in_tooltip = false
+label = "Credits"
+
+[node name="btn_quit" parent="." instance=ExtResource("4_hrvfi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.225
+anchor_top = 1.00926
+anchor_right = 1.225
+anchor_bottom = 1.00926
+offset_left = -450.0
+offset_top = -120.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 2.95978
+focus_neighbor_top = NodePath("../HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup/btnBonusContent")
+focus_neighbor_bottom = NodePath("../HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup/btnStart")
+focus_next = NodePath("../HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup/btnStart")
+focus_previous = NodePath("../HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup/btnBonusContent")
+label = "Quit"
+
+[node name="Label" parent="btn_quit" index="0"]
+anchor_left = 0.583472
+anchor_top = 1.00366
+anchor_right = 0.583472
+anchor_bottom = 1.00366
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 36.0
+offset_bottom = 31.0
+rotation = -3.05352
+text = "Quit"
+
+[connection signal="pressed" from="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup/btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup/btnContinue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup/btnOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup/btnBonusContent" to="." method="_on_btn_bonus_content_pressed"]
+[connection signal="pressed" from="HFlowContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Control/ButtonGroup/btnCredits" to="." method="_on_btn_credits_pressed"]
+[connection signal="pressed" from="btn_quit" to="." method="_on_btn_quit_pressed"]
+
+[editable path="btn_quit"]

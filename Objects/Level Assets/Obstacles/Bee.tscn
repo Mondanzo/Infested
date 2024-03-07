@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdbdx2ij5fghx"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/Bee.gd" id="1_dg524"]
+[ext_resource type="PackedScene" uid="uid://2o8703wis0mk" path="res://Assets/Models/bumblebee/bumblebee_animations.gltf" id="2_jp7mk"]
+[ext_resource type="SphereMesh" uid="uid://cowjxpwxvgftj" path="res://Assets/Particles/DrawPasses/BeePlatform.tres" id="4_10gj4"]
+[ext_resource type="AudioStream" uid="uid://dwhqfd74lx83a" path="res://Assets/Audio/Sounds/Obstacles/bee/bee_flyv2.wav" id="4_w3crl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a2guq"]
+size = Vector3(1, 0.644091, 1.86265)
+
+[sub_resource type="Gradient" id="Gradient_t26vp"]
+offsets = PackedFloat32Array(0, 0.0854271, 0.924623, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6jn75"]
+gradient = SubResource("Gradient_t26vp")
+
+[sub_resource type="Curve" id="Curve_2q4wf"]
+_data = [Vector2(0, 0), 0.0, 11.7614, 0, 0, Vector2(0.26087, 1), 2.68805e-07, 0.0, 0, 0, Vector2(0.56087, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.38528, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4s3e"]
+curve = SubResource("Curve_2q4wf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sfuxk"]
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, -4.4, 0)
+linear_accel_min = -1.0
+linear_accel_max = 1.0
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+scale_curve = SubResource("CurveTexture_m4s3e")
+color_ramp = SubResource("GradientTexture1D_6jn75")
+turbulence_noise_strength = 0.31
+turbulence_noise_scale = 10.0
+
+[node name="Bee" type="PathFollow3D"]
+progress = 350.997
+loop = false
+script = ExtResource("1_dg524")
+slowdown_threshhold = 0.1
+
+[node name="bumblebee" parent="." instance=ExtResource("2_jp7mk")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, 0, 0)
+
+[node name="Skeleton3D" parent="bumblebee/bumblebee_armature" index="0"]
+bones/1/position = Vector3(-1.76126e-14, 0.340076, -0.487657)
+bones/1/rotation = Quaternion(0.71085, -0.00397934, -0.00514122, 0.703314)
+bones/4/rotation = Quaternion(0.538852, -0.152421, 0.0176153, 0.828309)
+bones/7/rotation = Quaternion(0.524729, 0.117798, 0.0271618, 0.842642)
+bones/9/rotation = Quaternion(0.997039, -2.7246e-08, 3.56467e-07, 0.0768962)
+bones/11/rotation = Quaternion(0.545255, 0.478976, -0.68578, 0.054634)
+bones/12/rotation = Quaternion(0.566409, 0.419345, -0.707071, 0.0581458)
+bones/13/rotation = Quaternion(-0.133656, -0.732923, -0.38882, 0.542013)
+bones/14/rotation = Quaternion(-0.670459, -0.735933, 0.0894742, 0.0296895)
+bones/15/rotation = Quaternion(0.839667, 0.539821, -0.0101183, 0.0587347)
+bones/16/rotation = Quaternion(-0.399204, 0.0997412, 0.114311, 0.904224)
+bones/18/rotation = Quaternion(-0.399471, -0.08369, 0.284647, 0.867407)
+bones/19/rotation = Quaternion(0.545255, -0.478976, 0.68578, 0.0546338)
+bones/20/rotation = Quaternion(0.566408, -0.419345, 0.707072, 0.0581455)
+bones/21/rotation = Quaternion(-0.243933, 0.80365, 0.153602, 0.520624)
+bones/22/rotation = Quaternion(-0.70098, 0.683077, -0.149553, 0.140235)
+bones/23/rotation = Quaternion(0.839667, -0.539821, 0.0101189, 0.0587344)
+bones/24/rotation = Quaternion(-0.278082, -0.159552, -0.129525, 0.938316)
+bones/26/rotation = Quaternion(-0.30669, -0.0111466, -0.317151, 0.897347)
+
+[node name="StaticBody3D" type="AnimatableBody3D" parent="bumblebee/bumblebee_armature" index="1"]
+transform = Transform3D(2.39854, 0, 0, 0, 2.39854, 0, 0, 0, 2.39854, 0, 0, 0)
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bumblebee/bumblebee_armature/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0691689, -0.507883)
+shape = SubResource("BoxShape3D_a2guq")
+
+[node name="AnimationPlayer" parent="bumblebee" index="1"]
+autoplay = "bumblebee_fly_animation"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="bumblebee"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 5.33613e-08, -0.112973, -0.610382)
+amount = 32
+visibility_aabb = AABB(-0.486396, -5.21373, -0.722976, 0.882954, 5.57688, 1.39809)
+process_material = SubResource("ParticleProcessMaterial_sfuxk")
+draw_pass_1 = ExtResource("4_10gj4")
+
+[node name="SoundBee" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_w3crl")
+volume_db = -30.0
+autoplay = true
+bus = &"SFX"
+
+[editable path="bumblebee"]

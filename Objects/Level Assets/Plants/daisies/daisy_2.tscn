@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5l5aefg2x5t4"]
+
+[ext_resource type="PackedScene" uid="uid://w2mweye3powc" path="res://Assets/Models/Props/plants/daisy.glb" id="1_bk46c"]
+[ext_resource type="PackedScene" uid="uid://pu2vpsvuquhb" path="res://Assets/Models/grasses/grass_bundle_1.glb" id="2_whitl"]
+[ext_resource type="PackedScene" uid="uid://54ntiedx573g" path="res://Assets/Models/grasses/grass_bundle_2.glb" id="3_vnrt8"]
+
+[node name="daisy_2" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.970422, -0.241414, 0, 0.241414, 0.970422, 0, 0, 0)
+
+[node name="daisy" parent="." instance=ExtResource("1_bk46c")]
+transform = Transform3D(0.986466, -0.159113, 0.0395829, 0.159113, 0.987255, 0.00317056, -0.0395829, 0.00317059, 0.999211, 0.0991324, 1.86265e-09, 0.112595)
+
+[node name="daisy2" parent="." instance=ExtResource("1_bk46c")]
+transform = Transform3D(0.820687, 0.218188, -0.054279, -0.21218, 0.819531, 0.0861854, 0.0743751, -0.0695879, 0.84481, 0.0991324, 1.30385e-08, 0.112595)
+
+[node name="grass_bundle_1" parent="." instance=ExtResource("2_whitl")]
+transform = Transform3D(2.64335, 0, 0, 0, 2.64335, 0, 0, 0, 2.64335, 0.377611, 0.269999, 1.08533)
+
+[node name="grass_bundle_2" parent="." instance=ExtResource("3_vnrt8")]
+transform = Transform3D(-2.84106, 0.141471, 0.475601, -0.367286, 1.45085, -0.835375, -0.923512, -1.01223, -1.13089, 0.235107, -0.184336, 0.0458576)
+
+[node name="grass_bundle_3" parent="." instance=ExtResource("2_whitl")]
+transform = Transform3D(0.206064, 0.856199, 2.49234, -0.653589, 2.43845, -0.783647, -2.55297, -0.555161, 0.401793, 0.82183, 0.0799083, 0.321211)
+
+[node name="grass_bundle_4" parent="." instance=ExtResource("3_vnrt8")]
+transform = Transform3D(-0.131217, -0.646094, -1.38087, 0.595695, 1.61434, -0.542079, 2.94743, -0.355033, 0.0480832, -0.209112, -0.134752, 0.245173)

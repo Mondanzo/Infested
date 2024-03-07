@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b8woi1ypcate4"]
+
+[ext_resource type="Texture2D" uid="uid://bb3p5pkwlxxm1" path="res://Assets/Materials/Decoration/Textures/branch_walk_albedo.png" id="1_3h5a0"]
+[ext_resource type="Texture2D" uid="uid://cg27w5koqjaa6" path="res://Assets/Materials/Decoration/Textures/branch_walk_normal.png" id="2_mqfbi"]
+
+[resource]
+albedo_texture = ExtResource("1_3h5a0")
+normal_enabled = true
+normal_texture = ExtResource("2_mqfbi")

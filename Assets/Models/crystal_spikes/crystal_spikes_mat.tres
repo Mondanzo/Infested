@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dsblwtdjh4etu"]
+
+[ext_resource type="Texture2D" uid="uid://248r87q2a87" path="res://Assets/Models/crystal_spikes/crystal_spikes_albedo.png" id="1_52jmx"]
+
+[resource]
+albedo_texture = ExtResource("1_52jmx")

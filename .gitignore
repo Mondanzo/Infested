@@ -1,0 +1,9 @@
+.godot/
+*.kra
+*.png~
+Builds/
+*.bak
+Saves/
+*.orig
+*.blend
+*.blend1

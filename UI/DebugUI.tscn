@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://n6t762lrytrw"]
+
+[ext_resource type="Texture2D" uid="uid://cyg4we2xwh664" path="res://Assets/Sprites/Placeholder Sprites/DebugSegment.png" id="1_a7un1"]
+
+[sub_resource type="GDScript" id="GDScript_w7i6m"]
+script/source = "extends CanvasLayer
+
+@export var is_active = false
+
+
+func _ready():
+	$RenderInformation.visible = OS.is_debug_build()
+
+
+func _process(delta):
+	
+	# Information about duration of rendering a frame
+	if OS.is_debug_build():
+		%fps_render_text.text = str(1 / delta) + \" fps\"
+		%duration_render_text.text = str(int(delta * 1000)) + \" ms\"
+
+	if Input.is_action_just_pressed(\"debug_toggle_ui\"):
+		if is_active and not OS.is_debug_build():
+			$TextureRect.visible = true
+			await get_tree().create_timer(0.1).timeout
+			$TextureRect.visible = false
+		else:
+			$RenderInformation.visible = !$RenderInformation.visible
+
+
+func _physics_process(delta):
+	
+	# Information about duration of processing a physics frame
+	if OS.is_debug_build():
+		%fps_physics_text.text = str(1 / delta) + \"fps\"
+		%duration_physics_text.text = str(int(delta * 1000)) + \" ms\"
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifvlv"]
+atlas = ExtResource("1_a7un1")
+region = Rect2(794, 200, 74.2418, 64)
+
+[node name="DebugUI" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = SubResource("GDScript_w7i6m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = -26.0
+offset_top = -116.0
+offset_right = 1632.0
+offset_bottom = 876.0
+texture = SubResource("AtlasTexture_ifvlv")
+expand_mode = 2
+
+[node name="RenderInformation" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fps_render_label" type="Label" parent="RenderInformation"]
+layout_mode = 2
+text = "[Rendering]"
+
+[node name="fps_render_text" type="Label" parent="RenderInformation"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="duration_render_text" type="Label" parent="RenderInformation"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="HSeparator" type="HSeparator" parent="RenderInformation"]
+layout_mode = 2
+
+[node name="fps_physics_label" type="Label" parent="RenderInformation"]
+layout_mode = 2
+text = "[Physics]"
+
+[node name="fps_physics_text" type="Label" parent="RenderInformation"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="duration_physics_text" type="Label" parent="RenderInformation"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk1axci1v8un2"]
+
+[ext_resource type="PackedScene" uid="uid://bfnijccbv0vis" path="res://Objects/Level Assets/Plants/grass_bundle_1.tscn" id="1_q3i86"]
+[ext_resource type="PackedScene" uid="uid://cge5d8eokngti" path="res://Objects/Level Assets/Plants/grass_bundle_2.tscn" id="2_2h6r8"]
+[ext_resource type="Material" uid="uid://dm8082u1p8nqd" path="res://Assets/Materials/grass_mat_shader.tres" id="3_1fuf4"]
+[ext_resource type="ArrayMesh" uid="uid://dtjm11fw04fhy" path="res://Assets/Models/grasses/grass_bundle_1.res" id="3_v0jie"]
+
+[node name="grass_bundle_1" instance=ExtResource("1_q3i86")]
+
+[node name="grass_bundle_3" parent="." index="0" instance=ExtResource("2_2h6r8")]
+transform = Transform3D(0.0434929, -0.00683045, 0.00323971, 0.00681158, 0.0436134, 0.000507383, -0.0032792, 0, 0.0440231, -0.754549, -0.168472, -0.771381)
+
+[node name="grass_bundle_4" parent="." index="1" instance=ExtResource("2_2h6r8")]
+transform = Transform3D(0.0778471, 0.0122536, 0.0057987, -0.0122198, 0.0780628, -0.00091023, -0.00586971, 9.71665e-11, 0.0788004, 0.850478, -0.168472, -0.771381)
+
+[node name="grass_bundle_1" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50501, 0, 0)
+
+[node name="grass_bundle_12" type="MeshInstance3D" parent="grass_bundle_1" index="0"]
+transform = Transform3D(0.833384, -0.142692, 0, 0.142692, 0.833384, 0, 0, 0, 0.845512, 0.274218, 0, 0)
+material_override = ExtResource("3_1fuf4")
+mesh = ExtResource("3_v0jie")
+skeleton = NodePath("")
+
+[node name="grass_bundle_2" type="Node3D" parent="." index="4"]
+transform = Transform3D(0.793437, 0.12804, 0.2234, -0.132894, 0.823518, 0, -0.220547, -0.0355904, 0.803702, 0.989283, 0, 0.507354)
+
+[node name="grass_bundle_12" type="MeshInstance3D" parent="grass_bundle_2" index="0"]
+mesh = ExtResource("3_v0jie")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_1fuf4")

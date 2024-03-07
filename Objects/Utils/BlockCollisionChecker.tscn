@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxrnp7uj41f0s"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/BlockCollisionChecker.gd" id="1_kriea"]
+
+[node name="BlockCollisionChecker" type="Node3D"]
+script = ExtResource("1_kriea")
+is_colliding = false
+collision_mask = 0

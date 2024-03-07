@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://x5flnwybykv4"]
+
+[ext_resource type="PackedScene" uid="uid://biwg4mky62w1e" path="res://Assets/Models/cliff/cliff_ground_back_left.glb" id="1_ktomf"]
+
+[node name="cliff_ground_back_left" type="Node3D"]
+
+[node name="cliff_ground_back_left" parent="." instance=ExtResource("1_ktomf")]
+
+[node name="cliff_ground_back_left2" parent="cliff_ground_back_left" index="0"]
+layers = 3
+
+[editable path="cliff_ground_back_left"]

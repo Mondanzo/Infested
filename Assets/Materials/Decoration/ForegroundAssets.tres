@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://xrmrfvo3p61h"]
+
+[ext_resource type="Texture2D" uid="uid://cnshkwgjt7lqr" path="res://Assets/Materials/Decoration/Textures/foreground_atlas.png" id="1_am77e"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_am77e")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkgcri4jqfpqj"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/Aiming/TrackCursor.gd" id="1_7v5mt"]
+
+[node name="TrackCursor" type="Node3D"]
+script = ExtResource("1_7v5mt")
+snap_to_okay = false
+
+[node name="CursorRaycaster" type="RayCast3D" parent="."]
+target_position = Vector3(480, 0, 0)
+collision_mask = 128
+hit_from_inside = true
+
+[node name="CursorHitPoint" type="Node3D" parent="."]

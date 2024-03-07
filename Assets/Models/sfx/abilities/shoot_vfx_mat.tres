@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bdiisaun0o3uf"]
+
+[ext_resource type="Texture2D" uid="uid://48swi1kybm7" path="res://Assets/Models/sfx/abilities/shoot_vfx_albedo.png" id="1_jvcks"]
+
+[resource]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_jvcks")

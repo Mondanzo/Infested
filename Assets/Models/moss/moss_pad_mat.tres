@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cvmflryqv8s2w"]
+
+[ext_resource type="Texture2D" uid="uid://bw6ivtih6ecx6" path="res://Assets/Models/moss/moss_pad_albedo.png" id="1_pgv0g"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.485
+alpha_antialiasing_mode = 0
+cull_mode = 2
+diffuse_mode = 3
+albedo_color = Color(0.521569, 0.588235, 0.654902, 1)
+albedo_texture = ExtResource("1_pgv0g")

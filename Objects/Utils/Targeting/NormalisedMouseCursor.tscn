@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ltedyey3mpe3"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/Aiming/NormalisedMouseCursor.gd" id="1_rhkdo"]
+
+[node name="NormalisedMouseCursor" type="Node3D"]
+script = ExtResource("1_rhkdo")

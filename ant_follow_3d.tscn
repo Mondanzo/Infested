@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnic5217vb1l3"]
+
+[ext_resource type="PackedScene" uid="uid://cej1moqvr63gj" path="res://Assets/Models/Monsters/Ant/ant_model_animation.glb" id="1_6cimd"]
+
+[node name="PathFollow3D" type="PathFollow3D"]
+transform = Transform3D(0.52343, -0.663124, 0.535058, 0, 0.627951, 0.778252, -0.852068, -0.407361, 0.328689, 0, 0, 0)
+rotation_mode = 4
+
+[node name="ant_model_animation" parent="." instance=ExtResource("1_6cimd")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

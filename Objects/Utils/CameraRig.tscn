@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci56a5nvs2ymc"]
+
+[ext_resource type="Sky" uid="uid://kkxjtq05ltkk" path="res://Assets/Misc/custom_sky.tres" id="1_l1fpc"]
+
+[sub_resource type="GDScript" id="GDScript_mcuaf"]
+script/source = "extends Node3D
+
+@export var node_to_track: Node3D
+@export var track_rotation = true
+@export_range(0, 1, 0.01) var smooth_value = 0.1
+@export_group(\"Screenshake\")
+@export var screenshake_enabled = true
+@export var noise: FastNoiseLite
+@export_range(0, 1, 0.01) var shakeAmount = 0.0
+@export var shakeStrength = 5
+
+var screenShaker = 1
+var offset = Vector3.ZERO
+@onready var original_rotation = rotation_degrees
+@onready var original_position = $Camera3D.position
+
+var noises = []
+
+func _ready():
+	randomize()
+	offset = $Camera3D.position
+	noise.seed = randi()
+	Game.set_current_rig(self)
+
+
+func toggle_overlays(enabled):
+	$OverlaysRenderer.visible = enabled
+
+
+func set_offset(new_offset):
+	offset = new_offset
+
+
+func _process(delta):
+	if node_to_track != null:
+		global_position = global_position.lerp(node_to_track.global_position, smooth_value)
+		if track_rotation:
+			global_rotation = global_rotation.lerp(node_to_track.global_rotation, smooth_value)
+	$Camera3D.position = $Camera3D.position.lerp(offset, smooth_value)
+	
+	if screenshake_enabled:
+		if node_to_track and \"trauma\" in node_to_track:
+			shakeAmount = pow(node_to_track.trauma, 2)
+	
+		screenShaker += 1
+	
+		var shakerX = noise.get_noise_3d(screenShaker, 0, 0)
+		var shakerY = noise.get_noise_3d(0, screenShaker, 0)
+		var shakerZ = noise.get_noise_3d(0, 0, screenShaker)
+	
+		rotation_degrees.x = lerpf(original_rotation.x, (original_rotation.x + shakerX * shakeStrength), shakeAmount)
+		rotation_degrees.y = lerpf(original_rotation.y, (original_rotation.y + shakerY * shakeStrength), shakeAmount)
+		rotation_degrees.z = lerpf(original_rotation.z, (original_rotation.z + shakerZ * shakeStrength), shakeAmount)
+		$Camera3D.position.x = lerpf(offset.x, (offset.x + shakerX * shakeStrength), shakeAmount)
+		$Camera3D.position.y = lerpf(offset.y, (offset.y + shakerY * shakeStrength), shakeAmount)
+		
+	%Camera3DOverlays.global_position = $Camera3D.global_position
+	%Camera3DOverlays.global_rotation = $Camera3D.global_rotation
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_88kj5"]
+noise_type = 3
+frequency = 0.1
+
+[sub_resource type="Environment" id="Environment_x6waa"]
+background_mode = 2
+background_energy_multiplier = 1.77
+sky = ExtResource("1_l1fpc")
+ambient_light_source = 3
+ambient_light_color = Color(0.772549, 0.988235, 0.945098, 1)
+ambient_light_sky_contribution = 0.51
+ambient_light_energy = 0.61
+tonemap_mode = 2
+ssr_fade_in = 1.37844
+ssr_fade_out = 0.637282
+ssr_depth_tolerance = 0.01
+ssao_radius = 0.05
+ssao_intensity = 2.27
+ssao_power = 0.832177
+ssil_radius = 4.59
+ssil_intensity = 1.41
+ssil_sharpness = 1.0
+ssil_normal_rejection = 0.93
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 1.99
+glow_enabled = true
+glow_intensity = 1.61
+glow_hdr_threshold = 0.39
+glow_hdr_scale = 0.1
+glow_hdr_luminance_cap = 90.1
+fog_light_color = Color(0.458824, 0.584314, 0.509804, 1)
+fog_density = 0.0003
+volumetric_fog_density = 0.0005
+volumetric_fog_albedo = Color(0.662745, 0.729412, 0.866667, 1)
+volumetric_fog_emission = Color(0.698039, 0.698039, 0.698039, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ajlq0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a2krg"]
+viewport_path = NodePath("SubViewport")
+
+[node name="CameraRig" type="Node3D"]
+process_mode = 3
+script = SubResource("GDScript_mcuaf")
+noise = SubResource("FastNoiseLite_88kj5")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+gui_snap_controls_to_pixels = false
+size = Vector2i(1920, 1080)
+
+[node name="Camera3DOverlays" type="Camera3D" parent="SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.997707, -0.0676845, 0, 0.0676845, 0.997707, 0, 6.56529, 30.7914)
+cull_mask = 524288
+environment = SubResource("Environment_x6waa")
+attributes = SubResource("CameraAttributesPractical_ajlq0")
+doppler_tracking = 1
+current = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.997707, -0.0676845, 0, 0.0676845, 0.997707, 0, 7, 30)
+cull_mask = 524287
+doppler_tracking = 2
+current = true
+
+[node name="OverlaysRenderer" type="CanvasLayer" parent="."]
+layer = 3
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="OverlaysRenderer"]
+texture = SubResource("ViewportTexture_a2krg")
+centered = false

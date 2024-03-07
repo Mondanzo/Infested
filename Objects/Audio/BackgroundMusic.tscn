@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmgkdcjqwb7v5"]
+
+[ext_resource type="AudioStream" uid="uid://npvpdumuxbi3" path="res://Assets/Audio/Music/Ambience/main_theme_v.2.ogg" id="1_lou3q"]
+[ext_resource type="AudioStream" uid="uid://ccnfxoo5atch4" path="res://Assets/Audio/Music/Ambience/ambience_1.ogg" id="2_12mnc"]
+[ext_resource type="AudioStream" uid="uid://oofx6i7k2dco" path="res://Assets/Audio/Music/Ambience/ambience_cricket.ogg" id="3_fqwvo"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_lou3q")
+volume_db = -20.955
+autoplay = true
+bus = &"Music"
+
+[node name="PlayerAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_12mnc")
+volume_db = -40.0
+autoplay = true
+bus = &"Environment"
+
+[node name="PlayerAmbienceCricket" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fqwvo")
+volume_db = -40.0
+autoplay = true
+bus = &"Environment"

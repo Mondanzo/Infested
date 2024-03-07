@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxhh8kxkhdsfp"]
+
+[ext_resource type="PackedScene" uid="uid://dcbxs6qig6fft" path="res://Assets/Models/Level01_Giant_Tree/branch_outside_medium_1_lo.gltf" id="1_q2wup"]
+[ext_resource type="Script" path="res://Scripts/Utils/ZAligner.gd" id="2_o1wvw"]
+
+[sub_resource type="Curve3D" id="Curve3D_lhkqr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.240469, 0.0453737, -0.00398355, 0, 0, 0, 0, 0, 0, 0.468874, 0.0529238, 0.0602553, 0, 0, 0, 0, 0, 0, 0.659212, 0.188843, 0.117357, 0, 0, 0, 0, 0, 0, 1.2445, 0.487107, 0.219663, 0, 0, 0, 0, 0, 0, 2.26994, 0.664557, 0.067393, 0, 0, 0, 0, 0, 0, 2.77224, 0.733408, -0.0676164, 0, 0, 0, 0, 0, 0, 3.17196, 0.718306, -0.143751, 0, 0, 0, 0, 0, 0, 3.43238, 0.673, -0.149366, 0, 0, 0, 0, 0, 0, 3.66316, 0.676775, -0.120816, 0, 0, 0, 0, 0, 0, 3.87967, 0.718306, -0.0565767, 0, 0, 0, 0, 0, 0, 3.99149, 0.729633, -0.0304053, 0, 0, 0, 0, 0, 0, 4.22274, 0.623918, 0.0422464, 0, 0, 0, 0, 0, 0, 4.35122, 0.529529, 0.0922099, 0, 0, 0, 0, 0, 0, 4.49397, 0.363407, 0.180241, 0, 0, 0, 0, 0, 0, 4.61531, 0.216162, 0.249238, 0, 0, 0, 0, 0, 0, 4.76282, 0.06514, 0.296823, 0, 0, 0, 0, 0, 0, 4.88892, 0.0424868, 0.318236),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 17
+
+[node name="branchwalk" type="Node3D"]
+transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, 1522.31, -1.52588e-05, 0.136963)
+
+[node name="branch_outside_medium_1_lo" parent="." instance=ExtResource("1_q2wup")]
+transform = Transform3D(-3.98985, 2.07168, -1.97738, -2.26322, -4.35874, 3.15303e-08, -1.75491, 0.911214, 4.49564, -7.86983, -0.576777, -3.44937)
+
+[node name="branch_outside_medium_1_lo001" parent="branch_outside_medium_1_lo" index="0"]
+layers = 129
+
+[node name="StaticBody3D" type="StaticBody3D" parent="branch_outside_medium_1_lo/branch_outside_medium_1_lo001" index="0"]
+transform = Transform3D(1, 1.49012e-08, -5.96046e-08, -5.96046e-08, 1, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="branch_outside_medium_1_lo/branch_outside_medium_1_lo001/StaticBody3D"]
+transform = Transform3D(0.933633, 0.0344609, -0.35657, 0.0344598, 0.982107, 0.185145, 0.35657, -0.185145, 0.91574, 0.1337, -0.0694234, 0.779494)
+depth = 0.24
+polygon = PackedVector2Array(-1.21122, 0.508978, -1.42206, 0.945772, -2.10939, 0.958246, -2.29773, 1.01695, -2.397, 1.04163, -2.47146, 1.07296, -2.56604, 1.12207, -2.63509, 1.14327, -2.68127, 1.21366, -2.68682, 1.28005, -2.70557, 1.33131, -2.75181, 1.35532, -2.74505, 1.28097, -2.72819, 1.22093, -2.69442, 1.14721, -2.65786, 1.08914, -2.5895, 1.0512, -2.56238, 1.04689, -2.52134, 1.02314, -2.4791, 0.991435, -2.40023, 0.948039, -2.29234, 0.909122, -2.14154, 0.863515, -2.07766, 0.85993, -1.97714, 0.863614, -1.8704, 0.847632, -1.77516, 0.847482, -1.68281, 0.829111, -1.60813, 0.76404, -1.54296, 0.674324, -1.45514, 0.640515, -1.4233, 0.609326)
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_lhkqr")
+script = ExtResource("2_o1wvw")
+
+[node name="Area3D" type="Area3D" parent="Path3D"]
+transform = Transform3D(0.0125, 0, 0, 0, 0.0125, 0, 0, 0, 0.0125, -19.0288, 1.90735e-07, -0.00171204)
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Path3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1374.99, -38.8517, 0)
+polygon = PackedVector2Array(137.349, 3.78201, 612.468, 199.574, 142.598, 209.348, 128.183, 15.597, 623.291, -8.19476, 611.749, 202.79)
+
+[editable path="branch_outside_medium_1_lo"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfxfiwvyno0wm"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/PoisonCloud.gd" id="1_evfxy"]
+[ext_resource type="Texture2D" uid="uid://xfjth12xt1uy" path="res://Assets/Particles/Textures/dust_cloud_particle.png" id="2_n07bu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k3w7q"]
+height = 7.12622
+radius = 3.95068
+
+[sub_resource type="Gradient" id="Gradient_ninjr"]
+offsets = PackedFloat32Array(0, 0.064257, 0.907631, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y8ewf"]
+gradient = SubResource("Gradient_ninjr")
+
+[sub_resource type="Curve" id="Curve_nq1xt"]
+_data = [Vector2(0, 0), 0.0, 38.0454, 0, 0, Vector2(0.240143, 1), 2.91749e-07, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_16xrv"]
+curve = SubResource("Curve_nq1xt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sg2rc"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 2.0
+emission_ring_radius = 3.5
+emission_ring_inner_radius = 0.5
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -1.25
+linear_accel_max = 1.25
+radial_accel_max = 3.0
+scale_curve = SubResource("CurveTexture_16xrv")
+color = Color(0.6, 0, 0.27451, 0.835294)
+color_ramp = SubResource("GradientTexture1D_y8ewf")
+hue_variation_min = -0.05
+hue_variation_max = 0.05
+attractor_interaction_enabled = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgm48"]
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_n07bu")
+emission_enabled = true
+emission = Color(0, 0.929412, 0, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_8v1i2"]
+material = SubResource("StandardMaterial3D_tgm48")
+
+[node name="PoisonCloud" type="Area3D"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_evfxy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_k3w7q")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 1200
+process_material = SubResource("ParticleProcessMaterial_sg2rc")
+draw_pass_1 = SubResource("QuadMesh_8v1i2")
+
+[node name="Lifetime" type="Timer" parent="."]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://chhm46qgmxcrn"]
+
+[node name="OneTimeSound" type="AudioStreamPlayer3D"]
+bus = &"SFX"
+
+[connection signal="finished" from="." to="." method="queue_free"]

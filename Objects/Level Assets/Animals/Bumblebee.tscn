@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnolx5oyxe5ol"]
+
+[ext_resource type="PackedScene" uid="uid://2o8703wis0mk" path="res://Assets/Models/bumblebee/bumblebee_animations.gltf" id="1_libd8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cd5r"]
+size = Vector3(1, 0.816634, 1.87431)
+
+[node name="bumblebee_animations" instance=ExtResource("1_libd8")]
+
+[node name="Skeleton3D" parent="bumblebee_armature" index="0"]
+bones/1/position = Vector3(-1.76126e-14, 0.340076, -0.487657)
+bones/1/rotation = Quaternion(0.71085, -0.00397934, -0.00514122, 0.703314)
+bones/4/rotation = Quaternion(0.538852, -0.152421, 0.0176153, 0.828309)
+bones/7/rotation = Quaternion(0.524729, 0.117798, 0.0271618, 0.842642)
+bones/9/rotation = Quaternion(0.997039, -2.7246e-08, 3.56467e-07, 0.0768962)
+bones/11/rotation = Quaternion(0.545255, 0.478976, -0.68578, 0.054634)
+bones/12/rotation = Quaternion(0.566409, 0.419345, -0.707071, 0.0581458)
+bones/13/rotation = Quaternion(-0.133656, -0.732923, -0.38882, 0.542013)
+bones/14/rotation = Quaternion(-0.670459, -0.735933, 0.0894742, 0.0296895)
+bones/15/rotation = Quaternion(0.839667, 0.539821, -0.0101183, 0.0587347)
+bones/16/rotation = Quaternion(-0.399204, 0.0997412, 0.114311, 0.904224)
+bones/18/rotation = Quaternion(-0.399471, -0.08369, 0.284647, 0.867407)
+bones/19/rotation = Quaternion(0.545255, -0.478976, 0.68578, 0.0546338)
+bones/20/rotation = Quaternion(0.566408, -0.419345, 0.707072, 0.0581455)
+bones/21/rotation = Quaternion(-0.243933, 0.80365, 0.153602, 0.520624)
+bones/22/rotation = Quaternion(-0.70098, 0.683077, -0.149553, 0.140235)
+bones/23/rotation = Quaternion(0.839667, -0.539821, 0.0101189, 0.0587344)
+bones/24/rotation = Quaternion(-0.278082, -0.159552, -0.129525, 0.938316)
+bones/26/rotation = Quaternion(-0.30669, -0.0111466, -0.317151, 0.897347)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "bumblebee_fly_animation"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.409451)
+shape = SubResource("BoxShape3D_1cd5r")

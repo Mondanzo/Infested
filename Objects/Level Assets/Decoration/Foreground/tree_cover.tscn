@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://iixdodg46k5e"]
+
+[ext_resource type="PackedScene" uid="uid://b2w20133altrg" path="res://Assets/Models/Decoration/Foreground/tree_cover.glb" id="1_2vt2n"]
+
+[node name="tree_cover" instance=ExtResource("1_2vt2n")]

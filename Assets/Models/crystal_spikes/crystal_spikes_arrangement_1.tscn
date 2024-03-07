@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://brdlmejje54rb"]
+
+[ext_resource type="PackedScene" uid="uid://cw8toawob0ehh" path="res://Assets/Models/crystal_spikes/crystaL_spike_1.glb" id="1_ui1a0"]
+[ext_resource type="PackedScene" uid="uid://df7new0uh5dkp" path="res://Assets/Models/crystal_spikes/crystaL_spike_2.glb" id="2_bc2k2"]
+[ext_resource type="PackedScene" uid="uid://dx58mj8p3p8gw" path="res://Assets/Models/Decoration/rock_piles/rock_pile_1.glb" id="3_g2aro"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="crystaL_spike_1" parent="." instance=ExtResource("1_ui1a0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.634024, 0, 1.25745)
+
+[node name="crystaL_spike_3" parent="." instance=ExtResource("1_ui1a0")]
+transform = Transform3D(0.429269, 0, 0, 0, 0.4066, 0.13765, 0, -0.13765, 0.4066, 0.278583, 0, 1.25745)
+
+[node name="crystaL_spike_4" parent="." instance=ExtResource("1_ui1a0")]
+transform = Transform3D(0.129861, 0.0618005, -0.216592, 0.00204719, 0.249679, 0.0724686, 0.225227, -0.0379024, 0.124224, 2.25654, -0.155665, 0.990614)
+
+[node name="crystaL_spike_2" parent="." instance=ExtResource("2_bc2k2")]
+transform = Transform3D(0.909214, 0, -0.416328, 0, 1, 0, 0.416328, 0, 0.909214, 1.3675, 0, 1.44793)
+
+[node name="rock_pile_1" parent="." instance=ExtResource("3_g2aro")]
+transform = Transform3D(1.73565, 0, 0, 0, 1.73565, 0, 0, 0, 1.73565, 1.35513, 0, 1.16208)
+
+[node name="rock_pile_2" parent="." instance=ExtResource("3_g2aro")]
+transform = Transform3D(1.73565, 0, 0, 0, 1.73565, 0, 0, 0, 1.73565, -0.741929, 0, 1.16208)

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b010vbss8hka1"]
+
+[ext_resource type="Texture2D" uid="uid://cr121mcnr8pvt" path="res://Assets/Materials/Obstacles/Textures/venus_fly_trap_albedo.png" id="1_r7d3j"]
+
+[resource]
+cull_mode = 2
+diffuse_mode = 3
+albedo_texture = ExtResource("1_r7d3j")

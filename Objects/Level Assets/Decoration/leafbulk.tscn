@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chwkxuhy2h2ks"]
+
+[ext_resource type="PackedScene" uid="uid://m5i8pkaexsew" path="res://Assets/Models/twisted_trees/leafbulk.glb" id="1_dloso"]
+
+[node name="leafbulk" type="Node3D"]
+
+[node name="leafbulk" parent="." instance=ExtResource("1_dloso")]

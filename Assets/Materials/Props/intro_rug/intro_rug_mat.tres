@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b55k21paa4lk4"]
+
+[ext_resource type="Texture2D" uid="uid://0kxxrfixlswj" path="res://Assets/Materials/Props/intro_rug/intro_room_rug_albedo.png" id="1_blfij"]
+[ext_resource type="Texture2D" uid="uid://bkxld17sshd7p" path="res://Assets/Materials/Props/intro_rug/intro_room_rug_normal.png" id="2_mavrb"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_blfij")
+normal_enabled = true
+normal_texture = ExtResource("2_mavrb")

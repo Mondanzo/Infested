@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxd468a2ond0k"]
+
+[sub_resource type="Gradient" id="Gradient_t26vp"]
+offsets = PackedFloat32Array(0, 0.0854271, 0.924623, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6jn75"]
+gradient = SubResource("Gradient_t26vp")
+
+[sub_resource type="Curve" id="Curve_2q4wf"]
+_data = [Vector2(0, 0), 0.0, 11.7614, 0, 0, Vector2(0.26087, 1), 2.68805e-07, 0.0, 0, 0, Vector2(0.56087, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.38528, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4s3e"]
+curve = SubResource("Curve_2q4wf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oa630"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.1
+emission_ring_radius = 4.0
+emission_ring_inner_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 1.6, 0)
+linear_accel_min = -1.0
+linear_accel_max = 1.0
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+damping_max = 1.0
+scale_curve = SubResource("CurveTexture_m4s3e")
+color_ramp = SubResource("GradientTexture1D_6jn75")
+turbulence_enabled = true
+turbulence_noise_strength = 0.31
+turbulence_noise_scale = 1.73
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0wy3"]
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 0, 1)
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color(0.854902, 0.580392, 0, 1)
+emission_energy_multiplier = 4.9
+
+[sub_resource type="SphereMesh" id="SphereMesh_hb4xc"]
+material = SubResource("StandardMaterial3D_x0wy3")
+radius = 0.05
+height = 0.1
+radial_segments = 4
+rings = 1
+
+[node name="BeePlatform" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 256
+process_material = SubResource("ParticleProcessMaterial_oa630")
+draw_pass_1 = SubResource("SphereMesh_hb4xc")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dccrmh28ngkjf"]
+
+[ext_resource type="PackedScene" uid="uid://w2mweye3powc" path="res://Assets/Models/Props/plants/daisy.glb" id="1_tq68d"]
+[ext_resource type="PackedScene" uid="uid://54ntiedx573g" path="res://Assets/Models/grasses/grass_bundle_2.glb" id="2_6ifw7"]
+[ext_resource type="PackedScene" uid="uid://pu2vpsvuquhb" path="res://Assets/Models/grasses/grass_bundle_1.glb" id="3_c3db4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="daisy" parent="." instance=ExtResource("1_tq68d")]
+transform = Transform3D(0.997598, -0.0684881, 0.0103713, 0.069269, 0.986353, -0.149366, 0, 0.149725, 0.988728, -0.0861706, -1.40366, 1.04437)
+
+[node name="daisy2" parent="." instance=ExtResource("1_tq68d")]
+transform = Transform3D(1.36898, -0.138456, -0.377478, 0.199781, 1.39672, 0.212231, 0.348923, -0.256484, 1.3595, -1.06888, -1.40366, 0.478026)
+
+[node name="daisy3" parent="." instance=ExtResource("1_tq68d")]
+transform = Transform3D(0.901875, 0.333045, -0.0030227, -0.333059, 0.901837, -0.00818504, 0, 0.00872534, 0.961369, -1.06888, -2.35955, 0.478026)
+
+[node name="grass_bundle_2" parent="." instance=ExtResource("2_6ifw7")]
+transform = Transform3D(1.6227, -0.550117, -2.16537, -0.861994, 2.31488, -1.23407, 2.06117, 1.40119, 1.18864, -1.63273, -1.2187, 0.962874)
+
+[node name="grass_bundle_3" parent="." instance=ExtResource("2_6ifw7")]
+transform = Transform3D(-2.22128, -1.78136, -1.78994, -1.0499, 2.81951, -1.50309, 2.2967, -0.433965, -2.41828, -1.63273, -1.20896, -0.217484)
+
+[node name="grass_bundle_4" parent="." instance=ExtResource("2_6ifw7")]
+transform = Transform3D(-1.89386, -0.0679665, 2.27943, -0.81424, 2.78784, -0.593386, -2.13012, -1.00522, -1.79978, 0.106533, -0.957918, -0.217484)
+
+[node name="grass_bundle_1" parent="." instance=ExtResource("3_c3db4")]
+transform = Transform3D(2.06006, 0.526699, -0.383681, -0.651631, 1.6651, -1.21297, 0, 1.2722, 1.74642, -0.341656, -1.05387, 1.99057)
+
+[node name="grass_bundle_5" parent="." instance=ExtResource("3_c3db4")]
+transform = Transform3D(0.634679, 1.37259, 1.54326, -0.651631, 1.6651, -1.21297, -1.95986, -0.109129, 0.903068, 0.357104, -1.19319, 1.3483)

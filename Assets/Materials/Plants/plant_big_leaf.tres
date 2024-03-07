@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d2bmg1o84tm0x"]
+
+[ext_resource type="Texture2D" uid="uid://cdlcdxoq7ipeg" path="res://Assets/Models/plant_big_leaf/plant_big_leaf_albedo.png" id="1_nc7oh"]
+
+[resource]
+cull_mode = 2
+diffuse_mode = 3
+albedo_texture = ExtResource("1_nc7oh")

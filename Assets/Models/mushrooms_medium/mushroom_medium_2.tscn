@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcfp4l8mp8olp"]
+
+[ext_resource type="PackedScene" uid="uid://b6u34ipr2yq0v" path="res://Assets/Models/mushrooms_medium/mushroom_medium_2.gltf" id="1_gdj1u"]
+
+[node name="mushroom_medium_2" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0450273, -0.393426, 0.185541)
+
+[node name="mushroom_medium_2" parent="." instance=ExtResource("1_gdj1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.802479, -0.357732, -0.234719)

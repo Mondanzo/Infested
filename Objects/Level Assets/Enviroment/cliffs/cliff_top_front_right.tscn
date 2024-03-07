@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhy0am0b1cxgu"]
+
+[ext_resource type="PackedScene" uid="uid://cx3gkniihut5m" path="res://Assets/Models/cliff/cliff_top_front_right.glb" id="1_fp0or"]
+
+[node name="cliff_top_front_right" instance=ExtResource("1_fp0or")]
+
+[node name="cliff_top_front_right2" parent="." index="0"]
+layers = 3
+
+[node name="cliff_top_front_right" parent="cliff_top_front_right2" index="0"]
+collision_layer = 129

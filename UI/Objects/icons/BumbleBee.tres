@@ -1,0 +1,50 @@
+[gd_resource type="AnimatedTexture" load_steps=16 format=3 uid="uid://cyr7rr5b7o0oy"]
+
+[ext_resource type="Texture2D" uid="uid://dexyf7efm6v2q" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0001.png" id="1_jq0qw"]
+[ext_resource type="Texture2D" uid="uid://27mxcor13jnf" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0002.png" id="2_sv65t"]
+[ext_resource type="Texture2D" uid="uid://crm7qpp8emyqw" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0011.png" id="3_ivokw"]
+[ext_resource type="Texture2D" uid="uid://duch4l1d3xxfo" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0012.png" id="4_48o8j"]
+[ext_resource type="Texture2D" uid="uid://r2jb0odpcxbj" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0013.png" id="5_x1sfm"]
+[ext_resource type="Texture2D" uid="uid://c7a5rr8hifsvj" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0014.png" id="6_qnq6r"]
+[ext_resource type="Texture2D" uid="uid://bpag682av0aee" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0015.png" id="7_j13bm"]
+[ext_resource type="Texture2D" uid="uid://ck6nx658ia4y0" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0003.png" id="8_j5ijx"]
+[ext_resource type="Texture2D" uid="uid://c33m6bueka8im" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0004.png" id="9_yrcn2"]
+[ext_resource type="Texture2D" uid="uid://chu3c03vyyu8v" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0005.png" id="10_o7xd5"]
+[ext_resource type="Texture2D" uid="uid://d28vbkck8w0s6" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0006.png" id="11_7ukiu"]
+[ext_resource type="Texture2D" uid="uid://bhf77m384hmip" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0007.png" id="12_s8smm"]
+[ext_resource type="Texture2D" uid="uid://ju0vfsod2ed2" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0008.png" id="13_h8yro"]
+[ext_resource type="Texture2D" uid="uid://du7kaj38v6r4n" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0009.png" id="14_hbddf"]
+[ext_resource type="Texture2D" uid="uid://bacscidra7i2q" path="res://Assets/UI/Sprites/loading_icon/BumbleBee/0010.png" id="15_w4rqb"]
+
+[resource]
+frames = 15
+speed_scale = 15.0
+frame_0/texture = ExtResource("1_jq0qw")
+frame_1/texture = ExtResource("2_sv65t")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_j5ijx")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("9_yrcn2")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("10_o7xd5")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("11_7ukiu")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("12_s8smm")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("13_h8yro")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("14_hbddf")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("15_w4rqb")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("3_ivokw")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("4_48o8j")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("5_x1sfm")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("6_qnq6r")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("7_j13bm")
+frame_14/duration = 1.0

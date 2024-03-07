@@ -1,0 +1,189 @@
+[gd_scene load_steps=3 format=3 uid="uid://6kfepiloqtwq"]
+
+[ext_resource type="Theme" uid="uid://whrxg447a0wk" path="res://Assets/UI/Themes/Infested_UI_Theme.tres" id="1_hmfyj"]
+[ext_resource type="Texture2D" uid="uid://c4afhs21ex84e" path="res://Assets/UI/Sprites/buttons/ui_plank_short_v2_.png" id="2_hnt1o"]
+
+[node name="Controls" type="BoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hmfyj")
+vertical = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Controls"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 36
+columns = 2
+
+[node name="MoveKeys" type="BoxContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ControlIcon" type="TextureRect" parent="GridContainer/MoveKeys"]
+layout_mode = 2
+texture = ExtResource("2_hnt1o")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ControlKey" type="Label" parent="GridContainer/MoveKeys/ControlIcon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlIcon2" type="TextureRect" parent="GridContainer/MoveKeys"]
+layout_mode = 2
+texture = ExtResource("2_hnt1o")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ControlKey" type="Label" parent="GridContainer/MoveKeys/ControlIcon2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveDescription" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Move left and right"
+
+[node name="JumpKey" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+texture = ExtResource("2_hnt1o")
+expand_mode = 2
+
+[node name="ControlKey" type="Label" parent="GridContainer/JumpKey"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Space"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JumpDescription" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Jump"
+
+[node name="MeleeKey" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+texture = ExtResource("2_hnt1o")
+expand_mode = 2
+
+[node name="ControlKey" type="Label" parent="GridContainer/MeleeKey"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "LMB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MeleeDescription" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Melee Attack"
+
+[node name="AbilityKey" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+texture = ExtResource("2_hnt1o")
+expand_mode = 2
+
+[node name="ControlKey" type="Label" parent="GridContainer/AbilityKey"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "RMB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbilityDescription" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Use Ability"
+
+[node name="SwapAbilityKey" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+texture = ExtResource("2_hnt1o")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ControlKey" type="Label" parent="GridContainer/SwapAbilityKey"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SwapAbilityDescription" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Swap your current Ability"
+
+[node name="AbsorbKey" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+texture = ExtResource("2_hnt1o")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ControlKey" type="Label" parent="GridContainer/AbsorbKey"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbsorbDescription" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Absorb stunned Enemies"

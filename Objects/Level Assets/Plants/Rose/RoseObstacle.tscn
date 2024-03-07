@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqpxqw4q8r7qb"]
+
+[ext_resource type="PackedScene" uid="uid://d20w8br7mnu2p" path="res://Assets/Models/rose_obstacle/rose_obstacle.glb" id="1_r04lu"]
+[ext_resource type="Material" uid="uid://bvtgy7asojc54" path="res://Assets/Materials/Obstacles/RoseObstacle_v2.tres" id="2_xgfk1"]
+
+[node name="rose_obstacle" instance=ExtResource("1_r04lu")]
+
+[node name="stem" parent="Armature/Skeleton3D" index="0"]
+material_override = ExtResource("2_xgfk1")

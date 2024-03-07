@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b5p3n7it7h7cd"]
+
+[ext_resource type="Texture2D" uid="uid://itf6qq3fthry" path="res://Levels/Levelbuilding/intro_room/leaf_meshes/leaf_5/intro_sequence_5.png" id="1_nqbry"]
+[ext_resource type="Texture2D" uid="uid://dsfp1o5ra6feb" path="res://Levels/Levelbuilding/intro_room/leaf_meshes/leaf_5/intro_sequence_5_emission.png" id="2_kkfqi"]
+
+[resource]
+albedo_texture = ExtResource("1_nqbry")
+emission_enabled = true
+emission_energy_multiplier = 0.1
+emission_texture = ExtResource("2_kkfqi")

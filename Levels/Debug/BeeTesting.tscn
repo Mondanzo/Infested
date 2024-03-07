@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnl50e5y6tk6g"]
+
+[ext_resource type="PackedScene" uid="uid://bdbdx2ij5fghx" path="res://Objects/Level Assets/Obstacles/Bee.tscn" id="1_tadep"]
+[ext_resource type="PackedScene" uid="uid://csbq60jkoknc2" path="res://Objects/Entities/Player.tscn" id="2_rexoh"]
+[ext_resource type="Script" path="res://Scripts/Utils/ZAligner.gd" id="2_vty38"]
+[ext_resource type="PackedScene" uid="uid://ci56a5nvs2ymc" path="res://Objects/Utils/CameraRig.tscn" id="3_j4iiv"]
+
+[sub_resource type="Curve3D" id="Curve3D_hacdb"]
+_data = {
+"points": PackedVector3Array(0.362668, -5.90529, 14.6407, -0.362668, 5.90529, -14.6407, -15.5248, 9.90794, 0, 0.487067, 7.13436, -16.9619, -0.487067, -7.13436, 16.9619, 13.9458, 4.06681, 0, 0.435233, -5.90525, 15.8247, -0.435233, 5.90525, -15.8247, -15.5248, 9.90794, 0),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_n8wku"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.095566, -0.0375347, -0.201058),
+"tilts": PackedFloat32Array(0)
+}
+point_count = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o7tvt"]
+size = Vector3(27.5595, 11.6103, 3.42516)
+
+[sub_resource type="Curve3D" id="Curve3D_hhk02"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.025, 0, 0, 0, 0, 0, 0, 0, 0, 13.497, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="BeeTesting" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.61862, 0)
+use_collision = true
+collision_layer = 128
+size = Vector3(71.7388, 9.8012, 31.558)
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_hacdb")
+
+[node name="Bee" parent="Path3D" instance=ExtResource("1_tadep")]
+transform = Transform3D(0.47248, 0.303215, 0.82754, 0, 0.938955, -0.344038, -0.881341, 0.162551, 0.443637, 8.23328, 9.38592, -9.98928)
+progress = 31.052
+rotation_mode = 4
+loop = true
+direction = -1
+speed = 10.0
+
+[node name="Path3D" type="Path3D" parent="Path3D/Bee"]
+transform = Transform3D(1, 3.72529e-09, 2.54886e-10, -3.72529e-09, 1, -9.49717e-10, 5.10951e-11, -8.40137e-09, 1, 0.0616558, 1.67008, 0.0941515)
+curve = SubResource("Curve3D_n8wku")
+script = ExtResource("2_vty38")
+
+[node name="Area3D" type="Area3D" parent="Path3D/Bee/Path3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/Bee/Path3D/Area3D"]
+transform = Transform3D(1, -3.72529e-09, 6.79726e-10, 7.45058e-09, 1, 6.48518e-09, -6.47077e-10, -4.6589e-09, 1, 0.201619, 5.46127, -0.655555)
+shape = SubResource("BoxShape3D_o7tvt")
+
+[node name="Player" parent="." instance=ExtResource("2_rexoh")]
+
+[node name="CameraRig" parent="." instance=ExtResource("3_j4iiv")]
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2622, 0, 0)
+curve = SubResource("Curve3D_hhk02")
+
+[node name="Bee" parent="Path3D2" instance=ExtResource("1_tadep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.497, 0)
+progress = 13.472
+rotation_mode = 0

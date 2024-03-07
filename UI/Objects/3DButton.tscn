@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpdb2biajw3i2"]
+
+[ext_resource type="PackedScene" uid="uid://hn3yqu03m7lm" path="res://Assets/Models/ui/leafs/ui_leaf_1.glb" id="1_7lvvh"]
+
+[node name="3DButton" type="Node3D"]
+
+[node name="ui_leaf" parent="." instance=ExtResource("1_7lvvh")]
+
+[node name="Skeleton3D" parent="ui_leaf/ui_leaf_armature_1" index="0"]
+bones/0/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+
+[editable path="ui_leaf"]

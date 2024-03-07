@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://ysngjm37ll0f"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/Enemy_Spawner.gd" id="1_y5naf"]
+[ext_resource type="Script" path="res://Scripts/Utils/Wave.gd" id="2_qqdj3"]
+
+[node name="Enemy_Spawner" type="Node3D"]
+script = ExtResource("1_y5naf")
+
+[node name="Spawn_Cooldown" type="Timer" parent="."]
+
+[node name="Wave_Manager" type="Node" parent="."]
+
+[node name="Wave0" type="Node" parent="Wave_Manager"]
+script = ExtResource("2_qqdj3")
+monster_Count = 5
+
+[node name="Wave1" type="Node" parent="Wave_Manager"]
+script = ExtResource("2_qqdj3")
+monster_Count = 5
+
+[node name="Wave2" type="Node" parent="Wave_Manager"]
+script = ExtResource("2_qqdj3")
+monster_Count = 5
+
+[node name="Wave3" type="Node" parent="Wave_Manager"]
+script = ExtResource("2_qqdj3")
+monster_Count = 5
+
+[node name="Wave4" type="Node" parent="Wave_Manager"]
+script = ExtResource("2_qqdj3")
+monster_Count = 5
+
+[connection signal="timeout" from="Spawn_Cooldown" to="." method="_on_spawn_cooldown_timeout"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://djriqe1rsevjf"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/OneWayCollision.gd" id="1_wcgo4"]
+[ext_resource type="Material" uid="uid://brqfgloh4rn3c" path="res://Assets/Materials/Prototyping/PrototypingHalfUnit.tres" id="2_dyo7e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ai0u1"]
+material = ExtResource("2_dyo7e")
+size = Vector3(1, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_et8pj"]
+size = Vector3(1, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obeyk"]
+size = Vector3(1.10088, 0.538632, 0.596588)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hbmv4"]
+size = Vector3(0.956936, 0.0342329, 0.462009)
+
+[node name="OneWayCollisionPrototype" type="StaticBody3D"]
+script = ExtResource("1_wcgo4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ai0u1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_et8pj")
+
+[node name="EnterArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnterArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0607002, 0)
+shape = SubResource("BoxShape3D_obeyk")
+
+[node name="ExitArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.257543, 0)
+shape = SubResource("BoxShape3D_hbmv4")

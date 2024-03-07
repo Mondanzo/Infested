@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqua13uewx35x"]
+
+[ext_resource type="PackedScene" uid="uid://yrwfievpnu60" path="res://Assets/Models/Decoration/Foreground/foreground_broken_branch.glb" id="1_8g7w6"]
+
+[node name="foreground_broken_branch" instance=ExtResource("1_8g7w6")]

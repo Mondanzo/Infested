@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://0w808c0ict5l"]
+
+[ext_resource type="PackedScene" uid="uid://ci106c8pb4wmg" path="res://UI/Objects/AudioSlider.tscn" id="1_yfy8y"]
+
+[node name="AudioSettings" type="BoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Sound Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeControl" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_constants/h_separation = 64
+columns = 2
+
+[node name="LabelMaster" type="Label" parent="VolumeControl"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterSlider" parent="VolumeControl" instance=ExtResource("1_yfy8y")]
+layout_mode = 2
+
+[node name="LabelSFX" type="Label" parent="VolumeControl"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SFXSlider" parent="VolumeControl" instance=ExtResource("1_yfy8y")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="LabelEnvironment" type="Label" parent="VolumeControl"]
+layout_mode = 2
+text = "Environment Volume"
+
+[node name="EnvironmentSlider" parent="VolumeControl" instance=ExtResource("1_yfy8y")]
+layout_mode = 2
+bus_name = "Environment"
+
+[node name="LabelMusic" type="Label" parent="VolumeControl"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicSlider" parent="VolumeControl" instance=ExtResource("1_yfy8y")]
+layout_mode = 2
+bus_name = "Music"

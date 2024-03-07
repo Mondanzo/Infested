@@ -1,0 +1,8 @@
+[gd_resource type="Environment" format=3 uid="uid://7lmulx0f3nlu"]
+
+[resource]
+ssil_enabled = true
+ssil_intensity = 2.18
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false

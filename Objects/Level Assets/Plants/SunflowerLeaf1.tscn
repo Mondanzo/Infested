@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://fqlwgf6bmy64"]
+
+[ext_resource type="PackedScene" uid="uid://bxnr8sc45nudl" path="res://Assets/Models/big_sunflower/sunflower_leaf_1.glb" id="1_v4vwo"]
+[ext_resource type="Script" path="res://Scripts/Utils/OneWayCollision.gd" id="2_vcqbx"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g4ylt"]
+points = PackedVector3Array(7.36453, 2.84956, -7.39894, 6.87929, 3.05525, 2.34501, 7.0549, 3.20047, 6.05298, 8.91113, 3.19493, -2.58227, 9.70138, 3.06291, -7.23303, 7.4015, 2.33598, -7.38182, 4.90753, 2.36962, -7.15007, 4.44385, 2.45054, -2.32023, 5.57454, 2.87128, 5.69745, 7.09341, 2.64984, 6.05034, 9.35632, 2.81805, 5.87258, 9.32089, 3.35377, 5.8739, 9.14066, 3.32524, 2.2107, 11.3219, 3.03609, -6.82747, 9.74143, 2.5208, -7.19879, 5.07235, 1.81644, -7.13954, 3.82614, 1.49875, -4.88789, 3.63358, 2.16394, -4.90106, 4.19584, 2.50547, 4.08707, 4.48236, 2.55189, 2.23835, 4.38994, 1.84029, 4.10024, 5.75477, 2.2687, 5.7093, 19.2182, -0.983555, 0.239527, 16.2914, 1.18532, 3.03894, 16.5255, 1.57455, 2.99943, 13.8113, 2.64473, 4.09234, 11.6577, 3.15064, 4.95086, 11.6608, 3.16129, 2.06454, 13.5402, 2.66006, -5.54364, 13.3969, 2.02809, -5.55417, 11.1817, 2.42073, -6.8143, 19.1982, -0.996757, -0.152864, 19.3707, -0.308576, 0.207925, 16.1142, 1.81303, -3.17085, 13.8113, 2.66857, 1.84069, 19.3507, -0.321778, -0.184466, 16.1219, 1.24537, -3.15769)
+
+[node name="sunflower_leaf_1" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("enter_area_override")]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("2_vcqbx")
+offset_enter = 0.8
+inflate = 0.01
+enter_area_override = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_g4ylt")
+
+[node name="sunflower_leaf_1" parent="." instance=ExtResource("1_v4vwo")]
+
+[node name="leaf_1001" parent="sunflower_leaf_1" index="0"]
+layers = 3
+
+[editable path="sunflower_leaf_1"]

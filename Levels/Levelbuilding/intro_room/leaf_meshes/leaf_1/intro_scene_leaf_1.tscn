@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxivevsvlsugm"]
+
+[ext_resource type="PackedScene" uid="uid://dl8qnay2l2r35" path="res://Levels/Levelbuilding/intro_room/leaf_meshes/leaf_1/leaf_1.glb" id="1_ee7u8"]
+[ext_resource type="Material" uid="uid://c2fgeebhy0ihb" path="res://Levels/Levelbuilding/intro_room/leaf_meshes/leaf_1/intro_scene_leaf_1_mat.tres" id="2_p4124"]
+
+[node name="leaf_1" instance=ExtResource("1_ee7u8")]
+
+[node name="Skeleton3D" parent="leaf_armature" index="0"]
+bones/1/rotation = Quaternion(1.18093e-07, -1.6275e-08, 0.136524, 0.990637)
+bones/2/rotation = Quaternion(-0.126152, -0.277887, -0.0493819, 0.951013)
+bones/3/rotation = Quaternion(-0.0444132, -0.184943, -0.229244, 0.954605)
+
+[node name="leaf_12" parent="leaf_armature/Skeleton3D" index="0"]
+material_override = ExtResource("2_p4124")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "leaf_anim"

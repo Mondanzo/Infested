@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl57wj2x0woud"]
+
+[ext_resource type="Texture2D" uid="uid://babmemcjhnifk" path="res://Assets/Sprites/UI/ability_placement_indicator_ui.png" id="1_gtkys"]
+
+[node name="HitMarker" type="Sprite3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0)
+pixel_size = 0.125
+billboard = 1
+texture = ExtResource("1_gtkys")

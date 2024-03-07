@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckccc141wlrdc"]
+
+[ext_resource type="Script" path="res://Scripts/Global/Game.gd" id="1_s8524"]
+[ext_resource type="PackedScene" uid="uid://ds3c5e6utkntm" path="res://UI/Menus/PauseMenu.tscn" id="2_w2pcp"]
+[ext_resource type="PackedScene" uid="uid://bfxnmc3bq5ux0" path="res://UI/Menus/GameOver.tscn" id="3_wbd13"]
+[ext_resource type="PackedScene" uid="uid://c4m4xmg4kvjn5" path="res://UI/Objects/TransitionScreen.tscn" id="4_b2n6v"]
+
+[node name="Game" type="Node"]
+process_mode = 3
+script = ExtResource("1_s8524")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_w2pcp")]
+visible = false
+
+[node name="GameOver" parent="." instance=ExtResource("3_wbd13")]
+process_mode = 0
+visible = false
+
+[node name="TransitionScreen" parent="." instance=ExtResource("4_b2n6v")]
+
+[connection signal="enter_finished" from="TransitionScreen" to="." method="_on_transition_screen_enter_finished"]
+[connection signal="exit_finished" from="TransitionScreen" to="." method="_on_transition_screen_exit_finished"]

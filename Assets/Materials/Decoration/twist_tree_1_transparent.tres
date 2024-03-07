@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bsxn52ret4yni"]
+
+[ext_resource type="Texture2D" uid="uid://dipb8djm0oo3q" path="res://Assets/Materials/Decoration/Textures/twist_tree_1_albedo_blenderwork.png" id="1_vf5wo"]
+[ext_resource type="Texture2D" uid="uid://dwhll1n1yf5eb" path="res://Assets/Materials/Decoration/Textures/twist_tree_1_Normal_DirectX.png" id="2_ddvi5"]
+
+[resource]
+albedo_texture = ExtResource("1_vf5wo")
+normal_enabled = true
+normal_texture = ExtResource("2_ddvi5")
+proximity_fade_enabled = true
+proximity_fade_distance = 50.0

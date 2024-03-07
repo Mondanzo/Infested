@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://wogqyrghon8n"]
+
+[ext_resource type="PackedScene" uid="uid://dmwy55jh1h0vm" path="res://Assets/Models/Decoration/lantern/lantern.glb" id="1_kmwae"]
+[ext_resource type="Material" uid="uid://vgyj4nkph1gs" path="res://Assets/Models/Decoration/lantern/lantern_mat.tres" id="2_elbwn"]
+
+[node name="lantern" instance=ExtResource("1_kmwae")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lantern_armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.330812, 0)
+light_color = Color(0.988235, 0.552941, 0.0705882, 1)
+light_energy = 3.797
+light_volumetric_fog_energy = 11.853
+light_size = 0.084
+shadow_enabled = true
+
+[node name="Skeleton3D" parent="lantern_armature" index="1"]
+bones/1/rotation = Quaternion(0.155071, -0.689893, 0.155071, 0.689894)
+
+[node name="lantern2" parent="lantern_armature/Skeleton3D" index="0"]
+material_override = ExtResource("2_elbwn")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "lantern_storm"
+speed_scale = 0.5

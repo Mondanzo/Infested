@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://dm6kqc32no8g2"]
+
+[ext_resource type="Theme" uid="uid://whrxg447a0wk" path="res://Assets/UI/Themes/Infested_UI_Theme.tres" id="1_kf8xa"]
+[ext_resource type="Texture2D" uid="uid://dih35deta8ce" path="res://Assets/UI/Sprites/toggle_on_off.png" id="2_plwap"]
+[ext_resource type="Script" path="res://UI/Scripts/Menus/DisplaySettings.tres.gd" id="2_r0n1c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7wt6"]
+atlas = ExtResource("2_plwap")
+region = Rect2(160, 0, 80, 40)
+
+[sub_resource type="Animation" id="Animation_i7ejl"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_nvpig"]
+resource_name = "toggle"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 0, 80, 40), Rect2(80, 0, 80, 40), Rect2(0, 0, 80, 40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gqiu4"]
+_data = {
+"RESET": SubResource("Animation_i7ejl"),
+"toggle": SubResource("Animation_nvpig")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0lou"]
+atlas = ExtResource("2_plwap")
+region = Rect2(160, 0, 80, 40)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhxu5"]
+_data = {
+"RESET": SubResource("Animation_i7ejl"),
+"toggle": SubResource("Animation_nvpig")
+}
+
+[node name="DisplaySettings" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kf8xa")
+script = ExtResource("2_r0n1c")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Display Settings
+"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+columns = 2
+
+[node name="LabelVSync" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Enable V-Sync"
+
+[node name="ControlVsync" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_pressed = true
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/ControlVsync"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_i7wt6")
+stretch_mode = 2
+
+[node name="ControlVsyncAnimation" type="AnimationPlayer" parent="GridContainer/ControlVsync"]
+unique_name_in_owner = true
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_gqiu4")
+}
+
+[node name="LabelWindowMode" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="ControlWindowMode" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_pressed = true
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/ControlWindowMode"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_a0lou")
+stretch_mode = 2
+
+[node name="ControlWindowAnimation" type="AnimationPlayer" parent="GridContainer/ControlWindowMode"]
+unique_name_in_owner = true
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_dhxu5")
+}
+
+[connection signal="toggled" from="GridContainer/ControlVsync" to="." method="_on_control_vsync_toggled"]
+[connection signal="toggled" from="GridContainer/ControlWindowMode" to="." method="_on_control_window_mode_item_selected"]

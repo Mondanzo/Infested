@@ -1,0 +1,123 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6b6if6a66r1w"]
+
+[ext_resource type="Script" path="res://UI/Scripts/Debug/DebugControls.gd" id="1_lt23k"]
+[ext_resource type="Texture2D" uid="uid://c4swj3ejaniy0" path="res://Assets/Sprites/UI/icons/UI_button_A_notARIAL_wood.png" id="2_h1l5e"]
+[ext_resource type="Texture2D" uid="uid://bfbkqpw5kyy8t" path="res://Assets/Sprites/UI/icons/UI_button_D_notARIAL_wood.png" id="3_btsus"]
+[ext_resource type="Texture2D" uid="uid://deoktcu2methi" path="res://Assets/Sprites/UI/icons/UI_button_Space_notArial_wood.png" id="4_oidvn"]
+[ext_resource type="Texture2D" uid="uid://bwclnlq3a66lu" path="res://Assets/Sprites/UI/icons/UI_button_LMB.png" id="4_v1qfw"]
+[ext_resource type="Texture2D" uid="uid://dwmss4a0tpqkg" path="res://Assets/Sprites/UI/icons/UI_button_E_notARIAL_wood.png" id="5_jfc06"]
+[ext_resource type="Texture2D" uid="uid://hn6fyro3bjvo" path="res://Assets/Sprites/UI/icons/UI_button_Q_notARIAL_wood.png" id="6_r3chl"]
+[ext_resource type="Texture2D" uid="uid://dx7pb7xqko124" path="res://Assets/Sprites/UI/icons/UI_button_U_notARIAL_wood.png" id="8_vrq06"]
+
+[node name="Controls" type="CanvasLayer"]
+script = ExtResource("1_lt23k")
+
+[node name="Container" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ControlsBox" type="MarginContainer" parent="Container"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="ControlsList" type="VBoxContainer" parent="Container/ControlsBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Controls_LeftAndRight" type="HBoxContainer" parent="Container/ControlsBox/ControlsList"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Container/ControlsBox/ControlsList/Controls_LeftAndRight"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Move Left and Right"
+
+[node name="TextureRect" type="TextureRect" parent="Container/ControlsBox/ControlsList/Controls_LeftAndRight"]
+layout_mode = 2
+texture = ExtResource("2_h1l5e")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Container/ControlsBox/ControlsList/Controls_LeftAndRight"]
+layout_mode = 2
+texture = ExtResource("3_btsus")
+expand_mode = 2
+
+[node name="Controls_Jump" type="HBoxContainer" parent="Container/ControlsBox/ControlsList"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Container/ControlsBox/ControlsList/Controls_Jump"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Jump"
+
+[node name="TextureRect2" type="TextureRect" parent="Container/ControlsBox/ControlsList/Controls_Jump"]
+layout_mode = 2
+texture = ExtResource("4_oidvn")
+expand_mode = 3
+
+[node name="Controls_UseAbility" type="HBoxContainer" parent="Container/ControlsBox/ControlsList"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Container/ControlsBox/ControlsList/Controls_UseAbility"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Use Ability"
+
+[node name="TextureRect" type="TextureRect" parent="Container/ControlsBox/ControlsList/Controls_UseAbility"]
+layout_mode = 2
+texture = ExtResource("4_v1qfw")
+expand_mode = 2
+
+[node name="Controls_AbsorbEnemies" type="HBoxContainer" parent="Container/ControlsBox/ControlsList"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Container/ControlsBox/ControlsList/Controls_AbsorbEnemies"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Absorb Enemies"
+
+[node name="TextureRect" type="TextureRect" parent="Container/ControlsBox/ControlsList/Controls_AbsorbEnemies"]
+layout_mode = 2
+texture = ExtResource("5_jfc06")
+expand_mode = 2
+
+[node name="Controls_SwapAbility" type="HBoxContainer" parent="Container/ControlsBox/ControlsList"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Container/ControlsBox/ControlsList/Controls_SwapAbility"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Swap Ability"
+
+[node name="TextureRect" type="TextureRect" parent="Container/ControlsBox/ControlsList/Controls_SwapAbility"]
+layout_mode = 2
+texture = ExtResource("6_r3chl")
+expand_mode = 2
+
+[node name="Controls_ToggleUI" type="HBoxContainer" parent="Container/ControlsBox/ControlsList"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Container/ControlsBox/ControlsList/Controls_ToggleUI"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Toggle Controls UI"
+
+[node name="TextureRect" type="TextureRect" parent="Container/ControlsBox/ControlsList/Controls_ToggleUI"]
+layout_mode = 2
+texture = ExtResource("8_vrq06")
+expand_mode = 2

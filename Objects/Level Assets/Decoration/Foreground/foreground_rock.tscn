@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://clusunmw5se74"]
+
+[ext_resource type="PackedScene" uid="uid://bnyktii6e6q8t" path="res://Assets/Models/Decoration/Foreground/foreground_rock.glb" id="1_28ofx"]
+
+[node name="foreground_rock" instance=ExtResource("1_28ofx")]

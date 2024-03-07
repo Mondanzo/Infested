@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=3 uid="uid://qtc00gm148we"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/VorePlant.gd" id="1_b4umg"]
+[ext_resource type="PackedScene" uid="uid://d1lnayr4br8b6" path="res://Assets/Models/venusflytrap/venusflytrap.glb" id="2_2tuop"]
+[ext_resource type="AudioStream" uid="uid://dbwbhjbggwr11" path="res://Assets/Audio/Sounds/Vore/Vore_sfx.wav" id="3_wmw5n"]
+[ext_resource type="AudioStream" uid="uid://fmle5ir82rhb" path="res://Assets/Audio/Sounds/Vore/Vore_sfx2.wav" id="4_amkrg"]
+[ext_resource type="AudioStream" uid="uid://61y6dn6id300" path="res://Assets/Audio/Sounds/Vore/Vore_sfx3.wav" id="5_th2fp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_islvd"]
+size = Vector3(0.0330224, 0.444367, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8827"]
+size = Vector3(0.605566, 0.347971, 0.636232)
+
+[node name="VorePlant" type="Node3D"]
+script = ExtResource("1_b4umg")
+
+[node name="Graphics" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1538)
+
+[node name="venusflytrap" parent="Graphics" instance=ExtResource("2_2tuop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.20929)
+
+[node name="Skeleton3D" parent="Graphics/venusflytrap/Armature003" index="0"]
+bones/8/rotation = Quaternion(0.283279, 0.201422, -0.613322, 0.709238)
+bones/11/rotation = Quaternion(-0.0104617, -0.0641127, 0.0279958, 0.997495)
+bones/12/rotation = Quaternion(-0.0522794, 0.00217043, -0.103581, 0.993244)
+bones/13/rotation = Quaternion(-0.0122945, -0.0966846, 0.055089, 0.993713)
+bones/14/rotation = Quaternion(-0.0522785, 0.00217215, -0.103582, 0.993244)
+bones/15/rotation = Quaternion(-0.0127647, -0.0725104, 0.0331149, 0.996736)
+bones/16/rotation = Quaternion(-0.0522784, 0.00217257, -0.103582, 0.993244)
+bones/17/rotation = Quaternion(-0.00165773, -0.0571063, 0.0431476, 0.997434)
+bones/18/rotation = Quaternion(-0.0522779, 0.00217467, -0.103583, 0.993244)
+bones/19/rotation = Quaternion(-0.00417845, -0.0627941, 0.0428781, 0.997096)
+bones/20/rotation = Quaternion(-0.0522779, 0.00217477, -0.103584, 0.993243)
+bones/21/rotation = Quaternion(0.00902409, -0.0246618, 0.036656, 0.998983)
+bones/22/rotation = Quaternion(-0.052279, 0.00217197, -0.103582, 0.993244)
+bones/23/rotation = Quaternion(0.0438107, 0.0665587, 0.0292043, 0.996392)
+bones/24/rotation = Quaternion(-0.052278, 0.00217304, -0.103583, 0.993244)
+bones/25/rotation = Quaternion(0.0566649, 0.0982729, 0.0282048, 0.993145)
+bones/26/rotation = Quaternion(-0.0522775, 0.00217405, -0.103582, 0.993244)
+bones/28/rotation = Quaternion(-0.0522774, 0.00217315, -0.103583, 0.993244)
+bones/29/rotation = Quaternion(0.283279, -0.201422, 0.613322, 0.709238)
+bones/32/rotation = Quaternion(-0.0537001, 0.1829, -0.0497954, 0.9804)
+bones/34/rotation = Quaternion(0.00384128, 0.049287, -0.0478065, 0.997632)
+bones/35/rotation = Quaternion(-0.052271, -0.0021718, 0.103567, 0.993246)
+bones/36/rotation = Quaternion(-0.0164781, 0.0838322, -0.0358267, 0.995699)
+bones/37/rotation = Quaternion(-0.0490201, -0.0136667, 0.106333, 0.993027)
+bones/38/rotation = Quaternion(0.0375528, -0.0489772, -0.0323669, 0.997569)
+bones/39/rotation = Quaternion(-0.00310807, 0.00627381, -0.000639222, 0.999975)
+bones/40/rotation = Quaternion(-0.00193588, 0.0563946, -0.0419094, 0.997527)
+bones/41/rotation = Quaternion(-0.0543566, 0.00427901, 0.102512, 0.993236)
+bones/42/rotation = Quaternion(0.0336992, -0.0368761, -0.0356277, 0.998116)
+bones/43/rotation = Quaternion(-0.0522709, -0.00217165, 0.103567, 0.993246)
+bones/44/rotation = Quaternion(0.0587526, -0.103324, -0.0281235, 0.992513)
+bones/46/rotation = Quaternion(0.0987512, -0.194863, -0.0305377, 0.975369)
+bones/48/rotation = Quaternion(0.0744974, -0.140542, -0.0281991, 0.986865)
+bones/49/rotation = Quaternion(-0.0467912, -0.0158949, 0.103265, 0.993426)
+
+[node name="AnimationPlayer" parent="Graphics/venusflytrap" index="1"]
+playback_process_mode = 0
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Graphics"]
+transform = Transform3D(0.166531, -0.984099, 0.0617704, 0.928504, 0.177592, 0.3261, -0.331885, 0.0030484, 0.943314, -0.133037, 0.0205929, 1.13838)
+bone_name = "fangteller_mitte_l"
+bone_idx = 29
+use_external_skeleton = true
+external_skeleton = NodePath("../venusflytrap/Armature003/Skeleton3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Graphics/BoneAttachment3D"]
+collision_layer = 128
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Graphics/BoneAttachment3D/AnimatableBody3D"]
+transform = Transform3D(0.931145, 0.0834355, -0.354974, -0.0825994, 0.996429, 0.0175387, 0.355169, 0.0129894, 0.934712, 0.0101948, 0.0916232, -0.0120854)
+shape = SubResource("BoxShape3D_islvd")
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Graphics"]
+transform = Transform3D(0.16653, 0.9841, -0.06177, -0.928504, 0.177591, 0.3261, 0.331885, 0.00304817, 0.943315, 0.133038, 0.0205935, 1.13838)
+bone_name = "fangteller_mitte_r"
+bone_idx = 8
+use_external_skeleton = true
+external_skeleton = NodePath("../venusflytrap/Armature003/Skeleton3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Graphics/BoneAttachment3D2"]
+collision_layer = 128
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Graphics/BoneAttachment3D2/AnimatableBody3D"]
+transform = Transform3D(0.92682, -0.115887, 0.357175, 0.132064, 0.991016, -0.0211514, -0.351513, 0.0667737, 0.933798, -0.00546636, 0.0836127, 0.00198588)
+shape = SubResource("BoxShape3D_islvd")
+
+[node name="BoneAttachment3D3" type="BoneAttachment3D" parent="Graphics"]
+transform = Transform3D(1, -4.33541e-14, 2.47557e-07, -2.13569e-07, 0.5057, 0.862709, -1.25189e-07, -0.862709, 0.5057, -3.7254e-09, -0.0624416, 1.54448)
+bone_name = "base_top.001"
+bone_idx = 7
+use_external_skeleton = true
+external_skeleton = NodePath("../venusflytrap/Armature003/Skeleton3D")
+
+[node name="ShovePoint" type="Node3D" parent="Graphics/BoneAttachment3D3"]
+unique_name_in_owner = true
+transform = Transform3D(1, -2.13569e-07, -1.2519e-07, -3.55272e-14, 0.505701, -0.862709, 2.47556e-07, 0.862709, 0.505701, -9.82203e-09, 0.484932, 0.0547247)
+
+[node name="TriggerZone" type="Area3D" parent="Graphics/BoneAttachment3D3"]
+unique_name_in_owner = true
+transform = Transform3D(1, -2.1439e-07, 1.23778e-07, 2.1439e-07, 0.5, -0.866025, 1.23778e-07, 0.866025, 0.5, -3.67122e-06, 0.434028, -0.0980213)
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Graphics/BoneAttachment3D3/TriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19, 0)
+shape = SubResource("BoxShape3D_x8827")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="Attack" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_wmw5n")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="Nom" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_amkrg")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="Retract" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_th2fp")
+volume_db = -20.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="Graphics/BoneAttachment3D3/TriggerZone" to="." method="_on_owchie_zone_body_entered"]
+
+[editable path="Graphics/venusflytrap"]

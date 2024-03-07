@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvbl2yh5nsqun"]
+
+[ext_resource type="PackedScene" uid="uid://mdn1gv5t2gh7" path="res://Assets/Models/anthill_modular/anthill_part_1.gltf" id="1_b6mbg"]
+
+[node name="anthill_part_1" instance=ExtResource("1_b6mbg")]
+
+[node name="anthill_part_1" parent="." index="0"]
+collision_layer = 129
+collision_mask = 129

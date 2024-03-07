@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://be5m2kyok0y3c"]
+
+[ext_resource type="PackedScene" uid="uid://c7eo2803t7ekh" path="res://Assets/Models/berry_vine/berry_vine.glb" id="1_tfef2"]
+[ext_resource type="Material" uid="uid://cdsjvi4ad0ov1" path="res://Assets/Materials/Plants/Sunflower.tres" id="2_8gkce"]
+
+[node name="berry_vine" type="Node3D"]
+
+[node name="berry_vine" parent="." instance=ExtResource("1_tfef2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0117248, 0, 0.00370955)
+
+[node name="posable_thorny_vines" parent="berry_vine/posable_thorny_vines_armature/Skeleton3D" index="0"]
+material_override = ExtResource("2_8gkce")
+extra_cull_margin = 100.0
+lod_bias = 0.001
+
+[editable path="berry_vine"]

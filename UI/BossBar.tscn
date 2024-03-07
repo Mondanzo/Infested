@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://bc0xka0wx051v"]
+
+[ext_resource type="Theme" uid="uid://whrxg447a0wk" path="res://Assets/UI/Themes/Infested_UI_Theme.tres" id="1_h73fa"]
+
+[sub_resource type="GDScript" id="GDScript_d5pyh"]
+script/source = "extends CanvasLayer
+
+@export var moth: Enemy_Base
+
+var transitioning = false
+
+func _process(delta):
+	if moth == null:
+		return
+	if moth.current_boss_stage > 1:
+		%MurderBar3.visible = false
+	elif moth.current_boss_stage > 2:
+		%MurderBar2.visible = false
+	elif moth.current_boss_stage >= 3 and moth.HP <= 0.0:
+		%MurderBar.visible = false
+		if not transitioning:
+			transitioning = true
+			await get_tree().create_timer(5.0).timeout
+			Game.change_scene(\"res://UI/Menus/Credits.tscn\")
+	match moth.current_boss_stage:
+		1:
+			%MurderBar3.max_value = moth.MAX_HP
+			%MurderBar3.value = moth.HP
+		2:
+			%MurderBar2.max_value = moth.MAX_HP
+			%MurderBar2.value = moth.HP
+		3:
+			%MurderBar.max_value = moth.MAX_HP
+			%MurderBar.value = moth.HP
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51m50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwtdv"]
+bg_color = Color(0.0862745, 0.392157, 0, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djfc2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ioa5"]
+bg_color = Color(0.517647, 0.227451, 0, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdet1"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 0.360784)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2f003"]
+bg_color = Color(0.619608, 0, 0, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[node name="BossUI" type="CanvasLayer"]
+script = SubResource("GDScript_d5pyh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_h73fa")
+
+[node name="MurderBar" type="ProgressBar" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -1.0
+offset_right = -32.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_51m50")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lwtdv")
+value = 96.9
+show_percentage = false
+
+[node name="MurderBar2" type="ProgressBar" parent="Control/MurderBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_djfc2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3ioa5")
+value = 100.0
+show_percentage = false
+
+[node name="MurderBar3" type="ProgressBar" parent="Control/MurderBar/MurderBar2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fdet1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2f003")
+value = 22.38
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control/MurderBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Crystal Moth"
+horizontal_alignment = 1
+vertical_alignment = 1

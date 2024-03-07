@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cch0flna5nmhk"]
+
+[ext_resource type="PackedScene" uid="uid://dy5c38r46v73v" path="res://Assets/Models/Decoration/Foreground/foreground_mossy_twig.glb" id="1_i80lk"]
+
+[node name="foreground_mossy_twig" instance=ExtResource("1_i80lk")]

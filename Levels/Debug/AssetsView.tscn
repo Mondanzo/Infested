@@ -1,0 +1,671 @@
+[gd_scene load_steps=51 format=3 uid="uid://d4c6e3wvnerqw"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="1_6wbhp"]
+[ext_resource type="PackedScene" uid="uid://csbq60jkoknc2" path="res://Objects/Entities/Player.tscn" id="1_w22jv"]
+[ext_resource type="PackedScene" uid="uid://ci56a5nvs2ymc" path="res://Objects/Utils/CameraRig.tscn" id="2_41ffc"]
+[ext_resource type="PackedScene" uid="uid://by032mdbfhuv" path="res://Objects/Debug/AssetNode.tscn" id="3_a5eud"]
+[ext_resource type="PackedScene" uid="uid://bvbisimqqxscf" path="res://Assets/Models/plant_big_leaf/plant_big_leaf_1.glb" id="3_gmsfe"]
+[ext_resource type="PackedScene" uid="uid://b2darribl1afk" path="res://Assets/Models/Obstacles/rose_obstacle/rose_obstacle.glb" id="4_vi6gh"]
+[ext_resource type="PackedScene" uid="uid://chq5gbbfku4wa" path="res://Assets/Models/Props/plants/moss_pad_01.glb" id="5_33lad"]
+[ext_resource type="PackedScene" uid="uid://f0d0beewkwdd" path="res://Assets/Models/plant_big_leaf/plant_big_leaf_2.glb" id="5_efyvq"]
+[ext_resource type="PackedScene" uid="uid://d077m8f0310qs" path="res://Assets/Models/Obstacles/rose_obstacle/rose_thorn_base.glb" id="5_g0ed5"]
+[ext_resource type="PackedScene" uid="uid://xhk4viglhn0r" path="res://Assets/Models/sfx/abilities/projectile_crystal.glb" id="5_y5n44"]
+[ext_resource type="PackedScene" uid="uid://c74egqmvvsfww" path="res://Assets/Models/plant_big_leaf/plant_big_leaf_3.glb" id="6_8xwst"]
+[ext_resource type="PackedScene" uid="uid://fl7m3v1vmy3m" path="res://Assets/Models/Obstacles/rose_obstacle/rose_thorn_red.glb" id="6_fc60l"]
+[ext_resource type="PackedScene" uid="uid://boippogd1dt1s" path="res://Assets/Models/sfx/abilities/projectile_vfx_mesh.glb" id="6_qk0dc"]
+[ext_resource type="PackedScene" uid="uid://bwsyfase8jxcr" path="res://Assets/Models/sfx/abilities/ability_crystal.glb" id="7_un7sg"]
+[ext_resource type="PackedScene" uid="uid://cqqwb3t6dn13u" path="res://Assets/Models/plant_big_leaf/plant_big_leaf_4.glb" id="7_varnd"]
+[ext_resource type="PackedScene" uid="uid://0vpfkodxhbvd" path="res://Assets/Models/plant_big_leaf/plant_big_leaf_5.glb" id="8_oubjc"]
+[ext_resource type="PackedScene" uid="uid://drk23dn53xxcm" path="res://Assets/Models/mushrooms_medium/mushroom_medium_1.gltf" id="12_jymak"]
+[ext_resource type="PackedScene" uid="uid://b6u34ipr2yq0v" path="res://Assets/Models/mushrooms_medium/mushroom_medium_2.gltf" id="13_8ujcs"]
+[ext_resource type="PackedScene" uid="uid://dq578c625ct34" path="res://Assets/Models/mushrooms_medium/mushroom_medium_3.gltf" id="14_0oh7o"]
+[ext_resource type="PackedScene" uid="uid://56103daknre4" path="res://Assets/Models/mushrooms_medium/mushroom_medium_4.gltf" id="15_gs7a7"]
+[ext_resource type="PackedScene" uid="uid://cej1moqvr63gj" path="res://Assets/Models/Monsters/Ant/ant_model_animation.glb" id="16_25dvb"]
+[ext_resource type="PackedScene" uid="uid://bonxq1pppuaxc" path="res://Assets/Models/Monsters/RolyPoly/roly_poly_animations.gltf" id="17_8vvjt"]
+[ext_resource type="PackedScene" uid="uid://w2mweye3powc" path="res://Assets/Models/Props/plants/daisy.glb" id="19_6oqrb"]
+[ext_resource type="PackedScene" uid="uid://ddbbpx0im8i6f" path="res://Assets/Models/Props/plants/Teasel.glb" id="20_lhljm"]
+[ext_resource type="PackedScene" uid="uid://de67hiloe4wpp" path="res://Assets/Models/Props/plants/poppy.glb" id="21_auos5"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Dissolve.gdshader" id="26_i8msu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_504h4"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_sar5u"]
+sky_material = SubResource("ProceduralSkyMaterial_504h4")
+
+[sub_resource type="Environment" id="Environment_1fal5"]
+background_mode = 2
+sky = SubResource("Sky_sar5u")
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_11tu5"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gvg6l"]
+
+[sub_resource type="Animation" id="Animation_eovfa"]
+resource_name = "new_animation"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Asset/rose_obstacle/AnimationPlayer:speed_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1.0, -1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Asset/rose_obstacle/AnimationPlayer:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"rose_defeated"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ka2m0"]
+_data = {
+"new_animation": SubResource("Animation_eovfa")
+}
+
+[sub_resource type="Animation" id="Animation_dq5lf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("projectile_vfx_mesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2bf8x"]
+resource_name = "sfx"
+length = 0.50001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("projectile_vfx_mesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d642e"]
+_data = {
+"RESET": SubResource("Animation_dq5lf"),
+"sfx": SubResource("Animation_2bf8x")
+}
+
+[sub_resource type="Animation" id="Animation_wixfj"]
+resource_name = "loop"
+length = 0.60001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ability_crystal/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"stretch"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o83vd"]
+_data = {
+"loop": SubResource("Animation_wixfj")
+}
+
+[sub_resource type="Animation" id="Animation_c4cjq"]
+resource_name = "cycles"
+length = 11.3333
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.91667, 3.83333, 6.46667, 7.26667, 8.81667, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"Ant_death_animation", &"Ant_death_animation_v2", &"Ant_idle_Animation", &"Ant_walk-attack_Animation", &"Ant_walk_Animation", &"Ant_walk_Animation_v2", &"ant_attack_animation"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdewg"]
+_data = {
+"cycles": SubResource("Animation_c4cjq")
+}
+
+[sub_resource type="Animation" id="Animation_wr0gu"]
+resource_name = "cycles"
+length = 5.0
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("roly_poly_animations/AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1.33333, 2, 2.7, 3.41667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"roly_poly_roll_out_animation", &"roly_poly_roll_up_animation", &"roly_poly_stun_animation ", &"roly_stun_animation_v2", &"roly_stun_animation_v2", &"roly_poly_walk_animation"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o2bi5"]
+_data = {
+"cycles": SubResource("Animation_wr0gu")
+}
+
+[sub_resource type="Animation" id="Animation_4fxsx"]
+resource_name = "cycles"
+length = 21.1833
+loop_mode = 1
+step = 0.0166667
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2sb3n"]
+_data = {
+"cycles": SubResource("Animation_4fxsx")
+}
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hk4hb"]
+noise_type = 3
+fractal_lacunarity = 3.657
+fractal_gain = 0.516
+domain_warp_enabled = true
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w4f2n"]
+seamless = true
+noise = SubResource("FastNoiseLite_hk4hb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbouh"]
+render_priority = 0
+shader = ExtResource("26_i8msu")
+shader_parameter/albedo = Color(1, 0, 1, 1)
+shader_parameter/point_size = null
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = null
+shader_parameter/uv2_offset = null
+shader_parameter/dissolve_progress = 0.0
+shader_parameter/dissolve_gap = 0.1
+shader_parameter/dissolve_color = Color(0, 1, 1, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_w4f2n")
+
+[sub_resource type="Animation" id="Animation_hw4mj"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Asset/CSGSphere3D:material:shader_parameter/dissolve_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_f52nb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Asset/CSGSphere3D:material:shader_parameter/dissolve_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78uj5"]
+_data = {
+"RESET": SubResource("Animation_f52nb"),
+"new_animation": SubResource("Animation_hw4mj")
+}
+
+[node name="AssetsView" type="Node3D"]
+script = ExtResource("1_6wbhp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1fal5")
+
+[node name="Player" parent="." node_paths=PackedStringArray("ability_container") instance=ExtResource("1_w22jv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 0)
+ability_container = NodePath("..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 129
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="StaticBody3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.5, 0)
+size = Vector3(258, 10, 20)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="StaticBody3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.5, 5, 0)
+size = Vector3(1, 12, 20)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="StaticBody3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.5, 5, 0)
+size = Vector3(1, 12, 20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("WorldBoundaryShape3D_11tu5")
+
+[node name="WallL" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -128, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_gvg6l")
+
+[node name="WallR" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 128, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_gvg6l")
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("node_to_track") instance=ExtResource("2_41ffc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124, 0, 0)
+node_to_track = NodePath("../Player")
+
+[node name="AssetGallery" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -6)
+
+[node name="AssetNode_Rose" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="rose_obstacle" parent="AssetGallery/AssetNode_Rose/Asset" index="0" instance=ExtResource("4_vi6gh")]
+
+[node name="Skeleton3D" parent="AssetGallery/AssetNode_Rose/Asset/rose_obstacle/Armature" index="0"]
+bones/0/position = Vector3(-0.644609, -0.389518, 0)
+bones/0/rotation = Quaternion(0.618872, 1.19162e-08, -0.0784706, 0.781563)
+bones/1/rotation = Quaternion(-0.0307258, 9.3704e-09, -0.126697, 0.991466)
+bones/1/scale = Vector3(1.18577, 1.18577, 1.18577)
+bones/2/rotation = Quaternion(-0.0795303, 7.09403e-09, -0.270204, 0.959513)
+bones/2/scale = Vector3(1.09016, 1.09015, 1.09016)
+bones/3/rotation = Quaternion(-0.119968, 1.38251e-08, -0.296327, 0.947522)
+bones/4/rotation = Quaternion(-0.107934, 6.00985e-07, -0.17475, 0.978679)
+bones/5/rotation = Quaternion(-0.110761, 7.11481e-09, -0.146118, 0.983047)
+bones/6/rotation = Quaternion(-0.137372, 1.20204e-06, -0.188207, 0.972475)
+bones/7/rotation = Quaternion(-0.155232, -7.18555e-09, -0.212577, 0.964735)
+bones/8/rotation = Quaternion(-0.13912, 1.45981e-06, -0.16983, 0.975604)
+bones/9/rotation = Quaternion(-0.114073, -9.82553e-10, -0.118041, 0.986435)
+bones/10/rotation = Quaternion(-0.0996886, -5.92076e-07, -0.0958213, 0.990394)
+bones/11/rotation = Quaternion(-0.101484, 2.36975e-08, -0.100502, 0.989748)
+bones/12/rotation = Quaternion(-0.122963, 4.6495e-08, -0.129378, 0.983941)
+bones/13/rotation = Quaternion(-0.17474, -3.25784e-10, -0.178627, 0.968274)
+bones/14/rotation = Quaternion(-0.226393, 1.28201e-05, -0.204924, 0.952235)
+bones/15/rotation = Quaternion(-0.195997, -2.92716e-08, -0.164276, 0.966745)
+bones/16/rotation = Quaternion(-0.128613, -1.04646e-06, -0.123208, 0.984011)
+bones/17/rotation = Quaternion(-0.0920467, 1.21927e-08, -0.131415, 0.987044)
+bones/18/rotation = Quaternion(-0.104501, -3.3074e-06, -0.214236, 0.971176)
+bones/19/rotation = Quaternion(-0.136806, -3.36401e-08, -0.260316, 0.955782)
+bones/20/rotation = Quaternion(-0.130907, -1.59146e-06, -0.129993, 0.982835)
+bones/21/rotation = Quaternion(-0.135323, 8.74975e-09, -0.0159125, 0.990671)
+bones/22/rotation = Quaternion(-0.159453, 9.56826e-06, 0.0312522, 0.98671)
+bones/23/rotation = Quaternion(-0.202723, -4.54862e-08, 0.0170271, 0.979088)
+bones/24/rotation = Quaternion(-0.370315, -0.000164809, -0.0970215, 0.923826)
+bones/25/rotation = Quaternion(-0.537753, 1.18675e-09, -0.276588, 0.796441)
+bones/26/rotation = Quaternion(-0.214441, 0.000106571, -0.0912839, 0.972462)
+bones/27/rotation = Quaternion(-0.0145769, 8.67103e-08, 0.101566, 0.994722)
+bones/28/rotation = Quaternion(0.0840472, -0.000210894, 0.15332, 0.984596)
+bones/29/rotation = Quaternion(0.303816, 3.39061e-09, 0.371946, 0.877127)
+bones/30/rotation = Quaternion(0.0995365, 0.000182395, 0.334923, 0.936973)
+bones/31/rotation = Quaternion(0.00443759, 2.77286e-08, 0.16261, 0.98668)
+bones/32/rotation = Quaternion(0.0241049, -2.25047e-05, -0.102621, 0.994428)
+bones/33/rotation = Quaternion(0.020677, -5.83019e-09, -0.180153, 0.98342)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="AssetGallery/AssetNode_Rose"]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_ka2m0")
+}
+
+[node name="AssetNode_Moss" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3333, 0, 0)
+
+[node name="moss_pad_01" parent="AssetGallery/AssetNode_Moss/Asset" index="0" instance=ExtResource("5_33lad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.666667, 0)
+
+[node name="AssetNode_AbilityCrystalProjectile" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6667, 0, 0)
+
+[node name="projectile_crystal" parent="AssetGallery/AssetNode_AbilityCrystalProjectile/Asset" index="0" instance=ExtResource("5_y5n44")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.580413, 0)
+
+[node name="projectile_vfx_mesh" parent="AssetGallery/AssetNode_AbilityCrystalProjectile/Asset" index="1" instance=ExtResource("6_qk0dc")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, -1.11659e-06, 0, 1.11659e-06, 0.25, 0, 0.666667, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AssetGallery/AssetNode_AbilityCrystalProjectile/Asset" index="2"]
+autoplay = "sfx"
+libraries = {
+"": SubResource("AnimationLibrary_d642e")
+}
+
+[node name="AssetNode_AbilityCrystalBlock" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3333, 0, 0)
+
+[node name="ability_crystal" parent="AssetGallery/AssetNode_AbilityCrystalBlock/Asset" index="0" instance=ExtResource("7_un7sg")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Skeleton3D" parent="AssetGallery/AssetNode_AbilityCrystalBlock/Asset/ability_crystal/crystal_ability_armature" index="0"]
+bones/0/scale = Vector3(1, 0.879665, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AssetGallery/AssetNode_AbilityCrystalBlock/Asset" index="1"]
+autoplay = "loop"
+libraries = {
+"": SubResource("AnimationLibrary_o83vd")
+}
+
+[node name="AssetNode_Rose2" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="rose_thorn_base" parent="AssetGallery/AssetNode_Rose2/Asset" index="0" instance=ExtResource("5_g0ed5")]
+
+[node name="AssetNode_Rose3" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="rose_thorn_red" parent="AssetGallery/AssetNode_Rose3/Asset" index="0" instance=ExtResource("6_fc60l")]
+
+[node name="AssetNode_Plant" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+
+[node name="plant_big_leaf_1" parent="AssetGallery/AssetNode_Plant/Asset" index="0" instance=ExtResource("3_gmsfe")]
+
+[node name="AssetNode2_Plant" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="plant_big_leaf_2" parent="AssetGallery/AssetNode2_Plant/Asset" index="0" instance=ExtResource("5_efyvq")]
+
+[node name="AssetNode3_Plant" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="plant_big_leaf_3" parent="AssetGallery/AssetNode3_Plant/Asset" index="0" instance=ExtResource("6_8xwst")]
+
+[node name="AssetNode4_Plant" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="plant_big_leaf_4" parent="AssetGallery/AssetNode4_Plant/Asset" index="0" instance=ExtResource("7_varnd")]
+
+[node name="AssetNode5_Plant" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="plant_big_leaf_5" parent="AssetGallery/AssetNode5_Plant/Asset" index="0" instance=ExtResource("8_oubjc")]
+
+[node name="AssetNode_Shroom" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66667, 0, 0)
+
+[node name="mushroom_medium_1" parent="AssetGallery/AssetNode_Shroom/Asset" index="0" instance=ExtResource("12_jymak")]
+
+[node name="AssetNode_Shroom2" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3333, 0, 0)
+
+[node name="mushroom_medium_2" parent="AssetGallery/AssetNode_Shroom2/Asset" index="0" instance=ExtResource("13_8ujcs")]
+
+[node name="AssetNode_Shroom3" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0)
+
+[node name="mushroom_medium_3" parent="AssetGallery/AssetNode_Shroom3/Asset" index="0" instance=ExtResource("14_0oh7o")]
+
+[node name="AssetNode_Shroom4" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6667, 0, 0)
+
+[node name="mushroom_medium_4" parent="AssetGallery/AssetNode_Shroom4/Asset" index="0" instance=ExtResource("15_gs7a7")]
+
+[node name="AssetNode_Plant_Daisy" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3333, 0, 0)
+
+[node name="daisy" parent="AssetGallery/AssetNode_Plant_Daisy/Asset" index="0" instance=ExtResource("19_6oqrb")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
+
+[node name="1" parent="AssetGallery/AssetNode_Plant_Daisy/Asset/daisy/daisy_armature/root" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08265, 0)
+
+[node name="AssetNode_Plant_Teasel" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 0)
+
+[node name="Teasel" parent="AssetGallery/AssetNode_Plant_Teasel/Asset" index="0" instance=ExtResource("20_lhljm")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="AssetNode_Plant_Poppy" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6666, 0, 0)
+
+[node name="poppy" parent="AssetGallery/AssetNode_Plant_Poppy/Asset" index="0" instance=ExtResource("21_auos5")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="AssetNode_Ant" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="ant_model_animation" parent="AssetGallery/AssetNode_Ant/Asset" index="0" instance=ExtResource("16_25dvb")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
+[node name="Skeleton3D" parent="AssetGallery/AssetNode_Ant/Asset/ant_model_animation/Armature" index="0"]
+bones/1/position = Vector3(0.0968524, -0.000131398, 0.0957393)
+bones/1/scale = Vector3(0.09032, 0.09032, 0.09032)
+bones/2/position = Vector3(0.130515, -0.000131405, 0.000581451)
+bones/2/scale = Vector3(0.09032, 0.09032, 0.09032)
+bones/3/position = Vector3(0.11812, -0.00526853, -0.124399)
+bones/3/scale = Vector3(0.09032, 0.09032, 0.09032)
+bones/4/position = Vector3(-0.0714978, 0.134008, 0.799421)
+bones/5/position = Vector3(-0.0968524, -0.000131398, 0.0957393)
+bones/5/scale = Vector3(0.09032, 0.09032, 0.09032)
+bones/6/position = Vector3(-0.130515, -0.000131405, 0.000581451)
+bones/6/scale = Vector3(0.09032, 0.09032, 0.09032)
+bones/7/position = Vector3(-0.11812, -0.00526853, -0.124399)
+bones/7/scale = Vector3(0.09032, 0.09032, 0.09032)
+bones/14/rotation = Quaternion(0.639606, -1.37454e-06, -1.1437e-06, 0.768703)
+bones/15/rotation = Quaternion(-0.209418, 1.16558e-07, 7.23971e-07, 0.977826)
+bones/16/rotation = Quaternion(0.841407, -0.00899406, 0.0716143, 0.53556)
+bones/18/rotation = Quaternion(-0.894282, -0.272701, -0.23422, 0.266525)
+bones/18/scale = Vector3(0.98718, 1.02614, 0.987178)
+bones/19/position = Vector3(0.684466, -0.403153, 0.235522)
+bones/19/rotation = Quaternion(0.943192, 4.96538e-08, -3.13074e-06, -0.332248)
+bones/20/rotation = Quaternion(0.275504, -0.0140057, 0.0412051, 0.960314)
+bones/21/position = Vector3(0.0887551, 0.806944, 0.432289)
+bones/21/scale = Vector3(0.351129, 0.9936, 0.985185)
+bones/23/rotation = Quaternion(-0.85267, 0.327958, 0.277256, 0.297534)
+bones/23/scale = Vector3(0.953485, 1.09995, 0.953485)
+bones/24/position = Vector3(-0.897826, -0.403153, 0.235526)
+bones/24/rotation = Quaternion(0.943192, -1.05934e-06, 1.75009e-08, -0.332248)
+bones/25/rotation = Quaternion(0.324198, 0.0224025, -0.0400549, 0.944875)
+bones/26/position = Vector3(-0.0887521, 0.762507, 0.462826)
+bones/26/scale = Vector3(0.317202, 0.9936, 0.996626)
+bones/27/rotation = Quaternion(0.99778, -0.0227198, 0.0524024, 0.0342422)
+bones/27/scale = Vector3(0.933309, 0.933309, 0.933307)
+bones/28/rotation = Quaternion(0.647271, 0.319784, 0.605588, 0.334727)
+bones/29/rotation = Quaternion(0.303552, -0.0120171, -0.0127217, 0.952654)
+bones/30/rotation = Quaternion(0.0122644, -0.876285, -0.476496, 0.0701894)
+bones/31/rotation = Quaternion(-0.999157, -0.000838539, 0.00557454, 0.0406527)
+bones/31/scale = Vector3(1, 1.00001, 0.999995)
+bones/32/rotation = Quaternion(-0.606056, 0.0287096, 0.00118304, 0.794903)
+bones/33/rotation = Quaternion(0.598804, 0.414742, 0.515857, 0.450904)
+bones/34/rotation = Quaternion(0.319889, 0.0325015, 0.0354325, 0.946234)
+bones/35/rotation = Quaternion(0.32677, 0.609397, 0.349394, 0.632281)
+bones/36/rotation = Quaternion(0.993842, -0.105257, 0.0341764, 0.00559745)
+bones/36/scale = Vector3(0.999994, 1, 1)
+bones/37/rotation = Quaternion(0.47509, 0.555621, -0.403384, 0.550324)
+bones/38/rotation = Quaternion(0.611678, 0.650712, 0.352616, 0.279438)
+bones/39/rotation = Quaternion(0.211495, 0.552945, 0.443607, 0.672856)
+bones/40/rotation = Quaternion(0.680515, -0.061741, 0.729603, 0.0276955)
+bones/40/scale = Vector3(1, 1, 0.999994)
+bones/41/rotation = Quaternion(0.652049, 0.0833802, -0.0361894, 0.752708)
+bones/42/rotation = Quaternion(0.647269, -0.319782, -0.60559, 0.334728)
+bones/43/rotation = Quaternion(0.303552, 0.0120171, 0.0127218, 0.952654)
+bones/44/rotation = Quaternion(0.0122644, 0.876285, 0.476496, 0.0701892)
+bones/45/rotation = Quaternion(-0.999157, 0.000838515, -0.0055747, 0.0406527)
+bones/45/scale = Vector3(1, 1.00001, 0.999995)
+bones/46/rotation = Quaternion(-0.606056, -0.0287095, -0.0011831, 0.794903)
+bones/47/rotation = Quaternion(0.598803, -0.414741, -0.515858, 0.450905)
+bones/48/rotation = Quaternion(0.319889, -0.0325016, -0.0354325, 0.946234)
+bones/49/rotation = Quaternion(0.32677, -0.609397, -0.349394, 0.632281)
+bones/50/rotation = Quaternion(0.993842, 0.105257, -0.0341763, 0.00559743)
+bones/50/scale = Vector3(0.999996, 1.00001, 1)
+bones/51/rotation = Quaternion(0.475091, -0.555621, 0.403384, 0.550323)
+bones/52/rotation = Quaternion(0.611677, -0.650711, -0.352618, 0.279441)
+bones/53/rotation = Quaternion(0.211495, -0.552945, -0.443607, 0.672856)
+bones/54/rotation = Quaternion(0.680516, 0.0617411, -0.729602, 0.0276958)
+bones/54/scale = Vector3(1, 1.00001, 0.999994)
+bones/55/rotation = Quaternion(0.65205, -0.0833801, 0.0361895, 0.752708)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AssetGallery/AssetNode_Ant/Asset" index="1"]
+root_node = NodePath("../ant_model_animation")
+autoplay = "cycles"
+libraries = {
+"": SubResource("AnimationLibrary_wdewg")
+}
+
+[node name="AssetNode_RolyPoly" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3415, 0, 0.000559092)
+
+[node name="roly_poly_animations" parent="AssetGallery/AssetNode_RolyPoly/Asset" index="0" instance=ExtResource("17_8vvjt")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="AssetGallery/AssetNode_RolyPoly/Asset/roly_poly_animations/Armature" index="0"]
+bones/2/rotation = Quaternion(0.0645893, -7.13794e-07, 1.07797e-07, 0.997912)
+bones/4/rotation = Quaternion(-0.258397, -0.0693909, -0.319468, 0.909041)
+bones/5/rotation = Quaternion(-0.22899, -0.959575, 0.124645, 0.106034)
+bones/6/rotation = Quaternion(-0.281828, 0.954597, -0.096108, 0.00894461)
+bones/7/rotation = Quaternion(-0.258397, 0.06939, 0.319468, 0.909041)
+bones/8/rotation = Quaternion(-0.22899, 0.959575, -0.124645, 0.106034)
+bones/9/rotation = Quaternion(-0.281828, -0.954597, 0.096108, 0.00894462)
+bones/10/rotation = Quaternion(0.364068, 0.814192, 0.356494, 0.278314)
+bones/11/rotation = Quaternion(0.341156, 0.016966, 0.0344249, 0.939223)
+bones/12/rotation = Quaternion(-0.384784, -0.0224939, 0.0119689, 0.922655)
+bones/13/rotation = Quaternion(0.31588, -0.873016, -0.270414, 0.254832)
+bones/14/rotation = Quaternion(0.543825, -0.0619515, -0.109007, 0.829779)
+bones/15/rotation = Quaternion(-0.765856, -0.0202794, -0.0958221, 0.635508)
+bones/17/rotation = Quaternion(0.507029, 0.714643, 0.30474, 0.373284)
+bones/18/rotation = Quaternion(0.39997, 0.0109608, -0.0366872, 0.915728)
+bones/19/rotation = Quaternion(-0.536134, -0.0440817, -0.0190615, 0.842765)
+bones/20/rotation = Quaternion(0.656064, 0.65217, 0.19409, 0.326472)
+bones/21/rotation = Quaternion(0.445727, 0.0630405, 0.0916105, 0.888235)
+bones/22/rotation = Quaternion(-0.73344, 0.0313049, 0.11738, 0.668811)
+bones/23/rotation = Quaternion(0.993783, -1.32726e-07, 1.18471e-06, 0.111336)
+bones/24/rotation = Quaternion(-0.21605, 0.302653, -0.359854, 0.855703)
+bones/25/rotation = Quaternion(0.00565026, 0.00961438, 0.000510699, 0.999938)
+bones/26/rotation = Quaternion(-0.00500584, -0.00954368, -0.000451769, 0.999942)
+bones/27/rotation = Quaternion(-0.0196471, 1.19186e-07, -2.34215e-09, 0.999807)
+bones/28/rotation = Quaternion(-0.364255, 0.268613, -0.411947, 0.790864)
+bones/29/rotation = Quaternion(0.324798, 0.0231019, 0.0174441, 0.94534)
+bones/30/rotation = Quaternion(-0.390374, -0.0328082, 0.0330744, 0.919477)
+bones/31/rotation = Quaternion(-0.296254, -0.223421, 0.490379, 0.788572)
+bones/32/rotation = Quaternion(0.48754, -0.0714911, -0.108904, 0.863327)
+bones/33/rotation = Quaternion(-0.695907, -0.0157765, -0.151823, 0.701722)
+bones/34/rotation = Quaternion(-0.316146, -0.242923, 0.542103, 0.739706)
+bones/35/rotation = Quaternion(0.325481, -0.000845645, 0.0341584, 0.944931)
+bones/36/rotation = Quaternion(-0.668564, 0.0229845, 0.0097635, 0.743235)
+bones/37/rotation = Quaternion(0.708698, -0.540653, -0.368777, 0.263523)
+bones/38/rotation = Quaternion(0.00589812, -0.0124629, -0.000722465, 0.999905)
+bones/39/rotation = Quaternion(-0.00506111, 0.0297089, 0.000530033, 0.999546)
+bones/40/rotation = Quaternion(0.652796, -0.582026, -0.273381, 0.400458)
+bones/41/rotation = Quaternion(0.308258, -0.0214643, -0.0124276, 0.95098)
+bones/42/rotation = Quaternion(-0.390848, 0.00517445, -0.020687, 0.920208)
+bones/43/position = Vector3(2.16438, 1.38778e-17, 0.00223005)
+bones/45/position = Vector3(0.932236, -1.01968, -0.376742)
+bones/46/position = Vector3(-0.0827821, -0.970515, -0.202803)
+bones/47/position = Vector3(-1.18894, -0.954775, -0.436398)
+bones/49/position = Vector3(-2.16438, 1.38778e-17, 0.00223005)
+bones/50/position = Vector3(-1.3512, -1.18236, -0.202803)
+bones/51/position = Vector3(-0.148658, -0.913329, -0.436398)
+bones/53/position = Vector3(0.405363, -1.06113, -0.376742)
+bones/54/position = Vector3(1.52876, -1.28547, -0.202802)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AssetGallery/AssetNode_RolyPoly/Asset" index="1"]
+autoplay = "cycles"
+libraries = {
+"": SubResource("AnimationLibrary_o2bi5")
+}
+
+[node name="AssetNode_WaterBug" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0082, 0, 0.000559092)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AssetGallery/AssetNode_WaterBug/Asset" index="0"]
+autoplay = "cycles"
+libraries = {
+"": SubResource("AnimationLibrary_2sb3n")
+}
+
+[node name="AssetNode_Fresnel" parent="AssetGallery" instance=ExtResource("3_a5eud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="AssetGallery/AssetNode_Fresnel/Asset" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.580413, 0)
+radial_segments = 64
+rings = 64
+material = SubResource("ShaderMaterial_jbouh")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="AssetGallery/AssetNode_Fresnel"]
+autoplay = "new_animation"
+speed_scale = 0.1
+libraries = {
+"": SubResource("AnimationLibrary_78uj5")
+}
+
+[editable path="AssetGallery/AssetNode_Rose"]
+[editable path="AssetGallery/AssetNode_Rose/Asset/rose_obstacle"]
+[editable path="AssetGallery/AssetNode_Moss"]
+[editable path="AssetGallery/AssetNode_AbilityCrystalProjectile"]
+[editable path="AssetGallery/AssetNode_AbilityCrystalBlock"]
+[editable path="AssetGallery/AssetNode_AbilityCrystalBlock/Asset/ability_crystal"]
+[editable path="AssetGallery/AssetNode_Rose2"]
+[editable path="AssetGallery/AssetNode_Rose3"]
+[editable path="AssetGallery/AssetNode_Plant"]
+[editable path="AssetGallery/AssetNode2_Plant"]
+[editable path="AssetGallery/AssetNode3_Plant"]
+[editable path="AssetGallery/AssetNode4_Plant"]
+[editable path="AssetGallery/AssetNode5_Plant"]
+[editable path="AssetGallery/AssetNode_Shroom"]
+[editable path="AssetGallery/AssetNode_Shroom2"]
+[editable path="AssetGallery/AssetNode_Shroom3"]
+[editable path="AssetGallery/AssetNode_Shroom4"]
+[editable path="AssetGallery/AssetNode_Plant_Daisy"]
+[editable path="AssetGallery/AssetNode_Plant_Daisy/Asset/daisy"]
+[editable path="AssetGallery/AssetNode_Plant_Teasel"]
+[editable path="AssetGallery/AssetNode_Plant_Poppy"]
+[editable path="AssetGallery/AssetNode_Ant"]
+[editable path="AssetGallery/AssetNode_Ant/Asset/ant_model_animation"]
+[editable path="AssetGallery/AssetNode_RolyPoly"]
+[editable path="AssetGallery/AssetNode_RolyPoly/Asset/roly_poly_animations"]
+[editable path="AssetGallery/AssetNode_WaterBug"]
+[editable path="AssetGallery/AssetNode_Fresnel"]

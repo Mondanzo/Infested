@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c56j7tbsntx4q"]
+
+[ext_resource type="PackedScene" uid="uid://b8sf0qcatfpck" path="res://Assets/Models/big_sunflower/sunflower_leaf_3.glb" id="1_el657"]
+[ext_resource type="Script" path="res://Scripts/Utils/OneWayCollision.gd" id="2_5nmuc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ybxdv"]
+points = PackedVector3Array(7.35436, 1.52084, -6.60097, 7.32286, 2.03206, -6.54665, 8.74997, 2.44068, -6.41084, 8.78284, 1.91059, -6.45837, 18.3494, 1.02802, -1.68596, 5.16987, 0.306508, -5.68289, 5.00963, 0.856846, -5.60955, 9.64431, 2.90082, -6.04415, 4.4481, 0.642877, -4.28131, 9.74018, 2.30815, -6.23972, 18.2385, 1.68235, -1.48767, 18.4398, 0.930929, -1.31655, 4.63299, -0.0188165, -4.36823, 4.66449, -0.421446, 5.70083, 12.0164, 3.47279, -3.96352, 15.3021, 3.04807, -2.02413, 18.3289, 1.58526, -1.11691, 16.6648, 1.00777, 1.82613, 16.5977, 0.564191, 1.74192, 12.7793, -0.705818, 5.19289, 4.94663, -0.780362, 2.06244, 4.85075, -1.08268, 5.61391, 10.1908, -1.03758, 6.45322, 6.04229, -0.628973, 7.12685, 12.6752, -0.0984221, 5.36673, 15.7677, 2.29067, -0.556007, 7.71456, -0.664865, 7.27352, 7.74606, -1.21014, 7.19339, 6.21623, -1.22809, 7.04808, 10.1606, -0.507034, 6.53063)
+
+[node name="sunflower_leaf_3" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("2_5nmuc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ybxdv")
+
+[node name="sunflower_leaf_3" parent="." instance=ExtResource("1_el657")]
+
+[node name="leaf_1002" parent="sunflower_leaf_3" index="0"]
+layers = 3
+
+[editable path="sunflower_leaf_3"]

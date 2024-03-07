@@ -1,0 +1,375 @@
+[gd_scene load_steps=35 format=3 uid="uid://nm7fnuh74l8j"]
+
+[ext_resource type="PackedScene" uid="uid://csbq60jkoknc2" path="res://Objects/Entities/Player.tscn" id="3_l8ukm"]
+[ext_resource type="PackedScene" uid="uid://c5vj0ca2kjcxq" path="res://Objects/Abilities/EarthAbility.tscn" id="4_8ejx3"]
+[ext_resource type="PackedScene" uid="uid://ci56a5nvs2ymc" path="res://Objects/Utils/CameraRig.tscn" id="4_nlpu0"]
+[ext_resource type="PackedScene" uid="uid://cb2ftfk1uay01" path="res://Objects/Attacks/WaterAttack.tscn" id="5_u766e"]
+[ext_resource type="PackedScene" uid="uid://xu7xsdjbbuc7" path="res://Objects/Level Assets/Plants/SunflowerArmature.tscn" id="7_sovjp"]
+[ext_resource type="PackedScene" uid="uid://fqlwgf6bmy64" path="res://Objects/Level Assets/Plants/SunflowerLeaf1.tscn" id="8_h22qu"]
+[ext_resource type="PackedScene" uid="uid://cbnanakql1ytd" path="res://Objects/Level Assets/Plants/SunflowerLeaf2.tscn" id="9_uggf3"]
+[ext_resource type="PackedScene" uid="uid://c56j7tbsntx4q" path="res://Objects/Level Assets/Plants/SunflowerLeaf3.tscn" id="10_a3u1h"]
+[ext_resource type="PackedScene" uid="uid://8k2wv8apsipw" path="res://Objects/Level Assets/Plants/SunflowerLeaf4.tscn" id="11_lba4n"]
+[ext_resource type="PackedScene" uid="uid://bnolx5oyxe5ol" path="res://Objects/Level Assets/Animals/Bumblebee.tscn" id="12_h5q4r"]
+[ext_resource type="PackedScene" uid="uid://dddqgjxvf83q1" path="res://Objects/Level Assets/Anthill/AnthillBack.tscn" id="15_4uxpu"]
+[ext_resource type="PackedScene" uid="uid://cvbl2yh5nsqun" path="res://Objects/Level Assets/Anthill/AnthillPart1.tscn" id="16_etuc5"]
+[ext_resource type="PackedScene" uid="uid://dl8iyoiv774ci" path="res://Objects/Level Assets/Anthill/AnthillPart2.tscn" id="17_mfkpy"]
+[ext_resource type="PackedScene" uid="uid://s05k6tf1sq7e" path="res://Objects/Level Assets/Anthill/AnthillPart3.tscn" id="18_qlc5y"]
+[ext_resource type="PackedScene" uid="uid://bqpxqw4q8r7qb" path="res://Objects/Level Assets/Plants/Rose/RoseObstacle.tscn" id="18_v2gnl"]
+[ext_resource type="PackedScene" uid="uid://th3hq6ysu8bc" path="res://Assets/Models/big_sunflower/sunflower_armature.glb" id="19_btxlb"]
+[ext_resource type="PackedScene" uid="uid://cpfuihvcrh1yk" path="res://Objects/Level Assets/Anthill/AnthillPart4.tscn" id="19_wak7h"]
+[ext_resource type="PackedScene" uid="uid://dmc7xoykb50wg" path="res://Objects/Level Assets/Anthill/AnthillPart5.tscn" id="20_p8dxw"]
+[ext_resource type="PackedScene" uid="uid://cnvpwtphkejfv" path="res://Objects/Level Assets/Anthill/AnthillPart6.tscn" id="21_by4m0"]
+[ext_resource type="PackedScene" uid="uid://crjbm8al7v52h" path="res://Objects/Level Assets/Anthill/AnthillWallLong.tscn" id="22_153no"]
+[ext_resource type="PackedScene" uid="uid://kvmbionq1qpn" path="res://Objects/Level Assets/Anthill/AnthillWallShort.tscn" id="23_vm8qp"]
+[ext_resource type="PackedScene" uid="uid://clfo3gfyvxlnf" path="res://Objects/Level Assets/Enviroment/Ground.tscn" id="24_3hke6"]
+
+[sub_resource type="Curve3D" id="Curve3D_1bji7"]
+_data = {
+"points": PackedVector3Array(-4.48785, -2.84949, 0, 4.48785, 2.84949, 0, 437.348, 20.167, 0, -8.16431, 0, 0, 8.16431, 0, 0, 450.636, 23.2286, 0, -4.76413, -0.0727978, 0, 4.76413, 0.0727978, 0, 464.533, 20.452, 0, 0, 0, 0, 0, 0, 0, 471.464, 21.2115, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Animation" id="Animation_fwuka"]
+resource_name = " bzzz"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(2.14355, 2.14355),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_42cra"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lffh0"]
+_data = {
+" bzzz": SubResource("Animation_fwuka"),
+"RESET": SubResource("Animation_42cra")
+}
+
+[sub_resource type="Curve3D" id="Curve3D_l83uc"]
+_data = {
+"points": PackedVector3Array(-16.7277, 6.3103, 0, 16.7277, -6.3103, 0, 473.792, 21.154, 0, 0, 0, 0, 0, 0, 0, 520.639, 47.6597, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_kq77x"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_bt5gs"]
+resource_name = "bzzz"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1, 5),
+"transitions": PackedFloat32Array(2.2974, 0.258816),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6o0mf"]
+_data = {
+"RESET": SubResource("Animation_kq77x"),
+"bzzz": SubResource("Animation_bt5gs")
+}
+
+[sub_resource type="Curve3D" id="Curve3D_ba8ns"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 573.597, 60.7246, 0, 0, 0, 0, 0, 0, 0, 522.115, 49.1318, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_hvsfe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bumblebee_animations3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tp6x3"]
+resource_name = "bzzz"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bumblebee_animations3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pyn5l"]
+_data = {
+"RESET": SubResource("Animation_hvsfe"),
+"bzzz": SubResource("Animation_tp6x3")
+}
+
+[node name="lvl01_v2" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("ability_container") instance=ExtResource("3_l8ukm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350.058, 29.726, 143.503)
+ability_container = NodePath("../Ability Container")
+abilities = Array[PackedScene]([ExtResource("4_8ejx3"), ExtResource("5_u766e")])
+
+[node name="Ability Container" type="Node3D" parent="."]
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("node_to_track") instance=ExtResource("4_nlpu0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 258.443, 20.3731, 128.003)
+node_to_track = NodePath("../Player")
+
+[node name="ground" parent="." instance=ExtResource("24_3hke6")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 226.93, -1.07062, 146.813)
+
+[node name="ground2" parent="." instance=ExtResource("24_3hke6")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 465.821, -1.07062, 146.813)
+
+[node name="ground3" parent="." instance=ExtResource("24_3hke6")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 703.282, -1.07062, 146.813)
+
+[node name="LVL" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145.898)
+
+[node name="sunflower_armature" parent="LVL" instance=ExtResource("7_sovjp")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 376.02, 1.3072, 0)
+
+[node name="Skeleton3D" parent="LVL/sunflower_armature/sun_flower_armature" index="0"]
+bones/4/rotation = Quaternion(0.000474975, 0.000474975, 0.224475, 1.00048)
+
+[node name="CollisionShape" parent="LVL/sunflower_armature" index="1"]
+transform = Transform3D(0.904144, -0.427227, 0.00110681, 0.427228, 0.904144, -0.000701161, -0.000701161, 0.00110681, 0.999999, 0, 28.9037, 0)
+
+[node name="sunflower_armature5" parent="LVL" instance=ExtResource("7_sovjp")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 410.02, 2.3072, 0)
+
+[node name="Skeleton3D" parent="LVL/sunflower_armature5/sun_flower_armature" index="0"]
+bones/4/rotation = Quaternion(0.000474975, 0.000474975, 0.224475, 1.00048)
+bones/4/scale = Vector3(1.00048, 1.00048, 1.00048)
+
+[node name="body" parent="LVL/sunflower_armature5/sun_flower_armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.988294, 0)
+
+[node name="CollisionShape" parent="LVL/sunflower_armature5" index="1"]
+transform = Transform3D(0.904578, -0.427432, 0.00110734, 0.427433, 0.904578, -0.000701498, -0.000701498, 0.00110734, 1.00048, 0, 28.9037, 0)
+
+[node name="sunflower_armature2" parent="LVL" instance=ExtResource("19_btxlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 314, 0, 0)
+
+[node name="Skeleton3D" parent="LVL/sunflower_armature2/sun_flower_armature" index="0"]
+bones/1/rotation = Quaternion(0.000474975, 0.000474975, -0.039525, 1.00048)
+bones/1/scale = Vector3(1.00048, 1.00048, 1.00048)
+bones/2/rotation = Quaternion(0.000474975, 0.000474975, 0.096475, 1.00048)
+bones/3/position = Vector3(0.000474975, 5.91448, 0.000474975)
+bones/3/rotation = Quaternion(0.000474975, 0.000474975, -0.013525, 1.00048)
+bones/4/rotation = Quaternion(0.000474975, 0.000474975, 0.235475, 1.00048)
+
+[node name="body" parent="LVL/sunflower_armature2/sun_flower_armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83413, 0)
+
+[node name="sunflower_armature3" parent="LVL" instance=ExtResource("19_btxlb")]
+transform = Transform3D(1.204, 0, 0, 0, 1.204, 0, 0, 0, 1.204, 290, 0, 0)
+
+[node name="Skeleton3D" parent="LVL/sunflower_armature3/sun_flower_armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+bones/1/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+bones/1/scale = Vector3(1.00048, 1.00048, 1.00048)
+bones/2/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+bones/3/position = Vector3(0.000474975, 5.91448, 0.000474975)
+bones/3/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+bones/4/rotation = Quaternion(0.000474975, 0.000474975, 0.100475, 1.00048)
+
+[node name="body" parent="LVL/sunflower_armature3/sun_flower_armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.40848, 0)
+
+[node name="sunflower_armature4" parent="LVL" instance=ExtResource("19_btxlb")]
+transform = Transform3D(0.869, 0, 0, 0, 0.603, 0, 0, 0, 0.69, 337.59, 0, 0)
+
+[node name="Skeleton3D" parent="LVL/sunflower_armature4/sun_flower_armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+bones/1/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+bones/1/scale = Vector3(1.00048, 1.00048, 1.00048)
+bones/2/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+bones/3/position = Vector3(0.000474975, 5.91448, 0.000474975)
+bones/3/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+bones/4/rotation = Quaternion(0.000474975, 0.000474975, 0.049475, 1.00048)
+
+[node name="sunflower_leaf_1" parent="LVL" instance=ExtResource("8_h22qu")]
+transform = Transform3D(0.956824, 0, -0.290669, 0, 1, 0, 0.290669, 0, 0.956824, 375.617, 14, -8.79425)
+
+[node name="sunflower_leaf_2" parent="LVL" instance=ExtResource("9_uggf3")]
+transform = Transform3D(0.89558, 0, -0.444901, 0, 1, 0, 0.444901, 0, 0.89558, 377.39, 35, -6.13173)
+
+[node name="sunflower_leaf_7" parent="LVL" instance=ExtResource("9_uggf3")]
+transform = Transform3D(0.890879, 0.102324, -0.442566, -0.0916391, 0.994751, 0.045524, 0.444901, 0, 0.89558, 409.948, 29, -6.13173)
+
+[node name="sunflower_leaf_3" parent="LVL" instance=ExtResource("10_a3u1h")]
+transform = Transform3D(0.765045, 0, -0.643977, 0, 1, 0, 0.643977, 0, 0.765045, 377.297, 26, -6.77314)
+
+[node name="sunflower_leaf_4" parent="LVL" instance=ExtResource("11_lba4n")]
+transform = Transform3D(-0.998667, 0, -0.0516214, 0, 1, 0, 0.0516214, 0, -0.998667, 375.082, 31.6391, -6.85787)
+
+[node name="sunflower_leaf_5" parent="LVL" instance=ExtResource("10_a3u1h")]
+transform = Transform3D(-0.848843, 0, -0.528646, -0.124163, 0.972027, 0.199368, 0.513858, 0.234871, -0.825098, 376.823, 10.1508, -7.93418)
+
+[node name="sunflower_leaf_6" parent="LVL" instance=ExtResource("9_uggf3")]
+transform = Transform3D(-0.928362, -0.106524, -0.356086, -0.121731, 0.992351, 0.0205034, 0.351178, 0.0623813, -0.934228, 375.748, 20.3317, -7.95076)
+
+[node name="rose_obstacle" parent="LVL" instance=ExtResource("18_v2gnl")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 229, 40, 0)
+
+[node name="Anthill" type="Node3D" parent="LVL"]
+transform = Transform3D(22.523, -0.298774, 0, 0.298774, 22.523, 0, 0, 0, 22.525, 580.971, 3.8928, -15.9683)
+
+[node name="anthill_back" parent="LVL/Anthill" instance=ExtResource("15_4uxpu")]
+
+[node name="anthill_part_1" parent="LVL/Anthill" instance=ExtResource("16_etuc5")]
+transform = Transform3D(0.988785, 0.149346, 0, -0.149346, 0.988785, 0, 0, 0, 1, 0.0266151, -0.0616692, 0)
+
+[node name="anthill_part_2" parent="LVL/Anthill" instance=ExtResource("17_mfkpy")]
+
+[node name="anthill_part_3" parent="LVL/Anthill" instance=ExtResource("18_qlc5y")]
+transform = Transform3D(1, -5.58794e-09, 0, 5.58794e-09, 1, 0, 0, 0, 1, -0.255999, -0.0211382, 0)
+
+[node name="anthill_part_4" parent="LVL/Anthill" instance=ExtResource("19_wak7h")]
+transform = Transform3D(0.71679, -0.697291, 0, 0.697291, 0.71679, 0, 0, 0, 1, -0.289967, -0.346138, 0)
+
+[node name="anthill_part_5" parent="LVL/Anthill" instance=ExtResource("20_p8dxw")]
+transform = Transform3D(-0.844534, -0.535503, 0, 0.535503, -0.844534, 0, 0, 0, 1, 0.134138, 2.77753, 0)
+
+[node name="anthill_part_6" parent="LVL/Anthill" instance=ExtResource("21_by4m0")]
+
+[node name="anthill_wall_long" parent="LVL/Anthill" instance=ExtResource("22_153no")]
+transform = Transform3D(0.933912, 0.357504, 0, -0.357504, 0.933912, 0, 0, 0, 1, -1.43151, 0.460507, 0)
+
+[node name="anthill_wall_short" parent="LVL/Anthill" instance=ExtResource("23_vm8qp")]
+
+[node name="Beepath" type="Node3D" parent="LVL"]
+
+[node name="Path3D" type="Path3D" parent="LVL/Beepath"]
+curve = SubResource("Curve3D_1bji7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="LVL/Beepath/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 437.348, 20.167, 0)
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="bumblebee_animations" parent="LVL/Beepath/Path3D/PathFollow3D" instance=ExtResource("12_h5q4r")]
+transform = Transform3D(-7.64949e-08, 0, 1.75, 0, 1.75, 0, -1.75, 0, -7.64949e-08, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LVL/Beepath/Path3D"]
+autoplay = " bzzz"
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_lffh0")
+}
+
+[node name="Path3D2" type="Path3D" parent="LVL/Beepath"]
+curve = SubResource("Curve3D_l83uc")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="LVL/Beepath/Path3D2"]
+transform = Transform3D(-1.57299e-07, 0.352905, 0.935501, 1.49012e-08, 0.935501, -0.352905, -1, -4.15718e-08, -1.52412e-07, 473.792, 21.154, 0)
+
+[node name="bumblebee_animations2" parent="LVL/Beepath/Path3D2/PathFollow3D" instance=ExtResource("12_h5q4r")]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LVL/Beepath/Path3D2"]
+libraries = {
+"": SubResource("AnimationLibrary_6o0mf")
+}
+
+[node name="Path3D3" type="Path3D" parent="LVL/Beepath"]
+curve = SubResource("Curve3D_ba8ns")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="LVL/Beepath/Path3D3"]
+transform = Transform3D(-4.37114e-08, -0.219681, -0.975571, 0, 0.975571, -0.219681, 1, -9.60255e-09, -4.26436e-08, 573.597, 60.7246, 0)
+
+[node name="bumblebee_animations3" parent="LVL/Beepath/Path3D3/PathFollow3D" instance=ExtResource("12_h5q4r")]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LVL/Beepath/Path3D3"]
+root_node = NodePath("../PathFollow3D")
+libraries = {
+"": SubResource("AnimationLibrary_pyn5l")
+}
+
+[editable path="LVL/sunflower_armature"]
+[editable path="LVL/sunflower_armature5"]
+[editable path="LVL/sunflower_armature2"]
+[editable path="LVL/sunflower_armature3"]
+[editable path="LVL/sunflower_armature4"]

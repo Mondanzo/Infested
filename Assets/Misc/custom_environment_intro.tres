@@ -1,0 +1,16 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://bh00kfiq1o1ew"]
+
+[ext_resource type="Sky" uid="uid://kkxjtq05ltkk" path="res://Assets/Misc/custom_sky.tres" id="1_7axlv"]
+
+[resource]
+background_mode = 2
+sky = ExtResource("1_7axlv")
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.0
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 0.16
+sdfgi_cascades = 2
+sdfgi_energy = 0.5
+glow_enabled = true

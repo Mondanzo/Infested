@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cokgyyih5r06l"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/Player/PlayerHurtMaterial.gdshader" id="1_bfmgs"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bfmgs")
+shader_parameter/alpha = 0.0
+shader_parameter/color = Color(1, 1, 1, 1)

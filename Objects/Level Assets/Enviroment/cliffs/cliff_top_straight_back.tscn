@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo5lfjv1u0tc3"]
+
+[ext_resource type="PackedScene" uid="uid://bqdvji4j8k85h" path="res://Assets/Models/cliff/cliff_top_straight_back.glb" id="1_cvh78"]
+
+[node name="cliff_top_straight_back" instance=ExtResource("1_cvh78")]
+
+[node name="cliff_top_straight_back2" parent="." index="0"]
+layers = 3

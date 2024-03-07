@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6kldtkt1r2uu"]
+
+[ext_resource type="PackedScene" uid="uid://dkn0fmqh0pc6n" path="res://Assets/Models/Decoration/Foreground/foreground_tree_trunk.glb" id="1_j8oef"]
+
+[node name="foreground_tree_trunk" instance=ExtResource("1_j8oef")]

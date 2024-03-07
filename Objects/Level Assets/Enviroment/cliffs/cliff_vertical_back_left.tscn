@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2eri58f57lhw"]
+
+[ext_resource type="PackedScene" uid="uid://dsfgmq52rl2x0" path="res://Assets/Models/cliff/cliff_vertical_back_left.glb" id="1_ntgd2"]
+
+[node name="cliff_vertical_back_left" instance=ExtResource("1_ntgd2")]

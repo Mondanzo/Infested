@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://bk34lg077k380"]
+
+[ext_resource type="PackedScene" uid="uid://d077m8f0310qs" path="res://Assets/Models/Obstacles/rose_obstacle/rose_thorn_base.glb" id="1_b6j18"]
+[ext_resource type="PackedScene" uid="uid://fl7m3v1vmy3m" path="res://Assets/Models/Obstacles/rose_obstacle/rose_thorn_red.glb" id="2_6d8ac"]
+[ext_resource type="Script" path="res://Scripts/Obstacles/HurtArea.gd" id="3_a6njx"]
+
+[sub_resource type="GDScript" id="GDScript_h3h51"]
+script/source = "@tool
+extends LifeEntity
+
+@export_enum(\"Variant 1\", \"Variant 2\") var variant = 0 : 
+	set(val):
+		variant = val
+		update_mesh(variant)
+
+func update_mesh(variant):
+	$rose_thorn_base.visible = variant == 0
+	$rose_thorn_red.visible = variant == 1
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ywkeg"]
+size = Vector3(0.377043, 0.364796, 0.311846)
+
+[sub_resource type="Curve" id="Curve_uvexa"]
+_data = [Vector2(0, 0.0272727), 0.0, 9.65315, 0, 0, Vector2(0.251232, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.46793, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_x7vmp"]
+curve = SubResource("Curve_uvexa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_glfpf"]
+emission_shape = 2
+emission_sphere_radius = 0.15
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 0.5
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 0.05
+tangential_accel_min = -0.01
+tangential_accel_max = 0.01
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_x7vmp")
+color = Color(0.666667, 0, 0.666667, 1)
+attractor_interaction_enabled = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7fft"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.988235, 0, 0.0470588, 1)
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color(0.854902, 0, 0.0705882, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_kcekq"]
+material = SubResource("StandardMaterial3D_l7fft")
+radius = 0.01
+height = 0.02
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45b0v"]
+size = Vector3(0.396906, 0.412802, 0.385772)
+
+[node name="RosePlantThorn" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+script = SubResource("GDScript_h3h51")
+life = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129253, 0)
+shape = SubResource("BoxShape3D_ywkeg")
+
+[node name="rose_thorn_base" parent="." instance=ExtResource("1_b6j18")]
+
+[node name="rose_thorn_red" parent="." instance=ExtResource("2_6d8ac")]
+visible = false
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105103, 0)
+cast_shadow = 0
+emitting = false
+amount = 64
+lifetime = 2.0
+visibility_aabb = AABB(-0.230467, -0.268723, -0.195252, 0.460934, 0.537446, 0.390504)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_glfpf")
+draw_pass_1 = SubResource("SphereMesh_kcekq")
+
+[node name="Hurt_Area" type="Area3D" parent="."]
+transform = Transform3D(1.18401, 0, 0, 0, 1.18401, 0, 0, 0, 1.18401, 0, 0, 0)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_a6njx")
+damage = 0.0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hurt_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.133966, 0)
+shape = SubResource("BoxShape3D_45b0v")

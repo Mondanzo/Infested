@@ -1,0 +1,41 @@
+[gd_resource type="SkeletonProfile" format=3 uid="uid://bll5s8li1qlls"]
+
+[resource]
+group_size = 1
+bone_size = 5
+groups/0/group_name = &""
+bones/0/bone_name = &"root"
+bones/0/bone_parent = &""
+bones/0/tail_direction = 0
+bones/0/reference_pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bones/0/handle_offset = Vector2(0.5, 0.95)
+bones/0/group = &""
+bones/0/require = false
+bones/1/bone_name = &"1"
+bones/1/bone_parent = &"root"
+bones/1/tail_direction = 0
+bones/1/reference_pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.66703, 0)
+bones/1/handle_offset = Vector2(0.5, 0.742403)
+bones/1/group = &""
+bones/1/require = false
+bones/2/bone_name = &"2"
+bones/2/bone_parent = &"1"
+bones/2/tail_direction = 0
+bones/2/reference_pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.80718, 0)
+bones/2/handle_offset = Vector2(0.5, 0.499304)
+bones/2/group = &""
+bones/2/require = false
+bones/3/bone_name = &"3"
+bones/3/bone_parent = &"2"
+bones/3/tail_direction = 0
+bones/3/reference_pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.73839, 0)
+bones/3/handle_offset = Vector2(0.5, 0.258347)
+bones/3/group = &""
+bones/3/require = false
+bones/4/bone_name = &"end"
+bones/4/bone_parent = &"3"
+bones/4/tail_direction = 0
+bones/4/reference_pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.69114, 0)
+bones/4/handle_offset = Vector2(0.5, 0.05)
+bones/4/group = &""
+bones/4/require = false

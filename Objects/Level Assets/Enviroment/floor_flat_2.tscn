@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwyilai30yu35"]
+
+[ext_resource type="PackedScene" uid="uid://e6ry5367y1g7" path="res://Assets/Models/ground/floor_flat_2.glb" id="1_222ge"]
+
+[node name="floor_flat_2" instance=ExtResource("1_222ge")]
+
+[node name="floor_posable" parent="." index="0"]
+layers = 3
+
+[node name="StaticBody3D" parent="floor_posable" index="0"]
+collision_layer = 128
+collision_mask = 0

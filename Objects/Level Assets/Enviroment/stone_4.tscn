@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgsfo1yjig102"]
+
+[ext_resource type="PackedScene" uid="uid://xdvt6jg25uaj" path="res://Assets/Models/Props/stone_4.glb" id="1_0bwfq"]
+
+[node name="stone_4" instance=ExtResource("1_0bwfq")]
+
+[node name="Stone_4_collider" parent="." index="1"]
+collision_layer = 128
+collision_mask = 0

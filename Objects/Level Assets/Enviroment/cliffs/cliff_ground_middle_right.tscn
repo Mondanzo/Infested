@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://5vyjpytra13j"]
+
+[ext_resource type="PackedScene" uid="uid://d4amd8n81xt2c" path="res://Assets/Models/cliff/cliff_ground_middle_right.glb" id="1_fmhc3"]
+
+[node name="cliff_ground_middle_right" instance=ExtResource("1_fmhc3")]

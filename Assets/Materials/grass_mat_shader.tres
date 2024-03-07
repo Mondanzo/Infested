@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dm8082u1p8nqd"]
+
+[ext_resource type="Shader" path="res://Assets/Models/grasses/grass.gdshader" id="1_erday"]
+[ext_resource type="Texture2D" uid="uid://c5qew7a2kosg3" path="res://Assets/Models/grasses/background_gras_albdeo.png" id="2_x2rcm"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_erday")
+shader_parameter/gradient = ExtResource("2_x2rcm")

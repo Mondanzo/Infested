@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://du30wralrbivr"]
+
+[ext_resource type="PackedScene" uid="uid://56103daknre4" path="res://Assets/Models/mushrooms_medium/mushroom_medium_4.gltf" id="1_m2qqb"]
+
+[node name="mushroom_medium_4" type="Node3D"]
+
+[node name="mushroom_medium_4" parent="." instance=ExtResource("1_m2qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.579821, -1, 0)

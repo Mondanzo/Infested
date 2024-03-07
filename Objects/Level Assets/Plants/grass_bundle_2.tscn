@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cge5d8eokngti"]
+
+[ext_resource type="PackedScene" uid="uid://54ntiedx573g" path="res://Assets/Models/grasses/grass_bundle_2.glb" id="1_2eatq"]
+[ext_resource type="Material" uid="uid://dm8082u1p8nqd" path="res://Assets/Materials/grass_mat_shader.tres" id="2_pd58q"]
+
+[node name="grass_bundle_2" instance=ExtResource("1_2eatq")]
+
+[node name="grass_blade_medium_broken_1001" parent="." index="0"]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
+material_override = ExtResource("2_pd58q")

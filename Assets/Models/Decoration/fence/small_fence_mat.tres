@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cw1ncb7faclq0"]
+
+[ext_resource type="Texture2D" uid="uid://chr76aqo4pjt7" path="res://Assets/Models/Decoration/fence/tree_bark_albedo.png" id="1_fwbcp"]
+[ext_resource type="Texture2D" uid="uid://duajvvsq2gyn7" path="res://Assets/Models/Decoration/fence/tree_bark_normal.png" id="2_pwi61"]
+
+[resource]
+albedo_texture = ExtResource("1_fwbcp")
+normal_enabled = true
+normal_texture = ExtResource("2_pwi61")

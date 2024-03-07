@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://b76vmcfbrtqvw"]
+
+[ext_resource type="Script" path="res://Scripts/SFX/BattleMusicPlayer.gd" id="1_ouy5b"]
+[ext_resource type="AudioStream" uid="uid://bmi2cb2h73bmx" path="res://Assets/Audio/Music/Fighting Music/Battle_Drums_Variation_01.wav" id="2_fjco8"]
+[ext_resource type="AudioStream" uid="uid://5osom4j27b0v" path="res://Assets/Audio/Music/Fighting Music/Battle_Drums_Variation_02.wav" id="3_2063y"]
+[ext_resource type="AudioStream" uid="uid://ep38l4a318mh" path="res://Assets/Audio/Music/Fighting Music/Battle_Drums_Variation_03.wav" id="4_v41a2"]
+
+[node name="BattleMusicPlayer" type="Node"]
+script = ExtResource("1_ouy5b")
+music_streams = [ExtResource("2_fjco8"), ExtResource("3_2063y"), ExtResource("4_v41a2")]

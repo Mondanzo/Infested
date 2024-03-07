@@ -1,0 +1,39 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://boippogd1dt1s"
+path="res://.godot/imported/projectile_vfx_mesh.glb-a4d6a818a2e8b98d3ea715c3e55d5891.scn"
+
+[deps]
+
+source_file="res://Assets/Models/sfx/abilities/projectile_vfx_mesh.glb"
+dest_files=["res://.godot/imported/projectile_vfx_mesh.glb-a4d6a818a2e8b98d3ea715c3e55d5891.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"vfx": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Materials/sfx/abilities/Crystal_Projectile_SFX.tres"
+}
+}
+}
+gltf/embedded_image_handling=3

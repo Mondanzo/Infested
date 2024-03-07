@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd5linprqk123"]
+
+[ext_resource type="Texture2D" uid="uid://djveke8wf4ujt" path="res://Assets/Decals/moss_patch_02_decal.png" id="1_btwp0"]
+[ext_resource type="Texture2D" uid="uid://bnp48qhbetnwd" path="res://Assets/Decals/moss_patch_02_decal_normal.png" id="2_s7n20"]
+
+[node name="MossDecal_2" type="Decal"]
+texture_albedo = ExtResource("1_btwp0")
+texture_normal = ExtResource("2_s7n20")
+cull_mask = 2

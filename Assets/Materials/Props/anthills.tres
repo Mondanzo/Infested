@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://beoxeqiiud8i6"]
+
+[ext_resource type="Texture2D" uid="uid://bnys71s3ukomn" path="res://Assets/Models/anthill_modular/ant_hill_albedo_v.2.png" id="1_hjsoj"]
+[ext_resource type="Texture2D" uid="uid://chu3vyclyr4di" path="res://Assets/Materials/Props/ant_hill_normal.png" id="2_m65er"]
+
+[resource]
+albedo_texture = ExtResource("1_hjsoj")
+normal_enabled = true
+normal_texture = ExtResource("2_m65er")

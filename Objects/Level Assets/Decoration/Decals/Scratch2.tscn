@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvgwi7gmmu6tn"]
+
+[ext_resource type="Texture2D" uid="uid://bdk1y3y0hicq6" path="res://Assets/Decals/scratch_02_decal.png" id="1_gba5v"]
+[ext_resource type="Texture2D" uid="uid://cxavlxyte4inv" path="res://Assets/Decals/scratch_02_decal_normal.png" id="2_ax0ah"]
+
+[node name="Scratch_2" type="Decal"]
+texture_albedo = ExtResource("1_gba5v")
+texture_normal = ExtResource("2_ax0ah")
+cull_mask = 2

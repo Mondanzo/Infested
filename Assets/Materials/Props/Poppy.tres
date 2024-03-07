@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bpxh6mug0mu4q"]
+
+[ext_resource type="Texture2D" uid="uid://2cmgpvr8rlds" path="res://Assets/Materials/Props/Textures/poppy_albedo.png" id="1_trod2"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_trod2")

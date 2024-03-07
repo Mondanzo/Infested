@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsko2y8oewgjj"]
+
+[ext_resource type="PackedScene" uid="uid://ddguj11l5mwrq" path="res://Assets/Models/Monsters/WaterBug/water_bug_retarget_mesh.glb" id="1_gmsjg"]
+[ext_resource type="AnimationLibrary" uid="uid://10eur8ucwse0" path="res://Assets/Models/Monsters/WaterBug/water_bug_animation.glb" id="2_imw6l"]
+
+[node name="water_bug_retarget_mesh" instance=ExtResource("1_gmsjg")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/28/rotation = Quaternion(0.999578, -2.04814e-23, -2.21951e-16, -0.0290579)
+bones/33/rotation = Quaternion(-0.24192, 0.664436, 0.664436, -0.24192)
+bones/35/rotation = Quaternion(0.503825, -0.503825, -0.496145, -0.496145)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"water_bug_animation": ExtResource("2_imw6l")
+}

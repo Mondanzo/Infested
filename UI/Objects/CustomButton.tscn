@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://deghqcp5e03fv"]
+
+[ext_resource type="Texture2D" uid="uid://cyt62uu5u3dmf" path="res://Assets/UI/Sprites/buttons/btn_plant_raw_normal.png" id="1_2a3mv"]
+[ext_resource type="Script" path="res://UI/Scripts/CustomButton.gd" id="1_l0ab3"]
+[ext_resource type="Texture2D" uid="uid://c6gjfp80ohiba" path="res://Assets/UI/Sprites/buttons/btn_plant_raw_depressed.png" id="2_2utxv"]
+[ext_resource type="Texture2D" uid="uid://b5deanh3q16rx" path="res://Assets/UI/Sprites/buttons/btn_plant_raw_highlighted.png" id="3_5s8iu"]
+[ext_resource type="Texture2D" uid="uid://drkcfxhkk410u" path="res://Assets/UI/Sprites/buttons/btn_plant_raw_disabled.png" id="4_mysy4"]
+
+[node name="CustomButton" type="TextureButton"]
+offset_right = 600.0
+offset_bottom = 200.0
+texture_normal = ExtResource("1_2a3mv")
+texture_pressed = ExtResource("2_2utxv")
+texture_hover = ExtResource("3_5s8iu")
+texture_disabled = ExtResource("4_mysy4")
+stretch_mode = 5
+script = ExtResource("1_l0ab3")
+label = "Ugly Button :("
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.116667
+anchor_top = 0.523438
+anchor_right = 0.883333
+anchor_bottom = 0.628906
+offset_top = -13.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0523599
+theme_override_font_sizes/font_size = 36
+text = "Ugly Button :("
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

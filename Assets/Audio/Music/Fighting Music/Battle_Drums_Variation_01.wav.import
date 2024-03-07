@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bmi2cb2h73bmx"
+path="res://.godot/imported/Battle_Drums_Variation_01.wav-c9d6cc59129d75746fbfa1ca1601b75f.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Fighting Music/Battle_Drums_Variation_01.wav"
+dest_files=["res://.godot/imported/Battle_Drums_Variation_01.wav-c9d6cc59129d75746fbfa1ca1601b75f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop_mode=2
+edit/loop_begin=109664
+edit/loop_end=956800
+compress/mode=0

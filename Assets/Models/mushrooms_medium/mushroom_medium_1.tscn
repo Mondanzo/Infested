@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b62kvf80bp52r"]
+
+[ext_resource type="PackedScene" uid="uid://drk23dn53xxcm" path="res://Assets/Models/mushrooms_medium/mushroom_medium_1.gltf" id="1_x4to5"]
+
+[node name="mushroom_medium_1" type="Node3D"]
+
+[node name="mushroom_medium_1" parent="." instance=ExtResource("1_x4to5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0253558)
+depth = 0.283
+polygon = PackedVector2Array(0.417135, 0.542149, 0.709939, 0.546509, 0.710666, 0.555954, 0.693228, 0.568305, 0.654721, 0.58211, 0.631471, 0.587196, 0.605315, 0.591555, 0.566807, 0.593735, 0.518854, 0.593735, 0.485432, 0.587196, 0.467268, 0.582837, 0.432393, 0.56104)

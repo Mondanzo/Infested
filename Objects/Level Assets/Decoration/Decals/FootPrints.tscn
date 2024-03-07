@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1821f8ooifsj"]
+
+[ext_resource type="Texture2D" uid="uid://difs6bt0d1oad" path="res://Assets/Decals/foot_prints_decal.png" id="1_m832p"]
+[ext_resource type="Texture2D" uid="uid://cgghld0vlaobt" path="res://Assets/Decals/foot_prints_decal_normal.png" id="2_ryox5"]
+
+[node name="FootPrints" type="Decal"]
+texture_albedo = ExtResource("1_m832p")
+texture_normal = ExtResource("2_ryox5")
+cull_mask = 2

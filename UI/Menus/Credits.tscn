@@ -1,0 +1,207 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkw0nowh1rf7c"]
+
+[ext_resource type="Theme" uid="uid://whrxg447a0wk" path="res://Assets/UI/Themes/Infested_UI_Theme.tres" id="1_g2ijx"]
+[ext_resource type="Texture2D" uid="uid://dr77gipohaphp" path="res://Assets/Branding/logo.png" id="2_drwqb"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Vignette.gdshader" id="3_crwee"]
+
+[sub_resource type="GDScript" id="GDScript_85ryh"]
+script/source = "extends Node3D
+
+func go_to_menu():
+	Game.return_to_menu()
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbhqy"]
+shader = ExtResource("3_crwee")
+shader_parameter/strength = 0.0
+shader_parameter/spread = 0.0
+
+[sub_resource type="Animation" id="Animation_y34oo"]
+resource_name = "credits"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits/ColorRect:material:shader_parameter/spread")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 10, 10.7, 11.2, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.053, 1.053, 0.47, 0.47, 0.0]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits/ScrollContainer:scroll_vertical")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1.75, 0.5, 2543, -1.63124, -0.5, 0.25, 0),
+"times": PackedFloat32Array(2, 10)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(12),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_menu"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_f3i8u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits/ColorRect:material:shader_parameter/spread")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits/ScrollContainer:scroll_vertical")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocgo8"]
+_data = {
+"RESET": SubResource("Animation_f3i8u"),
+"credits": SubResource("Animation_y34oo")
+}
+
+[node name="CreditsScene" type="Node3D"]
+script = SubResource("GDScript_85ryh")
+
+[node name="Credits" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_g2ijx")
+
+[node name="Background" type="ColorRect" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="Credits/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+vertical = true
+
+[node name="Spacer" type="Control" parent="Credits/ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Credits/ScrollContainer/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_drwqb")
+stretch_mode = 5
+
+[node name="Label" type="RichTextLabel" parent="Credits/ScrollContainer/BoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b]Production[/b]
+Nils Angermeier
+
+
+
+[b]Game Design[/b]
+Lead Ekrem-Adrian Bierut
+Nils Angermeier
+
+
+
+[b]Level Design[/b]
+Nils Angemeier
+Johannes Laarmann
+
+
+
+[b] 3D Artists [/b]
+Lead Artist Michel Kramer
+Colin Burmeister
+Johannes Laarmann
+
+
+
+[b]Sound Design[/b]
+Ekrem-Adrian Bierut
+
+
+
+[b]Programming[/b]
+Lead Karl Nehring
+Patryk Olejnik
+
+
+
+[b]Music[/b]
+Main Theme - Lutz Angermeier
+[b][/b]"
+fit_content = true
+scroll_active = false
+
+[node name="ThanksForPlaying" type="Label" parent="Credits/ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(1920, 1120)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 96
+text = "Thank you for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+material = SubResource("ShaderMaterial_nbhqy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "credits"
+speed_scale = 0.25
+libraries = {
+"": SubResource("AnimationLibrary_ocgo8")
+}

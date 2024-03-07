@@ -1,0 +1,50 @@
+[gd_resource type="AnimatedTexture" load_steps=16 format=3 uid="uid://dg7bdqqcl1ea0"]
+
+[ext_resource type="Texture2D" uid="uid://bhpfl2w0g278s" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0001.png" id="1_05i50"]
+[ext_resource type="Texture2D" uid="uid://bnkt8pp75od1t" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0002.png" id="2_oxj3r"]
+[ext_resource type="Texture2D" uid="uid://dhnn4kd0crfms" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0011.png" id="3_x0dht"]
+[ext_resource type="Texture2D" uid="uid://ci3o5tgvrglii" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0012.png" id="4_teegr"]
+[ext_resource type="Texture2D" uid="uid://024xuk4g00e2" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0013.png" id="5_25o3j"]
+[ext_resource type="Texture2D" uid="uid://c6pm5b8ilx7vm" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0014.png" id="6_alcyo"]
+[ext_resource type="Texture2D" uid="uid://ff4jq1gfm5kw" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0015.png" id="7_y6833"]
+[ext_resource type="Texture2D" uid="uid://t4owyhist1rq" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0003.png" id="8_pfsy5"]
+[ext_resource type="Texture2D" uid="uid://ba4f43evyeatg" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0004.png" id="9_r82e0"]
+[ext_resource type="Texture2D" uid="uid://bqw4evgjbxjqp" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0005.png" id="10_web7x"]
+[ext_resource type="Texture2D" uid="uid://ynmxbn66bob1" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0006.png" id="11_f34p1"]
+[ext_resource type="Texture2D" uid="uid://cc4wq5cq1ox2x" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0007.png" id="12_vfjnh"]
+[ext_resource type="Texture2D" uid="uid://ds6dtyo8vjoso" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0008.png" id="13_i3hg2"]
+[ext_resource type="Texture2D" uid="uid://blhimpnpkd7hd" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0009.png" id="14_h68nk"]
+[ext_resource type="Texture2D" uid="uid://cpiy25u57n8cu" path="res://Assets/UI/Sprites/loading_icon/Centipede/Centipede0010.png" id="15_1fdsf"]
+
+[resource]
+frames = 15
+speed_scale = 15.0
+frame_0/texture = ExtResource("1_05i50")
+frame_1/texture = ExtResource("2_oxj3r")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_pfsy5")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("9_r82e0")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("10_web7x")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("11_f34p1")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("12_vfjnh")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("13_i3hg2")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("14_h68nk")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("15_1fdsf")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("3_x0dht")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("4_teegr")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("5_25o3j")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("6_alcyo")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("7_y6833")
+frame_14/duration = 1.0

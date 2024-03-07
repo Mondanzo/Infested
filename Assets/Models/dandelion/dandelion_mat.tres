@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b0732mucmoxcf"]
+
+[ext_resource type="Texture2D" uid="uid://dxl3oqhbcelq2" path="res://Assets/Models/dandelion/dandelion_albedo.png" id="1_e0e4n"]
+
+[resource]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_e0e4n")

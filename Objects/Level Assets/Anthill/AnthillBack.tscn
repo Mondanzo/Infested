@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dddqgjxvf83q1"]
+
+[ext_resource type="PackedScene" uid="uid://g5dcm2s4miof" path="res://Assets/Models/anthill_modular/anthill_back.gltf" id="1_skn3e"]
+
+[node name="anthill_back" instance=ExtResource("1_skn3e")]

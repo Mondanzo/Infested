@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsmcq2curgsv5"]
+
+[ext_resource type="PackedScene" uid="uid://bqpkoly7hycmg" path="res://Assets/Models/twisted_trees/twist_trees_ground.glb" id="1_ofqb1"]
+
+[node name="outro_ground" type="Node3D"]
+
+[node name="twist_trees_ground" parent="." instance=ExtResource("1_ofqb1")]

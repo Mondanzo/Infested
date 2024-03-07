@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b4wobmxbkacau"]
+
+[ext_resource type="Texture2D" uid="uid://c0lynr26l2f1i" path="res://Assets/Models/evil_crystal/evil_crystal_cracked_albedo.png" id="1_lwimy"]
+[ext_resource type="Texture2D" uid="uid://kqw82f307lso" path="res://Assets/Models/evil_crystal/evil_crystal_cracked_emissive.png" id="2_nft5v"]
+
+[resource]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_lwimy")
+emission_enabled = true
+emission_energy_multiplier = 16.0
+emission_texture = ExtResource("2_nft5v")

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b12a3xvhlqisf"]
+
+[ext_resource type="Script" path="res://UI/Scripts/3DGUI.gd" id="1_ghlys"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_q0opx"]
+size = Vector2(16, 9)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oxauy"]
+resource_name = "ViewportTexture"
+viewport_path = NodePath("MenuViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxc5g"]
+resource_local_to_scene = true
+resource_name = "MenuViewportMaterial"
+transparency = 4
+albedo_texture = SubResource("ViewportTexture_oxauy")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5lepo"]
+size = Vector3(16, 9, 0)
+
+[node name="Menu" type="Node3D"]
+transform = Transform3D(0.199625, 0, -0.0122341, 0, 0.2, 0, 0.0122341, 0, 0.199625, 0.643103, 3.4, 10.023)
+script = ExtResource("1_ghlys")
+
+[node name="MenuViewport" type="SubViewport" parent="."]
+transparent_bg = true
+positional_shadow_atlas_size = 0
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Quad" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -6.33299e-08, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_q0opx")
+surface_material_override/0 = SubResource("StandardMaterial3D_xxc5g")
+
+[node name="ClickArea" type="Area3D" parent="."]
+transform = Transform3D(1.1, 8.19564e-09, 9.68575e-08, -8.19564e-09, 1.1, 5.82335e-23, -1.04308e-07, -7.77156e-16, 1.1, 0, 0, 0)
+collision_layer = 16
+collision_mask = 0
+input_capture_on_drag = true
+
+[node name="AreaShape" type="CollisionShape3D" parent="ClickArea"]
+shape = SubResource("BoxShape3D_5lepo")
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

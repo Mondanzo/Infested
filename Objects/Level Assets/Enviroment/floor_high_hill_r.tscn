@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfo01wv6wmasn"]
+
+[ext_resource type="PackedScene" uid="uid://b7yhb18uw4ce6" path="res://Assets/Models/ground/floor_high_hill_R.glb" id="1_6hc8o"]
+
+[node name="floor_high_hill_R" instance=ExtResource("1_6hc8o")]
+
+[node name="floor_posable001" parent="." index="0"]
+layers = 3
+
+[node name="StaticBody3D" parent="floor_posable001" index="0"]
+collision_layer = 128
+collision_mask = 0

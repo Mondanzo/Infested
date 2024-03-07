@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7np0y8sk61ur"]
+
+[ext_resource type="PackedScene" uid="uid://xu7xsdjbbuc7" path="res://Objects/Level Assets/Plants/SunflowerArmature.tscn" id="1_mhecw"]
+[ext_resource type="PackedScene" uid="uid://clfo3gfyvxlnf" path="res://Objects/Level Assets/Enviroment/Ground.tscn" id="2_h2t8d"]
+
+[node name="sunflowers_level" type="Node3D"]
+
+[node name="sunflowers" type="Node3D" parent="."]
+
+[node name="sunflower_1" type="Node3D" parent="sunflowers"]
+
+[node name="sunflower_armature" parent="sunflowers/sunflower_1" instance=ExtResource("1_mhecw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2506, -12.6853)
+
+[node name="Skeleton3D" parent="sunflowers/sunflower_1/sunflower_armature/sun_flower_armature" index="0"]
+bones/0/rotation = Quaternion(0.00219213, 0.998853, 0.0466766, 0.0104717)
+bones/1/position = Vector3(1.11972e-08, 6.66703, 4.59764e-07)
+bones/1/rotation = Quaternion(0.00213901, -0.00963346, 0.102789, 0.994654)
+bones/2/position = Vector3(-2.46938e-09, 7.80718, -1.18664e-07)
+bones/2/rotation = Quaternion(-0.121843, 0.025912, 0.00496404, 0.992199)
+bones/3/position = Vector3(7.63717e-09, 7.73839, -2.24826e-07)
+bones/3/rotation = Quaternion(0.102466, 0.0118794, -0.143162, 0.984309)
+bones/4/rotation = Quaternion(-0.0356895, 0.0769462, 0.0712814, 0.993843)
+
+[node name="CollisionShape" parent="sunflowers/sunflower_1/sunflower_armature" index="1"]
+transform = Transform3D(-0.985793, 0.0726229, -0.151457, 0.0411431, 0.978632, 0.20146, 0.162851, 0.192366, -0.967716, 2.75225, 27.9747, 4.80268)
+
+[node name="environmental" type="Node3D" parent="."]
+
+[node name="environmental_ground" type="Node3D" parent="environmental"]
+
+[node name="ground" parent="environmental/environmental_ground" instance=ExtResource("2_h2t8d")]
+transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, 0, 0, 1)
+
+[editable path="sunflowers/sunflower_1/sunflower_armature"]

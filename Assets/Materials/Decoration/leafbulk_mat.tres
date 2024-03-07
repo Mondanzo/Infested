@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bnimt6shgjuv5"]
+
+[ext_resource type="Texture2D" uid="uid://cum53t6e560y1" path="res://Assets/Materials/Decoration/Textures/Tex_Treeleaf_Maplebulk_2.png" id="1_gm2vd"]
+
+[resource]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_gm2vd")

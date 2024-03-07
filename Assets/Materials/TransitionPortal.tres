@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bdcvk86787sae"]
+
+[ext_resource type="Texture2D" uid="uid://cadoy6hjjvwnm" path="res://Assets/Models/transitionportal/transitionportal_Base_color.png" id="1_olfdf"]
+[ext_resource type="Texture2D" uid="uid://dhbd7s2p0hn3f" path="res://Assets/Models/transitionportal/transitionportal_Normal_DirectX.png" id="2_3m5nc"]
+
+[resource]
+albedo_texture = ExtResource("1_olfdf")
+normal_enabled = true
+normal_texture = ExtResource("2_3m5nc")

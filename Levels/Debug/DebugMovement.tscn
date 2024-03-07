@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=3 uid="uid://pgk7y4hfymc1"]
+
+[ext_resource type="PackedScene" uid="uid://fqlwgf6bmy64" path="res://Objects/Level Assets/Plants/SunflowerLeaf1.tscn" id="5_m1ocv"]
+[ext_resource type="PackedScene" uid="uid://csbq60jkoknc2" path="res://Objects/Entities/Player.tscn" id="5_o4ri7"]
+[ext_resource type="PackedScene" uid="uid://xu7xsdjbbuc7" path="res://Objects/Level Assets/Plants/SunflowerArmature.tscn" id="6_hi2lp"]
+[ext_resource type="PackedScene" uid="uid://ci56a5nvs2ymc" path="res://Objects/Utils/CameraRig.tscn" id="6_jyi27"]
+[ext_resource type="PackedScene" uid="uid://1pfernf7w4tp" path="res://Objects/Level Assets/Obstacles/RafflesiaJump.tscn" id="6_yyd2v"]
+[ext_resource type="PackedScene" uid="uid://bk34lg077k380" path="res://Objects/Level Assets/Obstacles/RosePlantThorn.tscn" id="7_sgbyt"]
+[ext_resource type="PackedScene" uid="uid://cbnanakql1ytd" path="res://Objects/Level Assets/Plants/SunflowerLeaf2.tscn" id="7_w48e3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v6ut7"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_eeiyc"]
+sky_material = SubResource("ProceduralSkyMaterial_v6ut7")
+
+[sub_resource type="Environment" id="Environment_amb5d"]
+background_mode = 2
+sky = SubResource("Sky_eeiyc")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="DebugMovement" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_amb5d")
+
+[node name="Player" parent="." node_paths=PackedStringArray("ability_container") instance=ExtResource("5_o4ri7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.9045, 0)
+ability_container = NodePath("../AbilityContainer")
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("node_to_track") instance=ExtResource("6_jyi27")]
+node_to_track = NodePath("../Player")
+
+[node name="AbilityContainer" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.705, 0, 0)
+use_collision = true
+collision_layer = 128
+collision_mask = 0
+size = Vector3(708.273, 25, 220.573)
+
+[node name="sunflower_leaf_1" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -83.1807, 19.42, -16.561)
+
+[node name="sunflower_leaf_17" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -69.1807, 19.42, -19.561)
+
+[node name="sunflower_leaf_14" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -96.1807, 19.42, -14.561)
+
+[node name="sunflower_leaf_16" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -110.181, 19.42, -12.561)
+
+[node name="sunflower_leaf_18" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -129.181, 19.42, -12.561)
+
+[node name="sunflower_leaf_19" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -147.181, 19.42, -12.561)
+
+[node name="sunflower_leaf_20" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -169.181, 19.42, -12.561)
+
+[node name="sunflower_leaf_21" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -200.181, 19.42, -12.561)
+
+[node name="sunflower_leaf_22" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -220.181, 19.42, -5.56104)
+
+[node name="sunflower_leaf_23" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -220.181, 27.42, -7.56104)
+
+[node name="sunflower_leaf_24" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -220.181, 33.42, -9.56104)
+
+[node name="sunflower_leaf_15" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="sunflower_leaf_2" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.1807, 19.42, 0.438965)
+
+[node name="sunflower_leaf_5" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1807, 19.42, 0.438965)
+
+[node name="sunflower_leaf_6" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1807, 37.42, 0.438965)
+
+[node name="sunflower_leaf_7" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1807, 34.42, 0.438965)
+
+[node name="sunflower_leaf_8" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1807, 31.42, 0.438965)
+
+[node name="sunflower_leaf_9" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1807, 26.42, 0.438965)
+
+[node name="sunflower_leaf_10" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1807, 26.42, 0.438965)
+
+[node name="sunflower_leaf_3" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.1807, 27.42, 0.438965)
+
+[node name="sunflower_leaf_4" parent="." instance=ExtResource("5_m1ocv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.1807, 34.42, 0.438965)
+
+[node name="sunflower_armature" parent="." instance=ExtResource("6_hi2lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 13, 0)
+
+[node name="sunflower_leaf_11" parent="." instance=ExtResource("7_w48e3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 17, 0)
+
+[node name="sunflower_leaf_12" parent="." instance=ExtResource("7_w48e3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 25, 0)
+
+[node name="sunflower_leaf_13" parent="." instance=ExtResource("7_w48e3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 33, 0)
+
+[node name="rafflesia_jump" parent="." instance=ExtResource("6_yyd2v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 54.2763, 13.5116, 0)
+
+[node name="RosePlantThorn3" parent="." instance=ExtResource("7_sgbyt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.4476, 14.2702, 0)
+
+[node name="RosePlantThorn4" parent="." instance=ExtResource("7_sgbyt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.4476, 14.2702, 2)
+
+[node name="RosePlantThorn5" parent="." instance=ExtResource("7_sgbyt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.4476, 14.2702, 4)
+
+[node name="RosePlantThorn6" parent="." instance=ExtResource("7_sgbyt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.4476, 14.2702, -2)
+
+[node name="RosePlantThorn7" parent="." instance=ExtResource("7_sgbyt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.4476, 14.2702, -4)
+
+[node name="RosePlantThorn8" parent="." instance=ExtResource("7_sgbyt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.4476, 14.2702, -6)
+
+[node name="RosePlantThorn9" parent="." instance=ExtResource("7_sgbyt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.4476, 14.2702, 6)

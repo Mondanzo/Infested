@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb2ftfk1uay01"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/WaterAttack.gd" id="1_60lmd"]
+[ext_resource type="PackedScene" uid="uid://bkbpabq12vc0g" path="res://Objects/Attacks/WaterAttackProjectile.tscn" id="2_nrkr6"]
+[ext_resource type="Texture2D" uid="uid://boxatflg0orwg" path="res://Assets/UI/Sprites/abilities/ability_crystal_shard.png" id="3_k1ee6"]
+[ext_resource type="PackedScene" uid="uid://ltedyey3mpe3" path="res://Objects/Utils/Targeting/NormalisedMouseCursor.tscn" id="4_gpawx"]
+[ext_resource type="Texture2D" uid="uid://babmemcjhnifk" path="res://Assets/Sprites/UI/ability_placement_indicator_ui.png" id="5_d25nt"]
+
+[node name="WaterAttack" type="Node3D"]
+script = ExtResource("1_60lmd")
+projectile = ExtResource("2_nrkr6")
+projectile_speed = 80
+max_cooldown = 1
+ability_cooldown = 1.0
+ability_icon = ExtResource("3_k1ee6")
+ability_name = "Crystal Shards"
+
+[node name="Cooldown" type="Timer" parent="."]
+process_mode = 1
+wait_time = 0.2
+one_shot = true
+
+[node name="AttackOffset" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="NormalisedMouseCursor" parent="AttackOffset" instance=ExtResource("4_gpawx")]
+offset = 2.0
+
+[node name="Sprite3D" type="Sprite3D" parent="AttackOffset/NormalisedMouseCursor"]
+texture = ExtResource("5_d25nt")
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

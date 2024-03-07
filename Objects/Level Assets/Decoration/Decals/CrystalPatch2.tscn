@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmcruvbrwf0t3"]
+
+[ext_resource type="Texture2D" uid="uid://bnuxk21gdpvq8" path="res://Assets/Decals/crystal_patch_01_decal.png" id="1_wklvw"]
+[ext_resource type="Texture2D" uid="uid://d2hd5a3tcsw1" path="res://Assets/Decals/crystal_patch_01_decal_normal.png" id="2_77esj"]
+
+[node name="CrystalPatch_1" type="Decal"]
+texture_albedo = ExtResource("1_wklvw")
+texture_normal = ExtResource("2_77esj")
+cull_mask = 2

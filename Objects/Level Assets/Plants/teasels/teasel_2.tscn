@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1msy48c6i7xh"]
+
+[ext_resource type="PackedScene" uid="uid://ddbbpx0im8i6f" path="res://Assets/Models/Props/plants/Teasel.glb" id="1_jo2n5"]
+[ext_resource type="PackedScene" uid="uid://pu2vpsvuquhb" path="res://Assets/Models/grasses/grass_bundle_1.glb" id="2_infhp"]
+[ext_resource type="PackedScene" uid="uid://54ntiedx573g" path="res://Assets/Models/grasses/grass_bundle_2.glb" id="3_mhq5r"]
+
+[node name="teasel_2" type="Node3D"]
+
+[node name="Teasel" parent="." instance=ExtResource("1_jo2n5")]
+
+[node name="Teasel2" parent="." instance=ExtResource("1_jo2n5")]
+transform = Transform3D(0.821959, 0.194879, 0.14728, -0.197818, 0.834358, 0, -0.143307, -0.0339767, 0.844745, 0.565506, 0, 0)
+
+[node name="Teasel3" parent="." instance=ExtResource("1_jo2n5")]
+transform = Transform3D(0.510451, 0.121023, -0.678291, -0.197818, 0.834358, 0, 0.659995, 0.156478, 0.524602, 0.565506, 0, 0)
+
+[node name="Teasel4" parent="." instance=ExtResource("1_jo2n5")]
+transform = Transform3D(-0.245479, -0.0582006, -0.509226, -0.131103, 0.552965, 5.18078e-09, 0.49549, 0.117476, -0.252284, -0.63937, 0, 0)
+
+[node name="grass_bundle_1" parent="." instance=ExtResource("2_infhp")]
+transform = Transform3D(2.98291, 0.694366, 0, -0.65074, 2.79551, -1.06846, -0.242241, 1.04064, 2.87025, 0.446163, -0.702829, 0.752146)
+
+[node name="grass_bundle_3" parent="." instance=ExtResource("2_infhp")]
+transform = Transform3D(-2.97189, -0.732439, -0.106328, -0.684374, 2.88708, -0.75917, 0.281788, -0.712909, -2.96518, 0.446163, -0.702829, -0.652469)
+
+[node name="grass_bundle_6" parent="." instance=ExtResource("2_infhp")]
+transform = Transform3D(-0.396063, -0.60292, -1.93583, 0.244477, 1.94382, -0.65543, 2.01275, -0.354746, -0.301315, -0.72768, -0.794077, 0.113649)
+
+[node name="grass_bundle_2" parent="." instance=ExtResource("2_infhp")]
+transform = Transform3D(0.954315, -0.54354, -1.22147, 0.172113, 1.53818, -0.550005, 1.32582, 0.191554, 0.950603, -0.90344, -0.199271, 0.851154)
+
+[node name="grass_bundle_4" parent="." instance=ExtResource("3_mhq5r")]
+transform = Transform3D(1.8987, -0.551251, 0.73074, 0.716022, 1.94276, -0.394898, -0.570237, 0.603949, 1.93727, -0.430519, -0.314705, 0.914372)
+
+[node name="grass_bundle_5" parent="." instance=ExtResource("3_mhq5r")]
+transform = Transform3D(0.0120907, 0.45874, 2.05727, 0.14826, 2.05202, -0.458441, -2.10257, 0.147333, -0.0204967, 1.41551, -0.61836, -0.371825)

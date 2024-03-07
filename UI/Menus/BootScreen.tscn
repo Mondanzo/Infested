@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://beuxstx5o1hqj"]
+
+[ext_resource type="Script" path="res://UI/Scripts/BootScreen.gd" id="1_1s765"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4vra"]
+bg_color = Color(0.054902, 0.054902, 0.054902, 1)
+
+[node name="BootScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1s765")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4vra")

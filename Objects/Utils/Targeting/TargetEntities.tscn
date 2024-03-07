@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx5c08oawua55"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/Aiming/TargetEntities.gd" id="1_k1cs1"]
+
+[node name="TargetEntities" type="Area3D"]
+script = ExtResource("1_k1cs1")
+
+[node name="NodeValidator" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 0)
+collision_mask = 255

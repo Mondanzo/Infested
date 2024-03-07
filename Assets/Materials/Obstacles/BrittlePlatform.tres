@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://2qba0cvlgti8"]
+
+[ext_resource type="Texture2D" uid="uid://0c0uhd1mnidt" path="res://Assets/Models/brittle_platform_1/brittle_platform_albedo.png" id="1_o0nut"]
+[ext_resource type="Texture2D" uid="uid://bwhfgdx7kebvt" path="res://Assets/Models/brittle_platform_1/brittle_platform_1_normal.png" id="2_2pk8m"]
+
+[resource]
+transparency = 4
+diffuse_mode = 3
+albedo_texture = ExtResource("1_o0nut")
+normal_enabled = true
+normal_texture = ExtResource("2_2pk8m")

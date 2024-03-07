@@ -1,0 +1,56 @@
+[gd_resource type="AnimatedTexture" load_steps=18 format=3 uid="uid://bh3pnjoth4vc0"]
+
+[ext_resource type="Texture2D" uid="uid://cg3pebu0bgv5v" path="res://Assets/UI/Sprites/loading_icon/Ant/0001.png" id="1_lqp6i"]
+[ext_resource type="Texture2D" uid="uid://b5bo1vqro4sx7" path="res://Assets/UI/Sprites/loading_icon/Ant/0002.png" id="2_x2dbh"]
+[ext_resource type="Texture2D" uid="uid://c1lqkh2x1ogsu" path="res://Assets/UI/Sprites/loading_icon/Ant/0011.png" id="3_yo7d7"]
+[ext_resource type="Texture2D" uid="uid://fc0f54p6ervp" path="res://Assets/UI/Sprites/loading_icon/Ant/0012.png" id="4_fnrom"]
+[ext_resource type="Texture2D" uid="uid://d00ecsmhnkc2w" path="res://Assets/UI/Sprites/loading_icon/Ant/0013.png" id="5_oimdg"]
+[ext_resource type="Texture2D" uid="uid://nnmbgr62y8y" path="res://Assets/UI/Sprites/loading_icon/Ant/0014.png" id="6_ajsi4"]
+[ext_resource type="Texture2D" uid="uid://b6j6wgvappm3l" path="res://Assets/UI/Sprites/loading_icon/Ant/0015.png" id="7_03wx2"]
+[ext_resource type="Texture2D" uid="uid://0edmpsyd4uic" path="res://Assets/UI/Sprites/loading_icon/Ant/0016.png" id="8_c8efp"]
+[ext_resource type="Texture2D" uid="uid://daabaspseax" path="res://Assets/UI/Sprites/loading_icon/Ant/0017.png" id="9_keabk"]
+[ext_resource type="Texture2D" uid="uid://d0at0544yl86v" path="res://Assets/UI/Sprites/loading_icon/Ant/0003.png" id="10_tt37m"]
+[ext_resource type="Texture2D" uid="uid://yx2dkecdq01m" path="res://Assets/UI/Sprites/loading_icon/Ant/0004.png" id="11_4ai6h"]
+[ext_resource type="Texture2D" uid="uid://dkc74xwsc3p8t" path="res://Assets/UI/Sprites/loading_icon/Ant/0005.png" id="12_r1td3"]
+[ext_resource type="Texture2D" uid="uid://yaosdpln1ly7" path="res://Assets/UI/Sprites/loading_icon/Ant/0006.png" id="13_c85b2"]
+[ext_resource type="Texture2D" uid="uid://uv1exbe4jkwo" path="res://Assets/UI/Sprites/loading_icon/Ant/0007.png" id="14_3wvq4"]
+[ext_resource type="Texture2D" uid="uid://o45sa6j4pssa" path="res://Assets/UI/Sprites/loading_icon/Ant/0008.png" id="15_sdrbg"]
+[ext_resource type="Texture2D" uid="uid://n73c01o2kbm3" path="res://Assets/UI/Sprites/loading_icon/Ant/0009.png" id="16_3iro4"]
+[ext_resource type="Texture2D" uid="uid://cs3mv4vqeynot" path="res://Assets/UI/Sprites/loading_icon/Ant/0010.png" id="17_ifeh2"]
+
+[resource]
+frames = 17
+speed_scale = 17.0
+frame_0/texture = ExtResource("1_lqp6i")
+frame_1/texture = ExtResource("2_x2dbh")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("10_tt37m")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("11_4ai6h")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("12_r1td3")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("13_c85b2")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("14_3wvq4")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("15_sdrbg")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("16_3iro4")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("17_ifeh2")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("3_yo7d7")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("4_fnrom")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("5_oimdg")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("6_ajsi4")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("7_03wx2")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("8_c8efp")
+frame_15/duration = 1.0
+frame_16/texture = ExtResource("9_keabk")
+frame_16/duration = 1.0
