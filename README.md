@@ -2,6 +2,8 @@
 [Download on itch](https://s4g.itch.io/infested) -
 [Project Page](https://mondanzo.de/#infested)
 
+**Notice: The code for this project has been slightly updated to compile in Godot 4.2 The original unchaged code can be found in the first commit.**
+
 # About
 
 A 2.5D Platformer Sidescroller set in a botanic world and a blooming protagonist fighting back against corrupted insects. Use various crystal themed abilities to march on against the hords of enemies, collect soul shards of your friends long gone and save your world.
