@@ -30,7 +30,7 @@ func _ready():
 
 func _input(event):
 	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
-		if event is mouse_event:
+		if is_instance_of(event, mouse_event):
 			return
 	node_viewport.push_input(event)
 

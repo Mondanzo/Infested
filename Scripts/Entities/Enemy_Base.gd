@@ -28,7 +28,7 @@ signal on_death()
 func _ready():
 	#Automatic player targeting. I was annoyed with assigning "Target" in every Enemy in a level.
 	if Target == null:
-		Target = get_tree().get_current_scene().get("player")
+		Target = Game.getPlayer()
 		if Target == null:
 			
 			Target = Game.getPlayer()

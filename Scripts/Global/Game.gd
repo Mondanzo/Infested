@@ -61,11 +61,11 @@ func get_current_scene():
 func set_current_scene(scene, data):
 	if scene != null:
 		var instantiated_scene = scene.instantiate()
-		get_tree().set_current_scene(instantiated_scene)
-		local_current_scene = instantiated_scene
 		if instantiated_scene.has_method("Setup"):
 			instantiated_scene.Setup(data)
 		root.add_child(instantiated_scene)
+		get_tree().set_current_scene(instantiated_scene)
+		local_current_scene = instantiated_scene
 		emit_signal("level_loaded")
 
 

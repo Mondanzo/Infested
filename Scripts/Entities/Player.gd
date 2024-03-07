@@ -92,6 +92,8 @@ func _ready():
 	current_health = MaxHP
 	
 	instantiate_abilities()
+	if not Game.getPlayer():
+		Game.SetPlayer(self)
 
 
 func _physics_process(delta):

@@ -212,10 +212,10 @@ transform = Transform3D(2.42324, -0.11943, -0.0696846, 0.119728, 2.42421, 0.0087
 transform = Transform3D(0.615044, 0.777513, -0.131133, -0.773598, 0.562848, -0.291116, -0.152539, 0.280493, 0.947658, 1.58357, 6.09927, 2.74836)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ant_model_animation"]
-autoplay = "Ant_idle_Animation"
 libraries = {
 "": SubResource("AnimationLibrary_5cuqo")
 }
+autoplay = "Ant_idle_Animation"
 
 [node name="fly_enemy" parent="." instance=ExtResource("12_ff68k")]
 transform = Transform3D(0.1, 0, 0, 0, 0.0853196, -0.052159, 0, 0.052159, 0.0853196, 14, 6.32455, 5.63269)
@@ -257,10 +257,10 @@ bones/31/position = Vector3(-5.71045, 3.46643, -2.70144)
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="fly_enemy"]
-autoplay = "start"
 libraries = {
 "": SubResource("AnimationLibrary_0dtt4")
 }
+autoplay = "start"
 
 [node name="fly_enemy2" parent="." instance=ExtResource("12_ff68k")]
 transform = Transform3D(-0.0752612, -0.0625651, -0.0205272, -0.0600935, 0.0525192, 0.0602538, -0.0269171, 0.0576832, -0.0771241, 15.277, 2.78937, 11.9149)
@@ -302,10 +302,10 @@ bones/31/position = Vector3(-7.33247, -1.69728, -0.169555)
 transform = Transform3D(1, -2.98023e-08, -1.49012e-08, -1.49012e-08, 1, 0, 1.49012e-08, -2.98023e-08, 1, 0, 0, 0)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="fly_enemy2"]
-autoplay = "start"
 libraries = {
 "": SubResource("AnimationLibrary_0dtt4")
 }
+autoplay = "start"
 
 [node name="berry_vine" parent="." instance=ExtResource("13_4fiq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3397, 0, 10.7359)
